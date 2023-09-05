@@ -1,5 +1,5 @@
 const express = require("express");
-const TourDataModel = require("../model/FormDataModel");
+const TourDataModel = require("./../model/FormDataModel");
 
 const router = express.Router();
 const IMAGE_UPLOAD_DIR = "./public/Thumbnail/";
@@ -10,10 +10,10 @@ var FORM_OPTIONS = {
   uploadDir: IMAGE_UPLOAD_DIR,
 };
 
-router.route("/").post(function (req, res, next) {
+router.route("/").post(function async(req, res, next) {
   var form = new multiparty.Form(FORM_OPTIONS);
 
-  form.parse(req, function (err, fields, files) {
+  form.parse(req, function async(err, fields, files) {
     if (err) {
       return next(new Error(LARGE));
     }
@@ -77,6 +77,43 @@ router.route("/").post(function (req, res, next) {
 
     console.log(thumbnailURL);
     console.log(relatedphotopaths);
+    let TourData = new TourDataModel({
+      DestinationName: req.body.DestinationName,
+      AboutPlace: req.body.AboutPlace,
+      DurationOfVisit: req.body.DurationOfVisit,
+      Rating: req.body.Rating,
+
+      District: req.body.District,
+      Season: req.body.Season,
+      Category: req.body.Category,
+
+      Location: req.body.Location,
+      OfficialWebsiteLink: req.body.OfficialWebsiteLink,
+      Visualcontent: req.body.Visualcontent,
+      Holiday: req.body.Holiday,
+
+      Opentime: req.body.Opentime,
+      closetime: req.body.closetime,
+
+      Thumbnail: thumbnailURL,
+      RelatedPhotos: relatedphotopaths,
+
+      getThereBybus: req.body.getThereBybus,
+      getThereByTrain: req.body.getThereByTrain,
+      getThereByPlain: req.body.getThereByPlain,
+
+      MainAttractions: req.body.MainAttractions,
+      BriefHistory: req.body.BriefHistory,
+    });
+
+    try {
+      TourData.save().then((data) => {
+        res.json({ data: data, msg: "Data Enterd sucessfully!!", rcode: 200 });
+        console.log(data);
+      });
+    } catch (err) {
+      res.json({ error: err });
+    }
   });
 });
 

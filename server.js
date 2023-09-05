@@ -1,11 +1,7 @@
 const express = require("express");
-const file = require("./Middleware/upload");
 const bodyparser = require("body-parser");
-const FormDataController = require("./Controller/FormDataController");
-// const multer = require("multer");
 
 const formdataroute = require("./routes/formdataroute");
-// const upload = multer({ dest: '/images/Thumbnail' })
 
 require("./config/dbconfig").getDbConnection();
 

@@ -9,7 +9,7 @@ const TourDataSchema = new mongoose.Schema({
 
   AboutPlace: {
     type: String,
-    // required: [true, "Please Enter information about place"],
+    required: [true, "Please Enter information about place"],
     trim: true,
   },
   BriefHistory: {
