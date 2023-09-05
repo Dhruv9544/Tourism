@@ -34,7 +34,7 @@ const upload = multer({storage : mystorage , fileFilter:function(req,file,cb){
 
 const uploadFile = (req, res) => {
     // Check if a file was uploaded
-    if (!req.file || req.files.length === 0) {
+    if (!req.files || req.files.length === 0) {
       return res.status(400).json({ message: 'No file uploaded.' });
     }
   
