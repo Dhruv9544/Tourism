@@ -1,10 +1,19 @@
 const multer = require('multer')
+const path = require('path')
+const fs = require('fs')
 
+
+
+
+    const storageDirectory = path.join(__dirname,'../public', '/Thumbnail');
+    if (!fs.existsSync(storageDirectory)) {
+    fs.mkdirSync(storageDirectory);
+    }
 
 const mystorage = multer.diskStorage({
 
     destination : function(req,file,cb){
-        cb(null,"/uploads")
+        cb(null,storageDirectory)
     },
 
     filename : function(req,file,cb){

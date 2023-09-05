@@ -53,7 +53,8 @@ const upload = multer({storage : mystorage , fileFilter:function(req,file,cb){
 //     res.json({msg:"file uploaded",status:200,data:"file uploaded"})
 // })
 
-app.post('/formData', upload.single('Thumbnail'),uploadImageController.uploadFile)
+app.post('/uploadsinglephoto', upload.single('Thumbnail'),uploadImageController.uploadFile)
 app.post('/uploadmultiphoto',upload.array('photos',12),uploadMultiImageController.uploadFile)
+app.post('/formData',FormDataController.TourData)
 app.listen(9999)
 console.log("server started at 9999");

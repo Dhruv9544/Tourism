@@ -4,24 +4,24 @@ const TourDataSchema = new mongoose.Schema({
 
     DestinationName:{
         type:String,
-        //required:[true,"Please Enter Destination name"],
+        required:[true,"Please Enter Destination name"],
         trim:true
     },
 
     AboutPlace:{
         type:String,
-        //required:[true,"Please Enter information about place"],
+        required:[true,"Please Enter information about place"],
         trim:true
     },
     BriefHistory:
     {
-        type:String,
-       // required:[true,"Please enter  history of that place"],
+      type:String,
+       required:[true,"Please enter  history of that place"],
         trim:true
     },
     MainAttractions:{
         type:String,
-       // required:[true,"provide some attraction points of the place"],
+        required:[true,"provide some attraction points of the place"],
     },
     getThereBybus:{
         type:String,
@@ -32,10 +32,10 @@ const TourDataSchema = new mongoose.Schema({
     getThereByPlain:{
         type:String,
     },
-    Thumbnail:{
-        type:String,
-        required:[true,"please upload thumbnail"]
-},
+//     Thumbnail:{
+//         type:String,
+//         required:[true,"please upload thumbnail"]
+// },
     // RelatedPhotos:{
 
     //     type:[String],
@@ -44,48 +44,48 @@ const TourDataSchema = new mongoose.Schema({
     // },
     Opentime:{
         type:String,
-        //required:true
+        required:true
     },
     closetime:{
         type:String,
-        //required:true
+        required:true
     },
     Holiday:{
         type:String,
-       // required:true   
+       required:true   
     },
 
       Visualcontent:{
         type:String,
-        //required:true  
+        required:true  
       },
       OfficialWebsiteLink:{
         type:String,
-        //required:true 
+        required:true 
       },
       Location:{
         type:String,
-       // required:true 
+        required:true 
       },
       Category:{
         type:[String],
-        //required:true
+        required:true
       },
       Season:{
         type:String,
-       // required:true 
+        required:true 
       },
       District :{
         type:String,
-        //required:true 
+        required:true 
       },
       DurationOfVisit:{
         type:String,
-        //required:true 
+        required:true 
       },
       Rating:{
         type:String,
-       // required:true 
+       required:true 
       },
       createdAt: {
         type: Date,
