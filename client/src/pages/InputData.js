@@ -9,10 +9,10 @@ const initialValues = {
   thing_to_do: "",
   time_open: "",
   time_close: "",
+  holiday: "",
   bus: "",
   train: "",
   plane: "",
-  holiday: "",
   Thumbnail: "",
   related_photos: "",
   km_surat: "",
@@ -21,15 +21,11 @@ const initialValues = {
   km_rjt: "",
   visual_content: "",
   location: "",
-  distric: "",
   website_link: "",
-  // vehicle1: "",
-  // season: "",
-  // day: "",
-};
-const submitHandler = (values) => {
-  // console.log(values);
-  console.log("first");
+  // distric: "",
+  vehicle1: "",
+  season: "",
+  day: "",
 };
 
 const InputData = () => {
@@ -37,10 +33,10 @@ const InputData = () => {
     useFormik({
       initialValues: initialValues,
       validationSchema: formSchemas,
-      onSubmit: () => {
-        console.log("Name");
+      onSubmit: (values, action) => {
+        // console.log("Name");
         // submitHandler(values);
-        // console.log(values);
+        console.log(values);
         // action.resetForm();
       },
     });
@@ -219,7 +215,7 @@ const InputData = () => {
               name="Thumbnail"
               type="file"
               placeholder="Thumbnail"
-              // value={values.Thumbnail}
+              value={values.Thumbnail}
               onChange={handleChange}
               onBlur={handleBlur}
             />
@@ -466,7 +462,7 @@ const InputData = () => {
             ) : null}
           </div>
 
-          <div className="mb-4">
+          {/* <div className="mb-4">
             <label
               className="block text-gray-700 text-sm font-bold mb-2"
               // for="distric"
@@ -474,26 +470,30 @@ const InputData = () => {
               District
             </label>
             <select
-              name="distric"
               id="distric"
               className=" border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              value={values.distric}
               onChange={handleChange}
               onBlur={handleBlur}
-              error={
-                errors.distric && touched.distric ? (
-                  <small className="text-ligth text-red-600">
-                    {errors.distric}
-                  </small>
-                ) : null
-              }
             >
-              <option value="">Hello11</option>
-              <option value="">Hello1</option>
-              <option value="">Hello2</option>
-              <option value="">Hello3</option>
+              <option name="distric" value="Rajkot">
+                Rajjkot
+              </option>
+              <option name="distric" value="Jamnagar">
+                Jamnagar
+              </option>
+              <option name="distric" value="Surat">
+                Surat
+              </option>
+              <option name="distric" value="Anand">
+                Anand
+              </option>
             </select>
-          </div>
+            {errors.distric && touched.distric ? (
+              <small className="text-ligth text-red-600">
+                {errors.distric}
+              </small>
+            ) : null}
+          </div> */}
           {/* <div className="mb-4">
             <label
               className="block text-gray-700 text-sm font-bold mb-2"
@@ -506,141 +506,114 @@ const InputData = () => {
               {" "}
               I have a bike
             </label>
-            <input type="checkbox" id="vehicle2" name="vehicle2" value="Car" />
+            <input type="checkbox" id="vehicle2" name="vehicle1" value="Car" />
             <label for="vehicle2" className="p-2">
               {" "}
               I have a car
             </label>
-            <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat" />
+            <input type="checkbox" id="vehicle3" name="vehicle1" value="Boat" />
             <label for="vehicle3" className="p-2">
               {" "}
               I have a boat
             </label>
           </div> */}
-          {/* <div className="mb-4">
+          <div className="mb-4">
             <label
               className="block text-gray-700 text-sm font-bold mb-2"
               for="time"
             >
               Season
             </label>
-            <input
-              name="season"
-              type="radio"
-              id="season"
-              // value={values.season}
-              // onChange={handleChange}
-              // onBlur={handleBlur}
-              error={
-                errors.season && touched.season ? (
-                  <small className="text-ligth text-red-600">
-                    {errors.season}
-                  </small>
-                ) : null
-              }
-            />
-            <label for="season" className="p-2">
+
+            <label for="season" className="p-3">
+              <input
+                name="season"
+                type="radio"
+                id="season"
+                value="summer"
+                onChange={handleChange}
+                onBlur={handleBlur}
+              />
               Summer
             </label>
-            <input
-              name="season"
-              type="radio"
-              id="summer"
-              // value={values.destination_name}
-              // onChange={handleChange}
-              // onBlur={handleBlur}
-              error={
-                errors.season && touched.season ? (
-                  <small className="text-ligth text-red-600">
-                    {errors.season}
-                  </small>
-                ) : null
-              }
-            />
+
             <label for="summer" className="p-2">
+              <input
+                name="season"
+                type="radio"
+                id="summer"
+                value="Monsoon"
+                onChange={handleChange}
+                onBlur={handleBlur}
+              />
               Mosoon
             </label>
-            <input
-              name="season"
-              type="radio"
-              id="winter"
-              // value={values.destination_name}
-              // onChange={handleChange}
-              // onBlur={handleBlur}
-              error={
-                errors.season && touched.season ? (
-                  <small className="text-ligth text-red-600">
-                    {errors.season}
-                  </small>
-                ) : null
-              }
-            />
+
             <label for="winter" className="p-2">
+              <input
+                name="season"
+                type="radio"
+                id="winter"
+                value="winter"
+                onChange={handleChange}
+                onBlur={handleBlur}
+              />
               Winter
             </label>
-          </div> */}
-          {/* <div className="mb-4">
+            {errors.season && touched.season ? (
+              <small className="text-ligth text-red-600">{errors.season}</small>
+            ) : null}
+          </div>
+          <div className="mb-4">
             <label
               className="block text-gray-700 text-sm font-bold mb-2"
               for="time"
             >
               Duration of Visit
             </label>
-            <input
-              name="day"
-              type="radio"
-              id="1day"
-              // value={values.day}
-              // onChange={handleChange}
-              // onBlur={handleBlur}
-              error={
-                errors.day && touched.day ? (
-                  <small className="text-ligth text-red-600">
-                    {errors.day}
-                  </small>
-                ) : null
-              }
-            />
-            <label for="1day" className="p-2">
+
+            <label for="1day" className="">
+              <input
+                className="ml-2"
+                name="day"
+                type="radio"
+                id="1day"
+                value="1 day"
+                onChange={handleChange}
+                onBlur={handleBlur}
+              />
               1 day
             </label>
-            <input
-              name="day"
-              type="radio"
-              id="2day"
-              // value={values.day}
-              // onChange={handleChange}
-              // onBlur={handleBlur}
-              error={
-                errors.day && touched.day ? (
-                  <small className="text-ligth text-red-600">
-                    {errors.day}
-                  </small>
-                ) : null
-              }
-            />
-            <label for="2day" className="p-2">
+
+            <label for="2day" className="">
+              <input
+                className="ml-2"
+                name="day"
+                type="radio"
+                id="2day"
+                value="2 day"
+                onChange={handleChange}
+                onBlur={handleBlur}
+              />
               2 day
             </label>
-            <input
-              name="day"
-              type="radio"
-              id="3day"
-              // value={values.day}
-              // onChange={handleChange}
-              // onBlur={handleBlur}
-              error={
-                errors.day && touched.day ? (
-                  <small className="text-ligth text-red-600">
-                    {errors.day}
-                  </small>
-                ) : null
-              }
-            />
-            <label for="3day" className="p-2">
+
+            <label for="3day" className="">
+              <input
+                className="ml-2"
+                name="day"
+                type="radio"
+                id="3day"
+                value="3 day"
+                onChange={handleChange}
+                onBlur={handleBlur}
+              />
               3 day
             </label>
-          </div> */}
+            {errors.day && touched.day ? (
+              <small className="text-ligth text-red-600">{errors.day}</small>
+            ) : null}
+          </div>
 
           <div className="flex items-center justify-center">
             <button
