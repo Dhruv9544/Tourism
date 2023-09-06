@@ -21,13 +21,13 @@ const TourDataSchema = new mongoose.Schema({
     type: String,
     // required: [true, "provide some attraction points of the place"],
   },
-  getThereBybus: {
+  GetThereByBus: {
     type: String,
   },
-  getThereByTrain: {
+  GetThereByTrain: {
     type: String,
   },
-  getThereByPlain: {
+  GetThereByPlane: {
     type: String,
   },
   Thumbnail: {
@@ -38,11 +38,11 @@ const TourDataSchema = new mongoose.Schema({
     type: [String],
     // required: [true, "please upload relatedphotos"],
   },
-  Opentime: {
+  OpenTime: {
     type: String,
     // required: true,
   },
-  closetime: {
+  CloseTime: {
     type: String,
     // required: true,
   },
@@ -51,7 +51,7 @@ const TourDataSchema = new mongoose.Schema({
     // required: true,
   },
 
-  Visualcontent: {
+  VisualContent: {
     type: String,
     // required: true,
   },
