@@ -564,7 +564,7 @@ const InputData = () => {
               <label>
                 <input
                   type="checkbox"
-                  name="Category[]"
+                  name="Category"
                   value="Bike"
                   id="Bike"
                   checked={values.Category.includes("Bike")}
@@ -578,7 +578,7 @@ const InputData = () => {
               <label>
                 <input
                   type="checkbox"
-                  name="Category[]"
+                  name="Category"
                   value="Car"
                   id="Car"
                   checked={values.Category.includes("Car")}
@@ -592,7 +592,7 @@ const InputData = () => {
               <label>
                 <input
                   type="checkbox"
-                  name="Category[]"
+                  name="Category"
                   value="Boat"
                   id="Boat"
                   checked={values.Category.includes("Boat")}
