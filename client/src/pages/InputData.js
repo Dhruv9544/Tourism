@@ -22,7 +22,7 @@ const initialValues = {
   visual_content: "",
   location: "",
   website_link: "",
-  category: [],
+  Category: [],
   season: "",
   day: "",
   distric: "",
@@ -517,9 +517,9 @@ const InputData = () => {
               <label>
                 <input
                   type="checkbox"
-                  name="category"
+                  name="Category"
                   value="Bike"
-                  checked={values.category.includes("Bike")}
+                  checked={values.Category.includes("Bike")}
                   onChange={handleChange}
                   onBlur={handleBlur}
                 />
@@ -530,9 +530,9 @@ const InputData = () => {
               <label>
                 <input
                   type="checkbox"
-                  name="category"
+                  name="Category"
                   value="Car"
-                  checked={values.category.includes("Car")}
+                  checked={values.Category.includes("Car")}
                   onChange={handleChange}
                   onBlur={handleBlur}
                 />
@@ -543,15 +543,20 @@ const InputData = () => {
               <label>
                 <input
                   type="checkbox"
-                  name="category"
+                  name="Category"
                   value="Boat"
-                  checked={values.category.includes("Boat")}
+                  checked={values.Category.includes("Boat")}
                   onChange={handleChange}
                   onBlur={handleBlur}
                 />
                 Boat
               </label>
             </div>
+            {errors.Category && touched.Category ? (
+              <small className="text-ligth text-red-600">
+                {errors.Category}
+              </small>
+            ) : null}
           </div>
           <div className="mb-4">
             <label
