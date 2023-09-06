@@ -43,7 +43,7 @@ const InputData = () => {
     var fileInput = document.getElementById("fileInput");
     var relatedFileInput = document.getElementById("relatedFileInput");
 
-    console.log(value);
+    console.log(value.Category);
 
     var formdata = new FormData();
     formdata.append("DestinationName", value.destination_name);
@@ -58,25 +58,13 @@ const InputData = () => {
       var file = relatedFileInput.files[i];
       formdata.append("RelatedPhotos", file, value.related_photos[i].name);
     }
-
     formdata.append("OpenTime", value.time_open);
     formdata.append("CloseTime", value.time_close);
     formdata.append("Holiday", value.holiday);
     formdata.append("VisualContent", value.visual_content);
     formdata.append("OfficialWebsiteLink", value.website_link);
     formdata.append("Location", value.location);
-
-    // for (var j = 0; j < value.Category.length; j++) {
-    //   console.log(value.Category[j]);
-    //   formdata.append("Category", value.Category[j]);
-    // }
-
-    // value.Category.map((categoryValue) => {
-    //   formdata.append("Category", categoryValue);
-    // });
-
-    // formdata.append("Category", value.Category);
-
+    formdata.append("Category", value.Category);
     formdata.append("Season", value.season);
     formdata.append("District", value.distric);
     formdata.append("DurationOfVisit", value.day);
@@ -576,7 +564,7 @@ const InputData = () => {
               <label>
                 <input
                   type="checkbox"
-                  name="Category"
+                  name="Category[]"
                   value="Bike"
                   id="Bike"
                   checked={values.Category.includes("Bike")}
@@ -590,7 +578,7 @@ const InputData = () => {
               <label>
                 <input
                   type="checkbox"
-                  name="Category"
+                  name="Category[]"
                   value="Car"
                   id="Car"
                   checked={values.Category.includes("Car")}
@@ -604,7 +592,7 @@ const InputData = () => {
               <label>
                 <input
                   type="checkbox"
-                  name="Category"
+                  name="Category[]"
                   value="Boat"
                   id="Boat"
                   checked={values.Category.includes("Boat")}

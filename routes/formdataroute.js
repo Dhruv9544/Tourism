@@ -75,8 +75,6 @@ router.route("/").post(function async(req, res, next) {
       )
     );
 
-    console.log(thumbnailURL);
-    console.log(relatedphotopaths);
     let TourData = new TourDataModel({
       DestinationName: req.body.DestinationName,
       AboutPlace: req.body.AboutPlace,
@@ -85,7 +83,7 @@ router.route("/").post(function async(req, res, next) {
 
       District: req.body.District,
       Season: req.body.Season,
-      Category: req.body.Category,
+      Category: req.body.Category.split(","),
 
       Location: req.body.Location,
       OfficialWebsiteLink: req.body.OfficialWebsiteLink,
@@ -105,7 +103,6 @@ router.route("/").post(function async(req, res, next) {
       MainAttractions: req.body.MainAttractions,
       BriefHistory: req.body.BriefHistory,
     });
-
     try {
       TourData.save().then((data) => {
         res.json({ data: data, msg: "Data Enterd sucessfully!!", rcode: 200 });

@@ -64,7 +64,7 @@ const TourDataSchema = new mongoose.Schema({
     // required: true,
   },
   Category: {
-    type: [String],
+    type: mongoose.Schema.Types.Mixed,
     // required: true,
   },
   Season: {
