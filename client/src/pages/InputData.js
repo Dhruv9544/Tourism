@@ -22,7 +22,7 @@ const initialValues = {
   visual_content: "",
   location: "",
   website_link: "",
-  Category: {},
+  Category: [],
   season: "",
   day: "",
   distric: "",
