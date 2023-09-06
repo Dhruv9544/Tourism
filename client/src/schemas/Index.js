@@ -59,5 +59,5 @@ export const formSchemas = Yup.object().shape({
   season: Yup.string().required("Please Enter Destination"),
   rating: Yup.string().required("Please Enter Destination"),
   day: Yup.string().required("Please Enter Destination"),
-  Category: Yup.array().min(1, "Select at least one Category"),
+  // Category: Yup.array().min(1, "Select at least one Category"),
 });

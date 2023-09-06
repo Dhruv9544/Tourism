@@ -22,7 +22,7 @@ const initialValues = {
   visual_content: "",
   location: "",
   website_link: "",
-  Category: [],
+  Category: {},
   season: "",
   day: "",
   distric: "",
@@ -38,6 +38,62 @@ const InputData = () => {
     const selectedFiles = Array.from(event.target.files);
     setFieldValue("Thumbnail", selectedFiles);
   };
+
+  const submitHandler = (value) => {
+    var fileInput = document.getElementById("fileInput");
+    var relatedFileInput = document.getElementById("relatedFileInput");
+
+    console.log(value);
+
+    var formdata = new FormData();
+    formdata.append("DestinationName", value.destination_name);
+    formdata.append("AboutPlace", value.about_place);
+    formdata.append("BriefHistory", value.brief_history);
+    formdata.append("MainAttractions", value.thing_to_do);
+    formdata.append("GetThereByBus", value.bus);
+    formdata.append("GetThereByTrain", value.train);
+    formdata.append("GetThereByPlane", value.plane);
+    formdata.append("Thumbnail", fileInput.files[0], value.Thumbnail[0].name);
+    for (var i = 0; i < relatedFileInput.files.length; i++) {
+      var file = relatedFileInput.files[i];
+      formdata.append("RelatedPhotos", file, value.related_photos[i].name);
+    }
+
+    formdata.append("OpenTime", value.time_open);
+    formdata.append("CloseTime", value.time_close);
+    formdata.append("Holiday", value.holiday);
+    formdata.append("VisualContent", value.visual_content);
+    formdata.append("OfficialWebsiteLink", value.website_link);
+    formdata.append("Location", value.location);
+
+    // for (var j = 0; j < value.Category.length; j++) {
+    //   console.log(value.Category[j]);
+    //   formdata.append("Category", value.Category[j]);
+    // }
+
+    // value.Category.map((categoryValue) => {
+    //   formdata.append("Category", categoryValue);
+    // });
+
+    // formdata.append("Category", value.Category);
+
+    formdata.append("Season", value.season);
+    formdata.append("District", value.distric);
+    formdata.append("DurationOfVisit", value.day);
+    formdata.append("Rating", value.rating);
+
+    var requestOptions = {
+      method: "POST",
+      body: formdata,
+      redirect: "follow",
+    };
+
+    fetch("http://localhost:9999/formdata", requestOptions)
+      .then((response) => response.text())
+      .then((result) => console.log(result))
+      .catch((error) => console.log("error", error));
+  };
+
   const {
     values,
     errors,
@@ -51,8 +107,8 @@ const InputData = () => {
     validationSchema: formSchemas,
     onSubmit: (values, action) => {
       // console.log("Name");
-      // submitHandler(values);
-      console.log(values);
+      submitHandler(values);
+      // console.log(values);
       // action.resetForm();
     },
   });
@@ -232,6 +288,7 @@ const InputData = () => {
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               name="Thumbnail"
               type="file"
+              id="fileInput"
               accept="image/*"
               onChange={handleOneFileChange}
               onBlur={handleBlur}
@@ -254,6 +311,7 @@ const InputData = () => {
               name="related_photos"
               type="file"
               accept="image/*"
+              id="relatedFileInput"
               onChange={handleFileChange}
               onBlur={handleBlur}
               multiple
@@ -520,6 +578,7 @@ const InputData = () => {
                   type="checkbox"
                   name="Category"
                   value="Bike"
+                  id="Bike"
                   checked={values.Category.includes("Bike")}
                   onChange={handleChange}
                   onBlur={handleBlur}
@@ -533,6 +592,7 @@ const InputData = () => {
                   type="checkbox"
                   name="Category"
                   value="Car"
+                  id="Car"
                   checked={values.Category.includes("Car")}
                   onChange={handleChange}
                   onBlur={handleBlur}
@@ -546,6 +606,7 @@ const InputData = () => {
                   type="checkbox"
                   name="Category"
                   value="Boat"
+                  id="Boat"
                   checked={values.Category.includes("Boat")}
                   onChange={handleChange}
                   onBlur={handleBlur}
