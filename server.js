@@ -1,5 +1,6 @@
 const express = require("express");
 const bodyparser = require("body-parser");
+const getAllDistrict = require("./Controller/getAllDistrict")
 
 const formdataroute = require("./routes/formdataroute");
 
@@ -13,6 +14,7 @@ app.use(express.json());
 app.use(bodyparser.json());
 
 app.use("/formdata", formdataroute);
+app.get("/getalldistrict",getAllDistrict.getAllDistricts)
 
 // app.post("/formdata", );
 
