@@ -26,6 +26,7 @@ const initialValues = {
   season: "",
   day: "",
   distric: "",
+  rating: "",
 };
 
 const InputData = () => {
@@ -650,6 +651,80 @@ const InputData = () => {
                 onBlur={handleBlur}
               />
               3 day
+            </label>
+            {errors.day && touched.day ? (
+              <small className="text-ligth text-red-600">{errors.day}</small>
+            ) : null}
+          </div>
+          <div className="mb-4">
+            <label
+              className="block text-gray-700 text-sm font-bold mb-2"
+              htmlFor="ratinf"
+            >
+              Rating
+            </label>
+
+            <label for="1" className="">
+              <input
+                className="ml-2"
+                name="rating"
+                type="radio"
+                id="1"
+                value="1"
+                onChange={handleChange}
+                onBlur={handleBlur}
+              />
+              1
+            </label>
+
+            <label for="2" className="">
+              <input
+                className="ml-2"
+                name="rating"
+                type="radio"
+                id="2"
+                value="2"
+                onChange={handleChange}
+                onBlur={handleBlur}
+              />
+              2
+            </label>
+
+            <label for="3" className="">
+              <input
+                className="ml-2"
+                name="rating"
+                type="radio"
+                id="3"
+                value="3"
+                onChange={handleChange}
+                onBlur={handleBlur}
+              />
+              3
+            </label>
+            <label for="4" className="">
+              <input
+                className="ml-2"
+                name="rating"
+                type="radio"
+                id="4"
+                value="4"
+                onChange={handleChange}
+                onBlur={handleBlur}
+              />
+              4
+            </label>
+            <label for="5" className="">
+              <input
+                className="ml-2"
+                name="rating"
+                type="radio"
+                id="5"
+                value="5"
+                onChange={handleChange}
+                onBlur={handleBlur}
+              />
+              5
             </label>
             {errors.day && touched.day ? (
               <small className="text-ligth text-red-600">{errors.day}</small>
