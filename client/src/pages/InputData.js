@@ -13,8 +13,8 @@ const initialValues = {
   bus: "",
   train: "",
   plane: "",
-  Thumbnail: "",
-  related_photos: "",
+  Thumbnail: [],
+  related_photos: [],
   km_surat: "",
   km_amd: "",
   km_jmg: "",
@@ -22,24 +22,41 @@ const initialValues = {
   visual_content: "",
   location: "",
   website_link: "",
-  // distric: "",
-  vehicle1: "",
+  category: [],
   season: "",
   day: "",
+  distric: "",
 };
 
 const InputData = () => {
-  const { values, errors, touched, handleBlur, handleChange, handleSubmit } =
-    useFormik({
-      initialValues: initialValues,
-      validationSchema: formSchemas,
-      onSubmit: (values, action) => {
-        // console.log("Name");
-        // submitHandler(values);
-        console.log(values);
-        // action.resetForm();
-      },
-    });
+  const handleFileChange = (event) => {
+    const selectedFiles = Array.from(event.target.files);
+    setFieldValue("related_photos", selectedFiles);
+  };
+  const handleOneFileChange = (event) => {
+    const selectedFiles = Array.from(event.target.files);
+    setFieldValue("Thumbnail", selectedFiles);
+  };
+  const {
+    values,
+    errors,
+    touched,
+    handleBlur,
+    handleChange,
+    handleSubmit,
+    setFieldValue,
+  } = useFormik({
+    initialValues: initialValues,
+    validationSchema: formSchemas,
+    onSubmit: (values, action) => {
+      // console.log("Name");
+      // submitHandler(values);
+      console.log(values);
+      // action.resetForm();
+    },
+  });
+  // console.log(errors);
+
   // console.log(values);
   return (
     <div className="flex items-center justify-center bg-cyan-50 min-h-screen">
@@ -214,39 +231,39 @@ const InputData = () => {
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               name="Thumbnail"
               type="file"
-              placeholder="Thumbnail"
-              value={values.Thumbnail}
-              onChange={handleChange}
+              accept="image/*"
+              onChange={handleOneFileChange}
               onBlur={handleBlur}
             />
-            {errors.Thumbnail && touched.Thumbnail ? (
-              <small className="text-ligth text-red-600">
-                {errors.Thumbnail}
-              </small>
-            ) : null}
           </div>
+          {errors.Thumbnail && touched.Thumbnail ? (
+            <small className="text-ligth text-red-600">
+              {errors.Thumbnail}
+            </small>
+          ) : null}
           <div className="mb-4">
             <label
               className="block text-gray-700 text-sm font-bold mb-2"
-              // for="related_photos"
+              htmlFor="related_photos"
             >
-              Related Photos
+              Related photos
             </label>
             <input
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               name="related_photos"
               type="file"
-              placeholder="Related Photos"
-              // value={values.related_photos}
-              onChange={handleChange}
+              accept="image/*"
+              onChange={handleFileChange}
               onBlur={handleBlur}
+              multiple
             />
-            {errors.related_photos && touched.related_photos ? (
-              <small className="text-ligth text-red-600">
-                {errors.related_photos}
-              </small>
-            ) : null}
           </div>
+          {errors.related_photos && touched.related_photos ? (
+            <small className="text-ligth text-red-600">
+              {errors.related_photos}
+            </small>
+          ) : null}
+
           <div className="mb-4">
             <label
               className="block text-gray-700 text-sm font-bold mb-2"
@@ -462,61 +479,80 @@ const InputData = () => {
             ) : null}
           </div>
 
-          {/* <div className="mb-4">
+          <div className="mb-4">
             <label
               className="block text-gray-700 text-sm font-bold mb-2"
-              // for="distric"
+              htmlFor="distric"
             >
               District
             </label>
             <select
+              name="distric"
               id="distric"
+              value={values.distric}
               className=" border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               onChange={handleChange}
               onBlur={handleBlur}
             >
-              <option name="distric" value="Rajkot">
-                Rajjkot
-              </option>
-              <option name="distric" value="Jamnagar">
-                Jamnagar
-              </option>
-              <option name="distric" value="Surat">
-                Surat
-              </option>
-              <option name="distric" value="Anand">
-                Anand
-              </option>
+              <option value="">Selsect any One</option>
+              <option value="Rajkot">Rajjkot</option>
+              <option value="Jamnagar">Jamnagar</option>
+              <option value="Surat">Surat</option>
+              <option value="Anand">Anand</option>
             </select>
             {errors.distric && touched.distric ? (
               <small className="text-ligth text-red-600">
                 {errors.distric}
               </small>
             ) : null}
-          </div> */}
-          {/* <div className="mb-4">
+          </div>
+          <div className="mb-4">
             <label
               className="block text-gray-700 text-sm font-bold mb-2"
-              for="time"
+              htmlFor="category"
             >
-              Category
+              category
             </label>
-            <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" />
-            <label for="vehicle1" className="p-2">
-              {" "}
-              I have a bike
-            </label>
-            <input type="checkbox" id="vehicle2" name="vehicle1" value="Car" />
-            <label for="vehicle2" className="p-2">
-              {" "}
-              I have a car
-            </label>
-            <input type="checkbox" id="vehicle3" name="vehicle1" value="Boat" />
-            <label for="vehicle3" className="p-2">
-              {" "}
-              I have a boat
-            </label>
-          </div> */}
+            <div>
+              <label>
+                <input
+                  type="checkbox"
+                  name="category"
+                  value="Bike"
+                  checked={values.category.includes("Bike")}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                />
+                Bike
+              </label>
+            </div>
+            <div>
+              <label>
+                <input
+                  type="checkbox"
+                  name="category"
+                  value="Car"
+                  checked={values.category.includes("Car")}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                />
+                Car
+              </label>
+            </div>
+            <div>
+              <label>
+                <input
+                  type="checkbox"
+                  name="category"
+                  value="Boat"
+                  checked={values.category.includes("Boat")}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                />
+                Boat
+              </label>
+            </div>
+          </div>
           <div className="mb-4">
             <label
               className="block text-gray-700 text-sm font-bold mb-2"
