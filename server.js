@@ -1,4 +1,5 @@
 const express = require("express");
+const cors = require('cors')
 const bodyparser = require("body-parser");
 const addDistricts = require("./Controller/addDistricts")
 const getDistricts = require("./Controller/getDistricts")
@@ -13,6 +14,7 @@ const adduration = require("./Controller/addDuration")
 
 
 
+
 const formdataroute = require("./routes/formdataroute");
 
 require("./config/dbconfig").getDbConnection();
@@ -22,6 +24,7 @@ const app = express();
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(cors())
 app.use(bodyparser.json());
 
 app.use("/formdata", formdataroute);
