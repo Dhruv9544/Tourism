@@ -1,7 +1,11 @@
 import React from "react";
 import { useFormik } from "formik";
 import { formSchemas } from "../schemas/Index";
-
+import { useSelector } from "react-redux/es/hooks/useSelector";
+import { FetchDistrict } from "../API/FetchDistrict";
+import { FetchCategory } from "../API/FetchCategory";
+import { FetchDuration } from "../API/FetchDuration";
+import { FetchSeason } from "../API/FetchSeason";
 const initialValues = {
   destination_name: "",
   about_place: "",
@@ -30,6 +34,16 @@ const initialValues = {
 };
 
 const InputData = () => {
+  //fetch from redux store
+  FetchDistrict();
+  FetchCategory();
+  FetchDuration();
+  FetchSeason();
+  const category = useSelector((state) => state.formoptions.category);
+  const district = useSelector((state) => state.formoptions.district);
+  const season = useSelector((state) => state.formoptions.season);
+  const duration = useSelector((state) => state.formoptions.duration);
+
   const handleFileChange = (event) => {
     const selectedFiles = Array.from(event.target.files);
     setFieldValue("related_photos", selectedFiles);
@@ -42,8 +56,6 @@ const InputData = () => {
   const submitHandler = (value) => {
     var fileInput = document.getElementById("fileInput");
     var relatedFileInput = document.getElementById("relatedFileInput");
-
-    console.log(value.Category);
 
     var formdata = new FormData();
     formdata.append("DestinationName", value.destination_name);
@@ -541,11 +553,15 @@ const InputData = () => {
               onChange={handleChange}
               onBlur={handleBlur}
             >
-              <option value="">Selsect any One</option>
-              <option value="Rajkot">Rajjkot</option>
-              <option value="Jamnagar">Jamnagar</option>
+              <option value="">Select any One</option>
+              {district.map((item) => (
+                <option key={item} value={item}>
+                  {item}
+                </option>
+              ))}
+              {/* <option value="Jamnagar">Jamnagar</option>
               <option value="Surat">Surat</option>
-              <option value="Anand">Anand</option>
+              <option value="Anand">Anand</option> */}
             </select>
             {errors.distric && touched.distric ? (
               <small className="text-ligth text-red-600">
@@ -560,47 +576,22 @@ const InputData = () => {
             >
               category
             </label>
+
             <div>
-              <label>
-                <input
-                  type="checkbox"
-                  name="Category"
-                  value="Bike"
-                  id="Bike"
-                  checked={values.Category.includes("Bike")}
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                />
-                Bike
-              </label>
-            </div>
-            <div>
-              <label>
-                <input
-                  type="checkbox"
-                  name="Category"
-                  value="Car"
-                  id="Car"
-                  checked={values.Category.includes("Car")}
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                />
-                Car
-              </label>
-            </div>
-            <div>
-              <label>
-                <input
-                  type="checkbox"
-                  name="Category"
-                  value="Boat"
-                  id="Boat"
-                  checked={values.Category.includes("Boat")}
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                />
-                Boat
-              </label>
+              {category.map((item) => (
+                <label key={item}>
+                  <input
+                    type="checkbox"
+                    name="Category"
+                    value={item}
+                    id={item}
+                    checked={values.Category.includes(item)}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                  />
+                  {item}
+                </label>
+              ))}
             </div>
             {errors.Category && touched.Category ? (
               <small className="text-ligth text-red-600">
@@ -611,46 +602,24 @@ const InputData = () => {
           <div className="mb-4">
             <label
               className="block text-gray-700 text-sm font-bold mb-2"
-              for="time"
+              htmlFor="time"
             >
               Season
             </label>
 
-            <label for="season" className="p-3">
-              <input
-                name="season"
-                type="radio"
-                id="season"
-                value="summer"
-                onChange={handleChange}
-                onBlur={handleBlur}
-              />
-              Summer
-            </label>
+            {season.map((item) => (
+              <label htmlFor="season" className="p-3" key={item}>
+                <input
+                  name="season"
+                  type="radio"
+                  value={item}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                />
+                {item}
+              </label>
+            ))}
 
-            <label for="summer" className="p-2">
-              <input
-                name="season"
-                type="radio"
-                id="summer"
-                value="Monsoon"
-                onChange={handleChange}
-                onBlur={handleBlur}
-              />
-              Mosoon
-            </label>
-
-            <label for="winter" className="p-2">
-              <input
-                name="season"
-                type="radio"
-                id="winter"
-                value="winter"
-                onChange={handleChange}
-                onBlur={handleBlur}
-              />
-              Winter
-            </label>
             {errors.season && touched.season ? (
               <small className="text-ligth text-red-600">{errors.season}</small>
             ) : null}
@@ -658,49 +627,25 @@ const InputData = () => {
           <div className="mb-4">
             <label
               className="block text-gray-700 text-sm font-bold mb-2"
-              for="time"
+              htmlFor="time"
             >
               Duration of Visit
             </label>
 
-            <label for="1day" className="">
-              <input
-                className="ml-2"
-                name="day"
-                type="radio"
-                id="1day"
-                value="1 day"
-                onChange={handleChange}
-                onBlur={handleBlur}
-              />
-              1 day
-            </label>
-
-            <label for="2day" className="">
-              <input
-                className="ml-2"
-                name="day"
-                type="radio"
-                id="2day"
-                value="2 day"
-                onChange={handleChange}
-                onBlur={handleBlur}
-              />
-              2 day
-            </label>
-
-            <label for="3day" className="">
-              <input
-                className="ml-2"
-                name="day"
-                type="radio"
-                id="3day"
-                value="3 day"
-                onChange={handleChange}
-                onBlur={handleBlur}
-              />
-              3 day
-            </label>
+            {duration.map((item) => (
+              <label key={item} htmlFor={item} className="">
+                <input
+                  className="ml-2"
+                  name="day"
+                  type="radio"
+                  id={item}
+                  value={item}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                />
+                {item}
+              </label>
+            ))}
             {errors.day && touched.day ? (
               <small className="text-ligth text-red-600">{errors.day}</small>
             ) : null}
@@ -713,7 +658,7 @@ const InputData = () => {
               Rating
             </label>
 
-            <label for="1" className="">
+            <label htmlFor="1" className="">
               <input
                 className="ml-2"
                 name="rating"
@@ -726,7 +671,7 @@ const InputData = () => {
               1
             </label>
 
-            <label for="2" className="">
+            <label htmlFor="2" className="">
               <input
                 className="ml-2"
                 name="rating"
@@ -739,7 +684,7 @@ const InputData = () => {
               2
             </label>
 
-            <label for="3" className="">
+            <label htmlFor="3" className="">
               <input
                 className="ml-2"
                 name="rating"
@@ -751,7 +696,7 @@ const InputData = () => {
               />
               3
             </label>
-            <label for="4" className="">
+            <label htmlFor="4" className="">
               <input
                 className="ml-2"
                 name="rating"
@@ -763,7 +708,7 @@ const InputData = () => {
               />
               4
             </label>
-            <label for="5" className="">
+            <label htmlFor="5" className="">
               <input
                 className="ml-2"
                 name="rating"
