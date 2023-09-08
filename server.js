@@ -37,5 +37,7 @@ app.post("/addduration", adduration.AddDuration);
 app.get("/getduration", getduration.getAllDuration);
 // app.post("/formdata", );
 
+app.get("/getdestination",getDestination.getDestination)
+
 app.listen(9999);
 console.log("server started at 9999");
