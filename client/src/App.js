@@ -1,14 +1,25 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Dashboard from "./pages/Dashboard";
+import Home from "./pages/Home";
 import InputData from "./pages/InputData";
+import Root from "./pages/Root";
+import ErrorPage from "./pages/ErrorPage";
 const routes = createBrowserRouter([
   {
     path: "/",
-    element: <Dashboard></Dashboard>,
+    element: <Root />,
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        index: true,
+        element: <Home />,
+        errorElement: <ErrorPage />,
+      },
+    ],
   },
   {
     path: "/admin",
-    element: <InputData></InputData>,
+    element: <InputData />,
+    errorElement: <ErrorPage />,
   },
 ]);
 
