@@ -9,6 +9,7 @@ const addseasons = require("./Controller/addSeasons");
 const getseasons = require("./Controller/getSeasons");
 const getduration = require("./Controller/getDuration");
 const adduration = require("./Controller/addDuration");
+const getDestination = require("./Controller/getDestination")
 
 const formdataroute = require("./routes/formdataroute");
 
