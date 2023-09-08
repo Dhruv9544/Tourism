@@ -9,7 +9,7 @@ const addseasons = require("./Controller/addSeasons");
 const getseasons = require("./Controller/getSeasons");
 const getduration = require("./Controller/getDuration");
 const adduration = require("./Controller/addDuration");
-const getDestination = require("./Controller/getDestination")
+const getTopDestination = require("./Controller/getTopDestination");
 
 const formdataroute = require("./routes/formdataroute");
 
@@ -38,7 +38,7 @@ app.post("/addduration", adduration.AddDuration);
 app.get("/getduration", getduration.getAllDuration);
 // app.post("/formdata", );
 
-app.get("/getdestination",getDestination.getDestination)
+app.get("/gettopdestination", getTopDestination.getTopDestination);
 
 app.listen(9999);
 console.log("server started at 9999");
