@@ -1,6 +1,18 @@
 import { Link, NavLink, Outlet } from "react-router-dom";
+import { useEffect, useRef } from "react";
+import Slider from "../UI/Carousel";
+import { useSelector } from "react-redux/es/hooks/useSelector";
 
 const Root = () => {
+  const data = useSelector((state) => state.topdestination.topdestination);
+
+  const car = useRef(null);
+  useEffect(() => {
+    if (car) {
+      Slider(data);
+    }
+  }, []);
+
   return (
     <>
       {/* Navbar */}
@@ -103,7 +115,7 @@ const Root = () => {
         </div>
       </nav>
       {/* Carousel */}
-      <div id="carousel"></div>
+      <div id="carousel" ref={car}></div>
       <Outlet></Outlet>
     </>
   );

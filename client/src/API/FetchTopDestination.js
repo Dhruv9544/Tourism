@@ -1,16 +1,20 @@
 import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { TopDestinationActions } from "../store/TopDestination";
 
-function FetchCategory() {
+const FetchTopDestination = async () => {
   const dispatch = useDispatch();
+
   useEffect(() => {
     fetch("http://localhost:9999/gettopdestination")
       .then((response) => response.text())
       .then((result) => {
         const data = JSON.parse(result);
-        // console.log(data.data[0].category);
-        dispatch(FormOptionsActions.getcategory(data.data[0].category));
+        console.log(data.data);
+        dispatch(TopDestinationActions.gettopdestination(data.data));
+        return data.data;
       })
       .catch((error) => console.log("error", error));
   }, [dispatch]);
-}
-export { FetchCategory };
+};
+export { FetchTopDestination };
