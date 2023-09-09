@@ -11,7 +11,7 @@ const Navbar = () => {
             alt="Flowbite Logo"
           />
           <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
-            Flowbite
+            Tourism
           </span>
         </Link>
         <button
@@ -31,9 +31,12 @@ const Navbar = () => {
           >
             <path
               stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
+              // stroke-linecap="round"
+              // stroke-linejoin="round"
+              // stroke-width="2"
+              strokeLinejoin="round"
+              strokeLinecap="round"
+              strokeWidth="2"
               d="M1 1h15M1 7h15M1 13h15"
             />
           </svg>
@@ -46,7 +49,7 @@ const Navbar = () => {
                 className={({ isActive }) =>
                   isActive
                     ? "block py-2 pl-3 pr-4 md:px-3 md:py-1 text-white bg-white-700 rounded md:bg-transparent md:text-white md:p-0 dark:text-white md:dark:text-white md:dark:bg-gray-700"
-                    : 'block py-2 pl-3 pr-4 text-white bg-white-700 rounded md:bg-transparent md:text-white md:p-0 dark:text-white md:dark:hover:text-blue-500"'
+                    : "block py-2 pl-3 md:px-3 md:py-1 pr-4 text-white bg-white-700 rounded md:bg-transparent md:text-white md:p-0 dark:text-white dark:bg-gray-700 md:dark:hover:bg-gray-700"
                 }
               >
                 Home
@@ -57,10 +60,10 @@ const Navbar = () => {
                 to={"about"}
                 className={({ isActive }) =>
                   isActive
-                    ? "block py-2 pl-3 pr-4 md:px-3 md:py-1 text-white-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-white md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-gray-700"
-                    : "block py-2 pl-3 pr-4  text-white-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-white md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-gray-700"
+                    ? "block py-2 pl-3 pr-4 md:px-3 md:py-1 text-white-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-white md:p-0 dark:text-white  dark:bg-gray-700 dark:hover:text-white md:dark:hover:bg-gray-700"
+                    : "block py-2 pl-3 pr-4 md:px-3 md:py-1 text-white-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-white md:p-0 dark:text-white  dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-gray-700"
                 }
-                // className="block py-2 pl-3 pr-4 text-white-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-white md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                // className="block py-2 pl-3 pr-4 text-white-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-white md:p-0 dark:text-white  dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
               >
                 About
               </NavLink>
@@ -70,10 +73,10 @@ const Navbar = () => {
                 to={"contact"}
                 className={({ isActive }) =>
                   isActive
-                    ? "block py-2 pl-3 pr-4 md:px-3 md:py-1 text-white-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-white md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-gray-700"
-                    : "block py-2 pl-3 pr-4 text-white-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-white md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-gray-700"
+                    ? "block py-2 pl-3 pr-4 md:px-3 md:py-1 text-white-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-white md:p-0 dark:text-white  dark:bg-gray-700 dark:hover:text-white md:dark:hover:bg-gray-700"
+                    : "block py-2 pl-3 pr-4 md:px-3 md:py-1 text-white-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-white md:p-0 dark:text-white  dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-gray-700"
                 }
-                // className="block py-2 pl-3 pr-4 text-white-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                // className="block py-2 pl-3 pr-4 text-white-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white  dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
               >
                 Contact
               </NavLink>
@@ -83,8 +86,8 @@ const Navbar = () => {
                 to={"ourblogs"}
                 className={({ isActive }) =>
                   isActive
-                    ? "block py-2 pl-3 pr-4 md:px-3 md:py-1 text-white-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-white md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-gray-700"
-                    : "block py-2 pl-3 pr-4  text-white-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-white md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-gray-700"
+                    ? "block py-2 pl-3 pr-4 md:px-3 md:py-1 text-white-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-white md:p-0 dark:text-white  dark:bg-gray-700 dark:hover:text-white md:dark:hover:bg-gray-700"
+                    : "block py-2 pl-3 pr-4 md:px-3 md:py-1 text-white-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-white md:p-0 dark:text-white  dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-gray-700"
                 }
                 // className="block py-2 pl-3 pr-4 text-white-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
               >
