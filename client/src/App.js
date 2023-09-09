@@ -3,6 +3,8 @@ import Home from "./pages/Home";
 import InputData from "./pages/InputData";
 import Root from "./pages/Root";
 import ErrorPage from "./pages/ErrorPage";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
 const routes = createBrowserRouter([
   {
     path: "/",
@@ -12,6 +14,16 @@ const routes = createBrowserRouter([
       {
         index: true,
         element: <Home />,
+        errorElement: <ErrorPage />,
+      },
+      {
+        path: "about",
+        element: <About />,
+        errorElement: <ErrorPage />,
+      },
+      {
+        path: "contact",
+        element: <Contact />,
         errorElement: <ErrorPage />,
       },
     ],
