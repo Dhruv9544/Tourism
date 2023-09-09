@@ -37,12 +37,14 @@ router.route("/").post(function async(req, res, next) {
     renameFile(
       IMAGE_UPLOAD_DIR,
       thumbnailFileName,
-      fields.DestinationName,
+      fields.DestinationName.replaceAll(" ", "_"),
       thumbnailimageformat
     );
 
     const thumbnailURL =
-      IMAGE_BASE_URL + fields.DestinationName + thumbnailimageformat;
+      IMAGE_BASE_URL +
+      fields.DestinationName.replaceAll(" ", "_") +
+      thumbnailimageformat;
 
     //relatedcontent
 
@@ -52,7 +54,7 @@ router.route("/").post(function async(req, res, next) {
       renameFile(
         IMAGE_UPLOAD_DIR,
         data.path.slice(data.path.lastIndexOf("\\") + 1),
-        fields.DestinationName + "_" + i++,
+        fields.DestinationName.replaceAll(" ", "_") + "_" + i++,
         data.path
           .slice(data.path.lastIndexOf("\\") + 1)
           .slice(
@@ -64,7 +66,7 @@ router.route("/").post(function async(req, res, next) {
     files.RelatedPhotos.map((data) =>
       relatedphotopaths.push(
         IMAGE_BASE_URL +
-          fields.DestinationName +
+          fields.DestinationName.replaceAll(" ", "_") +
           "_" +
           j++ +
           data.path
