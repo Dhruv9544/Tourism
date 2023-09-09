@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import "./Home.css";
 import Slider from "./../UI/Carousel";
 import Loader from "../components/Loader";
+import Category from "../components/Category";
 const Home = () => {
   const [loading, setloading] = useState(false);
   const carouselref = useRef(null);
@@ -43,9 +44,11 @@ const Home = () => {
           <h1>Top Destination</h1>
         </div>
       </div>
+
       <div className="category">
-        <h1>Popular Category</h1>
-        <div></div>
+        <div className="card">
+          <Category></Category>
+        </div>
       </div>
     </>
   );
