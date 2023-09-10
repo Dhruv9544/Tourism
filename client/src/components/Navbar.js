@@ -1,17 +1,27 @@
 import { NavLink } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import useWindowSize from "../hooks/useWindowSize";
 const Navbar = () => {
+  const size = useWindowSize();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const toggleMobileMenu = () => {
-    if (!isMobileMenuOpen) {
-      document.getElementById("car1").classList.remove("container1");
-      document.getElementById("car1").classList.add("container2");
-    } else {
-      document.getElementById("car1").classList.remove("container2");
-      document.getElementById("car1").classList.add("container1");
-    }
+    const removeClass = isMobileMenuOpen ? "container2" : "container1";
+    const addClass = isMobileMenuOpen ? "container1" : "container2";
+    const cardElementClasses = document.getElementById("car1").classList;
+    cardElementClasses.remove(removeClass);
+    cardElementClasses.add(addClass);
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
+
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      const cardElementClasses = document.getElementById("car1").classList;
+      cardElementClasses.remove("container2");
+      cardElementClasses.add("container1");
+      setIsMobileMenuOpen(false);
+    }
+  }, [size.width, isMobileMenuOpen]);
+
   return (
     <section className="bg-[#252525]">
       {/* <!-- Hero Container --> */}
