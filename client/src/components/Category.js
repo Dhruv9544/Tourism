@@ -1,10 +1,10 @@
 import CategoryCard from "./CategoryCard/CategoryCard";
-import religious from "./../assets/religious_category.jpg";
-import nature from "./../assets/nature_category.jpg";
-import waterpark from "./../assets/waterpark_category.jpg";
-import historical from "./../assets/historical_category.jpg";
-import adventure from "./../assets/adventure_category.jpg";
-import hillstation from "./../assets/hillstation_category.jpg";
+import religious from "./../assets/category/religious.jpg";
+import nature from "./../assets/category/nature.jpg";
+import waterpark from "./../assets/category/waterpark.jpg";
+import historical from "./../assets/category/historical.jpg";
+import adventure from "./../assets/category/adventure.jpg";
+import hillstation from "./../assets/category/hillstation.jpg";
 
 const Category = () => {
   return (

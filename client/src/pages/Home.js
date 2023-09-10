@@ -3,6 +3,7 @@ import "./Home.css";
 import Slider from "./../UI/Carousel";
 import Loader from "../components/Loader";
 import Category from "../components/Category";
+import Season from "../components/Season";
 const Home = () => {
   const [loading, setloading] = useState(false);
   const carouselref = useRef(null);
@@ -41,7 +42,9 @@ const Home = () => {
       {loading && <Loader></Loader>}
       <div id="carousel" ref={carouselref}>
         <div className="title">
-          <h1>Top Destination</h1>
+          <h1 className="text-4xl text-center pt-5 pl-[100px] uppercase md:text-left md:text-5xl">
+            Top Destination
+          </h1>
         </div>
       </div>
 
@@ -49,6 +52,10 @@ const Home = () => {
         <div className="card">
           <Category></Category>
         </div>
+      </div>
+
+      <div className="season">
+        <Season></Season>
       </div>
     </>
   );

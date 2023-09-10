@@ -34,10 +34,10 @@ const Slider = (result) => {
     name.textContent = item.name;
     const des = document.createElement("div");
     des.classList.add("des");
-    des.textContent = item.desc;
+    des.textContent = item.desc.slice(0, 100) + "...";
 
     const button = document.createElement("button");
-    button.textContent = "See more";
+    button.textContent = "Explore";
 
     content.appendChild(name);
     content.appendChild(des);
