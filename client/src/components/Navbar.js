@@ -1,103 +1,111 @@
-import { Link, NavLink } from "react-router-dom";
-
+import { NavLink } from "react-router-dom";
+import { useState } from "react";
 const Navbar = () => {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
   return (
-    <nav className="bg-white border-gray-200 dark:bg-[#016A70]">
-      <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-        <Link className="flex items-center">
-          <img
-            src="https://flowbite.com/docs/images/logo.svg"
-            className="h-8 mr-3"
-            alt="Flowbite Logo"
-          />
-          <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
-            Tourism
-          </span>
-        </Link>
-        <button
-          data-collapse-toggle="navbar-default"
-          type="button"
-          className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-          aria-controls="navbar-default"
-          aria-expanded="false"
-        >
-          <span className="sr-only">Open main menu</span>
-          <svg
-            className="w-5 h-5"
-            aria-hidden="true"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 17 14"
-          >
-            <path
-              stroke="currentColor"
-              // stroke-linecap="round"
-              // stroke-linejoin="round"
-              // stroke-width="2"
-              strokeLinejoin="round"
-              strokeLinecap="round"
-              strokeWidth="2"
-              d="M1 1h15M1 7h15M1 13h15"
-            />
-          </svg>
-        </button>
-        <div className="hidden w-full md:block md:w-auto" id="navbar-default">
-          <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-[#D2DE32] md:dark:bg-[#016A70] dark:border-gray-700 md:dark:text-white">
-            <li>
+    <section className="bg-[#252525]">
+      {/* <!-- Hero Container --> */}
+      <div className="container max-w-6xl mx-auto px-6 py-4">
+        {/* <!-- Menu/Logo Container --> */}
+        <nav className="flex items-center justify-between font-bold text-white">
+          {/* <!-- Logo --> */}
+          {/* <!-- <img src="images/logo.svg" alt="" /> --> */}
+          <h1 className="text-3xl">Tourism</h1>
+          {/* <!-- Menu --> */}
+          <div className="hidden h-5 md:flex md:space-x-8">
+            <div className="group">
               <NavLink
                 to={"/"}
                 className={({ isActive }) =>
                   isActive
-                    ? "block py-2 pl-3 pr-4 md:px-3 md:py-1 text-white bg-white-700 rounded md:bg-transparent md:text-white md:p-0 dark:text-white md:dark:text-white md:dark:bg-gray-700"
-                    : "block py-2 pl-3 md:px-3 md:py-1 pr-4 text-white bg-white-700 rounded md:bg-transparent md:text-white md:p-0 dark:text-white dark:bg-gray-700 md:dark:hover:bg-gray-700"
+                    ? "mx-2 group-hover:border-b-2 group-hover:border-blue-50 border-b-2 border-green-200"
+                    : "mx-2 group-hover:border-b-2 group-hover:border-green-200"
                 }
               >
                 Home
               </NavLink>
-            </li>
-            <li>
+            </div>
+            <div className="group">
               <NavLink
                 to={"about"}
                 className={({ isActive }) =>
                   isActive
-                    ? "block py-2 pl-3 pr-4 md:px-3 md:py-1 text-white-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-white md:p-0 dark:text-white  dark:bg-gray-700 dark:hover:text-white md:dark:hover:bg-gray-700"
-                    : "block py-2 pl-3 pr-4 md:px-3 md:py-1 text-white-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-white md:p-0 dark:text-white  dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-gray-700"
+                    ? "mx-2 group-hover:border-b-2 group-hover:border-blue-50 border-b-2 border-green-200"
+                    : "mx-2 group-hover:border-b-2 group-hover:border-green-200"
                 }
-                // className="block py-2 pl-3 pr-4 text-white-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-white md:p-0 dark:text-white  dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
               >
                 About
               </NavLink>
-            </li>
-            <li>
+            </div>
+            <div className="group">
               <NavLink
                 to={"contact"}
                 className={({ isActive }) =>
                   isActive
-                    ? "block py-2 pl-3 pr-4 md:px-3 md:py-1 text-white-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-white md:p-0 dark:text-white  dark:bg-gray-700 dark:hover:text-white md:dark:hover:bg-gray-700"
-                    : "block py-2 pl-3 pr-4 md:px-3 md:py-1 text-white-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-white md:p-0 dark:text-white  dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-gray-700"
+                    ? "mx-2 group-hover:border-b-2 group-hover:border-blue-50 border-b-2 border-green-200"
+                    : "mx-2 group-hover:border-b-2 group-hover:border-green-200"
                 }
-                // className="block py-2 pl-3 pr-4 text-white-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white  dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
               >
-                Contact
+                Contact Us
               </NavLink>
-            </li>
-            <li>
+            </div>
+            <div className="group">
               <NavLink
                 to={"ourblogs"}
                 className={({ isActive }) =>
                   isActive
-                    ? "block py-2 pl-3 pr-4 md:px-3 md:py-1 text-white-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-white md:p-0 dark:text-white  dark:bg-gray-700 dark:hover:text-white md:dark:hover:bg-gray-700"
-                    : "block py-2 pl-3 pr-4 md:px-3 md:py-1 text-white-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-white md:p-0 dark:text-white  dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-gray-700"
+                    ? "mx-2 group-hover:border-b-2 group-hover:border-blue-50 border-b-2 border-green-200"
+                    : "mx-2 group-hover:border-b-2 group-hover:border-green-200"
                 }
-                // className="block py-2 pl-3 pr-4 text-white-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
               >
                 Our Blogs
               </NavLink>
-            </li>
-          </ul>
-        </div>
+            </div>
+          </div>
+          {/* <!-- Hamburger Button --> */}
+          <div className="md:hidden">
+            <button
+              id="menu-btn"
+              type="button"
+              className="z-40 block hamburger md:hidden focus:outline-none"
+              onClick={toggleMobileMenu}
+            >
+              <span className="hamburger-top"></span>
+              <span className="hamburger-middle"></span>
+              <span className="hamburger-bottom"></span>
+            </button>
+          </div>
+        </nav>
+
+        {isMobileMenuOpen && (
+          <div className=" flex flex-col items-center justify-center  w-full h-60 py-1 space-x-3 space-y-3 text-lg text-white uppercase bg-[#252525] md:hidden">
+            <div>
+              <NavLink href="#" className="hover:text-pink-500">
+                Home
+              </NavLink>
+            </div>
+            <div>
+              <NavLink href="#" className="hover:text-pink-500">
+                About
+              </NavLink>
+            </div>
+            <div>
+              <NavLink href="#" className="hover:text-pink-500">
+                Contact Us
+              </NavLink>
+            </div>
+            <div>
+              <NavLink href="#" className="hover:text-pink-500">
+                Our Blogs
+              </NavLink>
+            </div>
+          </div>
+        )}
       </div>
-    </nav>
+    </section>
   );
 };
 

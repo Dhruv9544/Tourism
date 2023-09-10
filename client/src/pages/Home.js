@@ -40,7 +40,7 @@ const Home = () => {
   return (
     <>
       {loading && <Loader></Loader>}
-      <div id="carousel" ref={carouselref}>
+      <div id="carousel" className="" ref={carouselref}>
         <div className="title">
           <h1 className="text-4xl text-center pt-5 pl-[100px] uppercase md:text-left md:text-5xl">
             Top Destination
