@@ -14,6 +14,7 @@ const Slider = (result) => {
 
   const container = document.createElement("div");
   container.classList.add("container1");
+  container.setAttribute("id", "car1");
 
   const loadbar = document.createElement("div");
   loadbar.classList.add("loadbar");

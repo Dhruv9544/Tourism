@@ -3,6 +3,13 @@ import { useState } from "react";
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const toggleMobileMenu = () => {
+    if (!isMobileMenuOpen) {
+      document.getElementById("car1").classList.remove("container1");
+      document.getElementById("car1").classList.add("container2");
+    } else {
+      document.getElementById("car1").classList.remove("container2");
+      document.getElementById("car1").classList.add("container1");
+    }
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
   return (

@@ -1,6 +1,5 @@
 import winter from "./../assets/season/winter.jpg";
 import summer from "./../assets/season/summer.jpg";
-import summer_1 from "./../assets/season/summer_1.jpg";
 import monsoon from "./../assets/season/monsoon.jpg";
 import { Carousel, Typography, Button } from "@material-tailwind/react";
 
@@ -33,16 +32,16 @@ const Season = () => {
                 <Button size="lg" color="white">
                   Explore
                 </Button>
-                <Button size="lg" color="white" variant="text">
+                {/* <Button size="lg" color="white" variant="text">
                   Gallery
-                </Button>
+                </Button> */}
               </div>
             </div>
           </div>
         </div>
 
         <div className="relative h-full w-full">
-          <img src={summer_1} alt=" 2" className="h-full w-full object-cover" />
+          <img src={summer} alt=" 2" className="h-full w-full object-cover" />
           <div className="absolute inset-0 grid h-full w-full items-center bg-black/75">
             <div className="w-3/4 pl-12 md:w-2/4 md:pl-20 lg:pl-32">
               <Typography
@@ -66,9 +65,9 @@ const Season = () => {
                 <Button size="lg" color="white">
                   Explore
                 </Button>
-                <Button size="lg" color="white" variant="text">
+                {/* <Button size="lg" color="white" variant="text">
                   Gallery
-                </Button>
+                </Button> */}
               </div>
             </div>
           </div>
@@ -99,9 +98,9 @@ const Season = () => {
                 <Button size="lg" color="white">
                   Explore
                 </Button>
-                <Button size="lg" color="white" variant="text">
+                {/* <Button size="lg" color="white" variant="text">
                   Gallery
-                </Button>
+                </Button> */}
               </div>
             </div>
           </div>
