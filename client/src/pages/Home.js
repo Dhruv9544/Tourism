@@ -42,9 +42,9 @@ const Home = () => {
       {loading && <Loader></Loader>}
       <div id="carousel" className="" ref={carouselref}>
         <div className="title">
-          <h1 className="text-4xl text-center pt-5 pl-[100px] uppercase md:text-left md:text-5xl">
+          {/* <h1 className="text-4xl text-center pt-5 pl-[100px] uppercase md:text-left md:text-5xl">
             Top Destination
-          </h1>
+          </h1> */}
         </div>
       </div>
 
