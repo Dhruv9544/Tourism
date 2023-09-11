@@ -31,6 +31,7 @@ const initialValues = {
   day: "",
   distric: "",
   rating: "",
+  mainCategory: [],
 };
 
 const InputData = () => {
@@ -152,16 +153,24 @@ const InputData = () => {
             </div>
             <div class="origin-top-right absolute right-0 mt-3 w-full rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 divide-y divide-gray-200 hidden">
               <div class="px-4 py-2">
-                <label class="inline-flex items-center w-full">
-                  <input
-                    type="checkbox"
-                    class="form-checkbox text-indigo-600"
-                    id="item1"
-                  />{" "}
-                  Item 1
-                </label>
+                {category.map((item) => (
+                  <label key={item} class="inline-flex items-center w-full">
+                    <input
+                      name="mainCategory"
+                      type="checkbox"
+                      class="form-checkbox text-indigo-600"
+                      id={item}
+                      value={item}
+                      checked={values.mainCategory.includes(item)}
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                    />{" "}
+                    {item}
+                  </label>
+                ))}
               </div>
-              <div class="px-4 py-2">
+
+              {/* <div class="px-4 py-2">
                 <label class="inline-flex w-full items-center">
                   <input
                     type="checkbox"
@@ -170,8 +179,13 @@ const InputData = () => {
                   />{" "}
                   Item 2
                 </label>
-              </div>
+              </div> */}
             </div>
+            {errors.mainCategory && touched.mainCategory ? (
+              <small className="text-ligth text-red-600">
+                {errors.mainCategory}
+              </small>
+            ) : null}
           </div>
           <div className="mb-4">
             <label
