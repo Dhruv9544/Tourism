@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useFormik } from "formik";
 import { formSchemas } from "../schemas/Index";
 import { useSelector } from "react-redux/es/hooks/useSelector";
@@ -27,13 +27,24 @@ const initialValues = {
   location: "",
   website_link: "",
   Category: [],
-  season: "",
+  season: [],
   day: "",
   distric: "",
   rating: "",
 };
 
 const InputData = () => {
+  const [dropdownopen, setdropdownopen] = useState(false);
+  const onClickHandler = () => {
+    setdropdownopen(!dropdownopen);
+    const dropdown = document.querySelector(".origin-top-right");
+    dropdown.classList.toggle("hidden");
+  };
+  // const button = document.getElementById("but");
+
+  // button.addEventListener("click", () => {
+  // });
+
   //fetch from redux store
   FetchDistrict();
   FetchCategory();
@@ -122,6 +133,42 @@ const InputData = () => {
           onSubmit={handleSubmit}
           className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 mt-8"
         >
+          <div class="relative inline-block text-left">
+            <div>
+              <button
+                onClick={onClickHandler}
+                type="button"
+                class="inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring focus:ring-offset-2 focus:ring-indigo-500"
+              >
+                Select Items
+              </button>
+            </div>
+            <div class="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 divide-y divide-gray-200 hidden">
+              <div class="px-4 py-3">
+                <span class="text-gray-700">Select items:</span>
+              </div>
+              <div class="px-4 py-2">
+                <label class="inline-flex items-center">
+                  <input
+                    type="checkbox"
+                    class="form-checkbox text-indigo-600"
+                    id="item1"
+                  />{" "}
+                  Item 1
+                </label>
+              </div>
+              <div class="px-4 py-2">
+                <label class="inline-flex items-center">
+                  <input
+                    type="checkbox"
+                    class="form-checkbox text-indigo-600"
+                    id="item2"
+                  />{" "}
+                  Item 2
+                </label>
+              </div>
+            </div>
+          </div>
           <div className="mb-4">
             <label
               className="block text-gray-700 text-sm font-bold mb-2"
@@ -602,24 +649,27 @@ const InputData = () => {
           <div className="mb-4">
             <label
               className="block text-gray-700 text-sm font-bold mb-2"
-              htmlFor="time"
+              htmlFor="season"
             >
               Season
             </label>
 
-            {season.map((item) => (
-              <label htmlFor="season" className="p-3" key={item}>
-                <input
-                  name="season"
-                  type="radio"
-                  value={item}
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                />
-                {item}
-              </label>
-            ))}
-
+            <div className="">
+              {season.map((item) => (
+                <label key={item} className="mr-4">
+                  <input
+                    type="checkbox"
+                    name="season"
+                    value={item}
+                    id={item}
+                    checked={values.season.includes(item)}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                  />
+                  {item}
+                </label>
+              ))}
+            </div>
             {errors.season && touched.season ? (
               <small className="text-ligth text-red-600">{errors.season}</small>
             ) : null}

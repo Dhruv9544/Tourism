@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { useEffect, useState } from "react";
 import useWindowSize from "../hooks/useWindowSize";
 const Navbar = () => {
@@ -20,7 +20,7 @@ const Navbar = () => {
       cardElementClasses.add("container1");
       setIsMobileMenuOpen(false);
     }
-  }, [size.width, isMobileMenuOpen]);
+  }, [size.width]);
 
   return (
     <section className="bg-[#252525]">
@@ -29,9 +29,11 @@ const Navbar = () => {
         {/* <!-- Menu/Logo Container --> */}
         <nav className="flex items-center justify-between font-bold text-white">
           {/* <!-- Logo --> */}
-          {/* <!-- <img src="images/logo.svg" alt="" /> --> */}
-          <h1 className="text-3xl">Tourism</h1>
-          {/* <!-- Menu --> */}
+          <Link to={"/"}>
+            {/* <!-- <img src="images/logo.svg" alt="" /> --> */}
+            <h1 className="text-3xl">Tourism</h1>
+            {/* <!-- Menu --> */}
+          </Link>
           <div className="hidden h-5 md:flex md:space-x-8">
             <div className="group">
               <NavLink
