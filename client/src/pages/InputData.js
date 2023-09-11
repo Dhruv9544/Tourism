@@ -104,6 +104,10 @@ const InputData = () => {
       .then((result) => console.log(result))
       .catch((error) => console.log("error", error));
   };
+  const onChangeHandler = (e) => {
+    // handleChange(e);
+    console.log("Form data:", e);
+  };
 
   const {
     values,
@@ -122,9 +126,12 @@ const InputData = () => {
       // console.log(values);
       // action.resetForm();
     },
+    onChange: (values, action) => {
+      console.log(values);
+      onChangeHandler(values.Category);
+    },
   });
   // console.log(errors);
-
   // console.log(values);
   return (
     <div className="flex items-center justify-center bg-cyan-50 min-h-screen">
@@ -133,22 +140,19 @@ const InputData = () => {
           onSubmit={handleSubmit}
           className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 mt-8"
         >
-          <div class="relative inline-block text-left">
+          <div class="relative inline-block m-5">
             <div>
               <button
                 onClick={onClickHandler}
                 type="button"
-                class="inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring focus:ring-offset-2 focus:ring-indigo-500"
+                class="flex justify-center items-center w-full rounded-md border border-gray-300 shadow-sm px-[15rem] py-2 bg-white text-[15px] font-bold text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring focus:ring-offset-2 focus:ring-indigo-500"
               >
                 Select Items
               </button>
             </div>
-            <div class="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 divide-y divide-gray-200 hidden">
-              <div class="px-4 py-3">
-                <span class="text-gray-700">Select items:</span>
-              </div>
+            <div class="origin-top-right absolute right-0 mt-3 w-full rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 divide-y divide-gray-200 hidden">
               <div class="px-4 py-2">
-                <label class="inline-flex items-center">
+                <label class="inline-flex items-center w-full">
                   <input
                     type="checkbox"
                     class="form-checkbox text-indigo-600"
@@ -158,7 +162,7 @@ const InputData = () => {
                 </label>
               </div>
               <div class="px-4 py-2">
-                <label class="inline-flex items-center">
+                <label class="inline-flex w-full items-center">
                   <input
                     type="checkbox"
                     class="form-checkbox text-indigo-600"
@@ -633,8 +637,23 @@ const InputData = () => {
                     value={item}
                     id={item}
                     checked={values.Category.includes(item)}
-                    onChange={handleChange}
                     onBlur={handleBlur}
+                    onChange={(e) => {
+                      // Log the updated values immediately upon clicking
+                      const updatedValues = [...values.Category];
+                      if (e.target.checked) {
+                        updatedValues.push(e.target.value);
+                      } else {
+                        const index = updatedValues.indexOf(e.target.value);
+                        if (index !== -1) {
+                          updatedValues.splice(index, 1);
+                        }
+                      }
+                      // console.log("Updated values:", updatedValues);
+                      onChangeHandler(updatedValues);
+                      // Update Formik's state
+                      setFieldValue("Category", updatedValues);
+                    }}
                   />
                   {item}
                 </label>
