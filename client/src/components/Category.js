@@ -17,11 +17,11 @@ const Category = () => {
             </button>
           </div>
 
-          <div className="item-container">
+          {/* <div className="item-container">
             {dat.map((item) => (
               <CategoryCard image={item.image} title={item.name}></CategoryCard>
             ))}
-          </div>
+          </div> */}
 
           {/* <div className="item-container mt-10">
             <CategoryCard
