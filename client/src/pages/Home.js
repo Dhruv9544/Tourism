@@ -27,7 +27,7 @@ const Home = () => {
           desc: result[key].AboutPlace,
         });
       }
-      console.log(dataarray);
+      // console.log(dataarray);
       setloading(false);
       if (carouselref) {
         Slider(dataarray);

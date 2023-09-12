@@ -1,8 +1,8 @@
 import CategoryCard from "./CategoryCard/CategoryCard";
-import { FetchMainCategory } from "../API/FetchMainCategory";
-import { useEffect } from "react";
-
+import { useSelector } from "react-redux/es/hooks/useSelector";
 const Category = () => {
+  const dat = useSelector((state) => state.Maincategory.category);
+  console.log(dat);
   return (
     <div>
       <section id="creations">
@@ -17,11 +17,11 @@ const Category = () => {
             </button>
           </div>
 
-          {/* <div className="item-container">
+          <div className="item-container">
             {dat.map((item) => (
               <CategoryCard image={item.image} title={item.name}></CategoryCard>
             ))}
-          </div> */}
+          </div>
 
           {/* <div className="item-container mt-10">
             <CategoryCard
