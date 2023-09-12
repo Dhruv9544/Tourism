@@ -84,7 +84,7 @@ router.route("/").post(function async(req, res, next) {
       Rating: req.body.Rating,
 
       District: req.body.District,
-      Season: req.body.Season,
+      Season: req.body.Season.split(","),
       Category: req.body.Category.split(","),
 
       Location: req.body.Location,
