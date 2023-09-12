@@ -1,5 +1,5 @@
 const Slider = (result) => {
-  console.log(result);
+  // console.log(result);
   const slideRef = document.createElement("div");
   const loadingProgress = 0;
   const handleClickNext = () => {

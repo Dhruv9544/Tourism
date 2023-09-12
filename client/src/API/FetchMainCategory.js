@@ -1,15 +1,15 @@
-import { useEffect } from "react";
-
+import { MaincategoryActions } from "../store/MainCategory";
+import { useDispatch } from "react-redux";
 function FetchMainCategory() {
-  //   useEffect(() => {
+  const dispatch = useDispatch();
   fetch("http://localhost:9999/getMainCategory")
     .then((response) => response.text())
     .then((result) => {
-      console.log(result);
       const data = JSON.parse(result);
-      console.log(data);
+      console.log(data.data);
+      dispatch(MaincategoryActions.getmaincategory(data.data));
+      return data.data;
     })
     .catch((error) => console.log("error", error));
-  //   }, []);
 }
 export { FetchMainCategory };
