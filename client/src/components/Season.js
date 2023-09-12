@@ -6,7 +6,7 @@ import { Carousel, Typography, Button } from "@material-tailwind/react";
 const Season = () => {
   return (
     <div className="max-w-screen h-[45rem]">
-      <Carousel className="rounded-sm" autoplay={5000} loop={true}>
+      <Carousel className="rounded-sm" autoplay={true} loop={true}>
         <div className="relative h-full w-full">
           <img src={monsoon} alt=" 2" className="h-full w-full object-cover" />
           <div className="absolute inset-0 grid h-full w-full items-center bg-black/75">
