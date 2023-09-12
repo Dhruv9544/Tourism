@@ -38,6 +38,7 @@ const Slider = (result) => {
     des.textContent = item.desc.slice(0, 100) + "...";
 
     const button = document.createElement("button");
+    button.classList.add("mainbutton");
     button.textContent = "Explore";
 
     content.appendChild(name);

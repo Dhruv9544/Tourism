@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const CategoryCard = (props) => {
   return (
-    <div className="w-80 bg-white border border-gray-200 rounded-lg shadow dark:bg-white dark:border-gray-700 hover:scale-110  duration-200">
+    <div className="w-80  bg-white border border-gray-200 rounded-lg shadow dark:bg-white dark:border-gray-700 hover:scale-110  duration-200 sm:items-center">
       <Link href="#">
         <img
           className="rounded-t-lg w-80 h-60 "
