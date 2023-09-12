@@ -141,24 +141,24 @@ const InputData = () => {
           onSubmit={handleSubmit}
           className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 mt-8"
         >
-          <div class="relative inline-block m-5">
+          <div className="relative inline-block m-5">
             <div>
               <button
                 onClick={onClickHandler}
                 type="button"
-                class="flex justify-center items-center w-full rounded-md border border-gray-300 shadow-sm px-[15rem] py-2 bg-white text-[15px] font-bold text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring focus:ring-offset-2 focus:ring-indigo-500"
+                className="flex justify-center items-center w-full rounded-md border border-gray-300 shadow-sm px-[15rem] py-2 bg-white text-[15px] font-bold text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring focus:ring-offset-2 focus:ring-indigo-500"
               >
                 Select Items
               </button>
             </div>
-            <div class="origin-top-right absolute right-0 mt-3 w-full rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 divide-y divide-gray-200 hidden">
-              <div class="px-4 py-2">
+            <div className="origin-top-right absolute right-0 mt-3 w-full rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 divide-y divide-gray-200 hidden">
+              <div className="px-4 py-2">
                 {category.map((item) => (
-                  <label key={item} class="inline-flex items-center w-full">
+                  <label key={item} className="inline-flex items-center w-full">
                     <input
                       name="mainCategory"
                       type="checkbox"
-                      class="form-checkbox text-indigo-600"
+                      className="form-checkbox text-indigo-600"
                       id={item}
                       value={item}
                       checked={values.mainCategory.includes(item)}
@@ -170,11 +170,11 @@ const InputData = () => {
                 ))}
               </div>
 
-              {/* <div class="px-4 py-2">
-                <label class="inline-flex w-full items-center">
+              {/* <div className="px-4 py-2">
+                <label className="inline-flex w-full items-center">
                   <input
                     type="checkbox"
-                    class="form-checkbox text-indigo-600"
+                    className="form-checkbox text-indigo-600"
                     id="item2"
                   />{" "}
                   Item 2
