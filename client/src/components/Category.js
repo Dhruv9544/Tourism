@@ -1,10 +1,6 @@
 import CategoryCard from "./CategoryCard/CategoryCard";
-import religious from "./../assets/category/religious.jpg";
-import nature from "./../assets/category/nature.jpg";
-import waterpark from "./../assets/category/waterpark.jpg";
-import historical from "./../assets/category/historical.jpg";
-import adventure from "./../assets/category/adventure.jpg";
-import hillstation from "./../assets/category/hillstation.jpg";
+import { FetchMainCategory } from "../API/FetchMainCategory";
+import { useEffect } from "react";
 
 const Category = () => {
   return (
@@ -22,12 +18,12 @@ const Category = () => {
           </div>
 
           <div className="item-container">
-            <CategoryCard image={religious} title={"RELIGIOUS"}></CategoryCard>
-            <CategoryCard image={adventure} title={"ADVENTURE"}></CategoryCard>
-            <CategoryCard image={waterpark} title={"WATERPARK"}></CategoryCard>
+            {dat.map((item) => (
+              <CategoryCard image={item.image} title={item.name}></CategoryCard>
+            ))}
           </div>
 
-          <div className="item-container mt-10">
+          {/* <div className="item-container mt-10">
             <CategoryCard
               image={historical}
               title={"HISTORICAL"}
@@ -37,7 +33,7 @@ const Category = () => {
               image={hillstation}
               title={"HILL STATION"}
             ></CategoryCard>
-          </div>
+          </div> */}
 
           <div className="flex justify-center mt-10 md:hidden">
             <button className="btn w-full md:hidden">See All</button>
