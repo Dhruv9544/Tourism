@@ -83,6 +83,18 @@ const Navbar = () => {
                 Our Blogs
               </NavLink>
             </div>
+            <div className="group">
+              <NavLink
+                to={"ourblogs"}
+                className={({ isActive }) =>
+                  isActive
+                    ? "mx-2 bg-white group-hover:border-b-2 group-hover:border-blue-50 border-b-2 border-green-200"
+                    : "mx-2 bg-white text-black rounded p-2 border border-black shadow-white group-hover:bg-white/80"
+                }
+              >
+                Custom Search
+              </NavLink>
+            </div>
           </div>
           {/* <!-- Hamburger Button --> */}
           <div className="md:hidden">
@@ -119,6 +131,11 @@ const Navbar = () => {
             <div>
               <NavLink href="#" className="hover:text-pink-500">
                 Our Blogs
+              </NavLink>
+            </div>
+            <div>
+              <NavLink href="#" className="hover:text-pink-500">
+                Custom Search
               </NavLink>
             </div>
           </div>

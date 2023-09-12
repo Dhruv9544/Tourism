@@ -1,9 +1,10 @@
-import { useEffect, useRef, useState } from "react";
+import { Fragment, useEffect, useRef, useState } from "react";
 import "./Home.css";
 import Slider from "./../UI/Carousel";
 import Loader from "../components/Loader";
 import Category from "../components/Category";
 import Season from "../components/Season";
+import { FooterWithLogo } from "../components/Footer";
 const Home = () => {
   const [loading, setloading] = useState(false);
   const carouselref = useRef(null);
@@ -38,7 +39,7 @@ const Home = () => {
   }, []);
 
   return (
-    <>
+    <Fragment>
       {loading && <Loader></Loader>}
       <div id="carousel" className="" ref={carouselref}>
         <div className="title">
@@ -57,7 +58,10 @@ const Home = () => {
       <div className="season">
         <Season></Season>
       </div>
-    </>
+      <div className="mt-20">
+        <FooterWithLogo />
+      </div>
+    </Fragment>
   );
 };
 export default Home;

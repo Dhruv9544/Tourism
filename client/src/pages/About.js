@@ -3,7 +3,7 @@ import { Fragment } from "react";
 import adventure from "./../assets/category/adventure.jpg";
 export function About() {
   return (
-    <Fragment>
+    <div className="bg-[#FFEBEB]">
       <figure className="relative h-96 w-full">
         <img
           className="h-full w-full object-cover object-center"
@@ -18,75 +18,101 @@ export function About() {
           </div>
         </figcaption>
       </figure>
-      <div class="grid gap-4 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-3 mt-20 border border-red-700">
-        <div class="relative group  flex flex-col justify-center items-center border border-red-800">
-          <img src={adventure} alt="" class="w-72" />
-          <div class="absolute bottom-0 p-[4.5rem] px-16 text-white duration-700 bg-black opacity-0 transform translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 bg-opacity-40 ease-in transition-transform">
-            <div class="flex justify-between w-full">
-              <div class="font-normal">
-                <p class="text-xl font-bold">Abstact Painting</p>
-                <p class="text-sm">245 likes -35 Shares</p>
+      <div className="flex flex-wrap justify-between w-full  space-y-6 text-2xl text-white uppercase sm:items-center ">
+        <div className="relative group flex flex-col justify-center items-center w-full sm:w-1/2 md:w-1/3 mt-5">
+          <img
+            src={adventure}
+            alt=""
+            className="w-72 rounded-md shadow-lg shadow-black/60"
+          />
+          <div className="absolute bottom-0 p-[4.5rem] px-[3.3rem] text-white duration-700 bg-black opacity-0  group-hover:opacity-100 group-hover:translate-y-0 bg-opacity-40 ease-in-out animate-fade-in   transition-opacity ">
+            <div className="flex justify-between w-full">
+              <div className="font-normal">
+                <p className="text-xl">Abstact Painting</p>
+                <p className="text-sm">245 likes -35 Shares</p>
               </div>
             </div>
           </div>
         </div>
-        <div class="relative group  flex flex-col justify-center items-center border border-red-800">
-          <img src={adventure} alt="" class="w-72" />
-          <div class="absolute bottom-0 p-[4.5rem] px-16 text-white duration-700 bg-black opacity-0 transform translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 bg-opacity-40 ease-in-out transition-transform">
-            <div class="flex justify-between w-full">
-              <div class="font-normal">
-                <p class="text-xl">Abstact Painting</p>
-                <p class="text-sm">245 likes -35 Shares</p>
+        <div className="relative group flex flex-col justify-center items-center w-full sm:w-1/2 md:w-1/3 mt-5">
+          <img
+            src={adventure}
+            alt=""
+            className="w-72 rounded-md shadow-lg shadow-black/60"
+          />
+          <div className="absolute bottom-0 p-[4.5rem] px-[3.3rem] text-white duration-700 bg-black opacity-0  group-hover:opacity-100 group-hover:translate-y-0 bg-opacity-40 ease-in-out animate-fade-in   transition-opacity ">
+            <div className="flex justify-between w-full">
+              <div className="font-normal">
+                <p className="text-xl">Abstact Painting</p>
+                <p className="text-sm">245 likes -35 Shares</p>
               </div>
             </div>
           </div>
         </div>
-        <div class="relative group  flex flex-col justify-center items-center border border-red-800">
-          <img src={adventure} alt="" class="w-72" />
-          <div class="absolute bottom-0 p-[4.5rem] px-16 text-white duration-700 bg-black opacity-0 transform translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 bg-opacity-40 ease-in-out transition-transform">
-            <div class="flex justify-between w-full">
-              <div class="font-normal">
-                <p class="text-xl">Abstact Painting</p>
-                <p class="text-sm">245 likes -35 Shares</p>
+
+        <div className="relative group flex flex-col justify-center items-center w-full sm:w-1/2 md:w-1/3 mt-5">
+          <img
+            src={adventure}
+            alt=""
+            className="w-72 rounded-md shadow-lg shadow-black/60"
+          />
+          <div className="absolute bottom-0 p-[4.5rem] px-[3.3rem] text-white duration-700 bg-black opacity-0  group-hover:opacity-100 group-hover:translate-y-0 bg-opacity-40 ease-in-out animate-fade-in   transition-opacity ">
+            <div className="flex justify-between w-full">
+              <div className="font-normal">
+                <p className="text-xl">Abstact Painting</p>
+                <p className="text-sm">245 likes -35 Shares</p>
               </div>
             </div>
           </div>
         </div>
-        <div class="relative group  flex flex-col justify-center items-center">
-          <img src={adventure} alt="" class="w-72" />
-          <div class="absolute bottom-0 p-[4.5rem] px-16 text-white duration-700 bg-black opacity-0 transform translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 bg-opacity-40 ease-in-out transition-transform">
-            <div class="flex justify-between w-full">
-              <div class="font-normal">
-                <p class="text-xl">Abstact Painting</p>
-                <p class="text-sm">245 likes -35 Shares</p>
+
+        <div className="relative group flex flex-col justify-center items-center w-full sm:w-1/2 md:w-1/3 mt-5">
+          <img
+            src={adventure}
+            alt=""
+            className="w-72 rounded-md shadow-lg shadow-black/60"
+          />
+          <div className="absolute bottom-0 p-[4.5rem] px-[3.3rem] text-white duration-700 bg-black opacity-0  group-hover:opacity-100 group-hover:translate-y-0 bg-opacity-40 ease-in-out animate-fade-in   transition-opacity ">
+            <div className="flex justify-between w-full">
+              <div className="font-normal">
+                <p className="text-xl">Abstact Painting</p>
+                <p className="text-sm">245 likes -35 Shares</p>
               </div>
             </div>
           </div>
         </div>
-        <div class="relative group  flex flex-col justify-center items-center">
-          <img src={adventure} alt="" class="w-72" />
-          <div class="absolute bottom-0 p-[4.5rem] px-16 text-white duration-700 bg-black opacity-0 transform translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 bg-opacity-40 ease-in-out transition-transform">
-            <div class="flex justify-between w-full">
-              <div class="font-normal">
-                <p class="text-xl">Abstact Painting</p>
-                <p class="text-sm">245 likes -35 Shares</p>
+        <div className="relative group flex flex-col justify-center items-center w-full sm:w-1/2 md:w-1/3 mt-5">
+          <img
+            src={adventure}
+            alt=""
+            className="w-72 rounded-md shadow-lg shadow-black/60"
+          />
+          <div className="absolute bottom-0 p-[4.5rem] px-[3.3rem] text-white duration-700 bg-black opacity-0  group-hover:opacity-100 group-hover:translate-y-0 bg-opacity-40 ease-in-out animate-fade-in   transition-opacity ">
+            <div className="flex justify-between w-full">
+              <div className="font-normal">
+                <p className="text-xl">Abstact Painting</p>
+                <p className="text-sm">245 likes -35 Shares</p>
               </div>
             </div>
           </div>
         </div>
-        <div class="relative group  flex flex-col justify-center items-center">
-          <img src={adventure} alt="" class="w-72" />
-          <div class="absolute bottom-0 p-[4.5rem] px-16 text-white duration-700 bg-black opacity-0 transform translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 bg-opacity-40 ease-in-out transition-transform">
-            <div class="flex justify-between w-full">
-              <div class="font-normal">
-                <p class="text-xl">Abstact Painting</p>
-                <p class="text-sm">245 likes -35 Shares</p>
+        <div className="relative group flex flex-col justify-center items-center w-full sm:w-1/2 md:w-1/3 mt-5">
+          <img
+            src={adventure}
+            alt=""
+            className="w-72 rounded-md shadow-lg shadow-black/60"
+          />
+          <div className="absolute bottom-0 p-[4.5rem] px-[3.3rem] text-white duration-700 bg-black opacity-0  group-hover:opacity-100 group-hover:translate-y-0 bg-opacity-40 ease-in-out animate-fade-in   transition-opacity ">
+            <div className="flex justify-between w-full">
+              <div className="font-normal">
+                <p className="text-xl">Abstact Painting</p>
+                <p className="text-sm">245 likes -35 Shares</p>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </Fragment>
+    </div>
   );
 }
 
