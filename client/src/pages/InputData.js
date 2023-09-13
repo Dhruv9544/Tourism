@@ -48,10 +48,11 @@ const InputData = () => {
 
   //fetch from redux store
   FetchDistrict();
-  FetchCategory();
+  // FetchCategory();
   FetchDuration();
   FetchSeason();
-  const category = useSelector((state) => state.formoptions.category);
+  const category = useSelector((state) => state.Maincategory.category);
+  console.log(category);
   const district = useSelector((state) => state.formoptions.district);
   const season = useSelector((state) => state.formoptions.season);
   const duration = useSelector((state) => state.formoptions.duration);
@@ -141,7 +142,7 @@ const InputData = () => {
           onSubmit={handleSubmit}
           className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 mt-8"
         >
-          <div className="relative inline-block m-5">
+          {/* <div className="relative inline-block m-5">
             <div>
               <button
                 onClick={onClickHandler}
@@ -152,41 +153,14 @@ const InputData = () => {
               </button>
             </div>
             <div className="origin-top-right absolute right-0 mt-3 w-full rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 divide-y divide-gray-200 hidden">
-              <div className="px-4 py-2">
-                {category.map((item) => (
-                  <label key={item} className="inline-flex items-center w-full">
-                    <input
-                      name="mainCategory"
-                      type="checkbox"
-                      className="form-checkbox text-indigo-600"
-                      id={item}
-                      value={item}
-                      checked={values.mainCategory.includes(item)}
-                      onChange={handleChange}
-                      onBlur={handleBlur}
-                    />{" "}
-                    {item}
-                  </label>
-                ))}
-              </div>
-
-              {/* <div className="px-4 py-2">
-                <label className="inline-flex w-full items-center">
-                  <input
-                    type="checkbox"
-                    className="form-checkbox text-indigo-600"
-                    id="item2"
-                  />{" "}
-                  Item 2
-                </label>
-              </div> */}
+              <div className="px-4 py-2"></div>
             </div>
             {errors.mainCategory && touched.mainCategory ? (
               <small className="text-ligth text-red-600">
                 {errors.mainCategory}
               </small>
             ) : null}
-          </div>
+          </div> */}
           <div className="mb-4">
             <label
               className="block text-gray-700 text-sm font-bold mb-2"
@@ -644,13 +618,13 @@ const InputData = () => {
 
             <div>
               {category.map((item) => (
-                <label key={item}>
+                <label key={item._id}>
                   <input
                     type="checkbox"
                     name="Category"
-                    value={item}
-                    id={item}
-                    checked={values.Category.includes(item)}
+                    value={item.name}
+                    id={item._id}
+                    checked={values.Category.includes(item.name)}
                     onBlur={handleBlur}
                     onChange={(e) => {
                       // Log the updated values immediately upon clicking
@@ -669,7 +643,7 @@ const InputData = () => {
                       setFieldValue("Category", updatedValues);
                     }}
                   />
-                  {item}
+                  {item.name}
                 </label>
               ))}
             </div>
