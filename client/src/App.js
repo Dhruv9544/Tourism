@@ -6,6 +6,7 @@ import ErrorPage from "./pages/ErrorPage";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import SubCategory from "./pages/SubCategory";
+import SubCategoryCard from "./components/SubCategoryCard";
 const routes = createBrowserRouter([
   {
     path: "/",
@@ -31,6 +32,13 @@ const routes = createBrowserRouter([
         path: "category/:id",
         element: <SubCategory />,
         errorElement: <ErrorPage />,
+        children: [
+          {
+            path: ":subcategory",
+            element: <SubCategoryCard />,
+            errorElement: <ErrorPage />,
+          },
+        ],
       },
     ],
   },

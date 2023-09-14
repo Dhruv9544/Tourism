@@ -1,5 +1,5 @@
 import { Typography } from "@material-tailwind/react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Outlet } from "react-router-dom";
 import { Button } from "@material-tailwind/react";
 import { Fragment, useMemo } from "react";
 import { useParams } from "react-router-dom";
@@ -38,6 +38,7 @@ export function SubCategory() {
         {data.subcategory.map((item) => (
           <NavLink
             key={item}
+            to={`/category/${categoryid}/${item}`}
             className={({ isActive }) =>
               isActive
                 ? "flex items-center gap-3 [&>button]:bg-deep-orange-400 [&>button]:hover:bg-deep-orange-900  "
@@ -48,6 +49,7 @@ export function SubCategory() {
           </NavLink>
         ))}
       </div>
+      <Outlet></Outlet>
     </Fragment>
   );
 }
