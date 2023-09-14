@@ -5,6 +5,8 @@ const initialValues = {
     {
       name: "",
       subcategory: [],
+      id: "",
+      image: "",
     },
   ],
 };

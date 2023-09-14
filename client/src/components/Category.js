@@ -2,6 +2,7 @@ import CategoryCard from "./CategoryCard/CategoryCard";
 import { useSelector } from "react-redux/es/hooks/useSelector";
 const Category = () => {
   const dat = useSelector((state) => state.Maincategory.category);
+  console.log(dat);
   return (
     <div>
       <section id="creations">
@@ -22,6 +23,7 @@ const Category = () => {
                 image={item.image}
                 title={item.name}
                 key={item.name}
+                id={item._id}
               ></CategoryCard>
             ))}
           </div>

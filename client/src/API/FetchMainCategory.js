@@ -6,7 +6,7 @@ function FetchMainCategory() {
     .then((response) => response.text())
     .then((result) => {
       const data = JSON.parse(result);
-      // console.log(data.data);
+      console.log(data.data);
       const maindata = data.data;
       dispatch(MaincategoryActions.getmaincategory(data.data));
       maindata.map((item) =>
@@ -14,6 +14,8 @@ function FetchMainCategory() {
           MaincategoryActions.getsubcategory({
             name: item.name,
             subcategory: item.subcategories,
+            id: item._id,
+            image: item.image,
           })
         )
       );
