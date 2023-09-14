@@ -10,7 +10,6 @@ export const FooterWithLogo = () => {
           <li>
             <Link to={"about"}>
               <Typography
-                as="a"
                 color="white"
                 className="font-normal transition-colors hover:text-blue-500 focus:text-blue-500"
               >
@@ -21,7 +20,6 @@ export const FooterWithLogo = () => {
           <li>
             <Link to={"admin"}>
               <Typography
-                as="a"
                 color="white"
                 className="font-normal transition-colors  hover:text-blue-500 focus:text-blue-500"
               >
@@ -32,7 +30,6 @@ export const FooterWithLogo = () => {
           <li>
             <Link to={"/"}>
               <Typography
-                as="a"
                 color="white"
                 className="font-normal transition-colors  hover:text-blue-500 focus:text-blue-500"
               >
@@ -43,7 +40,6 @@ export const FooterWithLogo = () => {
           <li>
             <Link to={"contact"}>
               <Typography
-                as="a"
                 color="white"
                 className="font-normal transition-colors hover:text-blue-500 focus:text-blue-500"
               >

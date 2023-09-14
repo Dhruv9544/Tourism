@@ -18,7 +18,11 @@ const Category = () => {
 
           <div className="flex flex-wrap justify-between w-full space-y-6 text-2xl text-white uppercase sm:items-center">
             {dat.map((item) => (
-              <CategoryCard image={item.image} title={item.name}></CategoryCard>
+              <CategoryCard
+                image={item.image}
+                title={item.name}
+                key={item.name}
+              ></CategoryCard>
             ))}
           </div>
 
