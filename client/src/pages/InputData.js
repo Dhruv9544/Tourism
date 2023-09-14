@@ -620,14 +620,14 @@ const InputData = () => {
                 <label key={item._id}>
                   <input
                     type="checkbox"
-                    name="Category"
+                    name="mainCategory"
                     value={item.name}
                     id={item._id}
-                    checked={values.Category.includes(item.name)}
+                    checked={values.mainCategory.includes(item.name)}
                     onBlur={handleBlur}
                     onChange={(e) => {
                       // Log the updated values immediately upon clicking
-                      const updatedValues = [...values.Category];
+                      const updatedValues = [...values.mainCategory];
                       if (e.target.checked) {
                         updatedValues.push(e.target.value);
                       } else {
@@ -639,16 +639,16 @@ const InputData = () => {
                       // console.log("Updated values:", updatedValues);
                       onChangeHandler(updatedValues);
                       // Update Formik's state
-                      setFieldValue("Category", updatedValues);
+                      setFieldValue("mainCategory", updatedValues);
                     }}
                   />
                   {item.name}
                 </label>
               ))}
             </div>
-            {errors.Category && touched.Category ? (
+            {errors.mainCategory && touched.mainCategory ? (
               <small className="text-ligth text-red-600">
-                {errors.Category}
+                {errors.mainCategory}
               </small>
             ) : null}
           </div>
@@ -672,13 +672,28 @@ const InputData = () => {
                       className="inline-flex items-center w-full"
                     >
                       <input
-                        name="mainCategory"
+                        name="Category"
                         type="checkbox"
                         className="form-checkbox text-indigo-600"
                         id={item}
                         value={item}
-                        checked={values.mainCategory.includes(item)}
-                        onChange={handleChange}
+                        checked={values.Category.includes(item)}
+                        onChange={(e) => {
+                          // Log the updated values immediately upon clicking
+                          const updatedValues = [...values.Category];
+                          if (e.target.checked) {
+                            updatedValues.push(e.target.value);
+                          } else {
+                            const index = updatedValues.indexOf(e.target.value);
+                            if (index !== -1) {
+                              updatedValues.splice(index, 1);
+                            }
+                          }
+                          // console.log("Updated values:", updatedValues);
+                          onChangeHandler(updatedValues);
+                          // Update Formik's state
+                          setFieldValue("Category", updatedValues);
+                        }}
                         onBlur={handleBlur}
                       />
                       {item}
@@ -686,9 +701,9 @@ const InputData = () => {
                   ))}
               </div>
             </div>
-            {errors.mainCategory && touched.mainCategory ? (
+            {errors.Category && touched.Category ? (
               <small className="text-ligth text-red-600">
-                {errors.mainCategory}
+                {errors.Category}
               </small>
             ) : null}
           </div>
