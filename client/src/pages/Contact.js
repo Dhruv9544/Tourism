@@ -5,7 +5,7 @@ import {
   Typography,
   Avatar,
 } from "@material-tailwind/react";
-import monsoon from './../assets/season/monsoon.jpg'
+import monsoon from "./../assets/season/monsoon.jpg";
 const StarIcon = () => {
   return (
     <svg
@@ -25,54 +25,43 @@ const StarIcon = () => {
 
 const Contact = () => {
   return (
-    <div className="flex justify-center mt-4">
-    <Card
-      color="transparent"
-      shadow={false}
-      className=" w-3/4 p-8 border border-black hover:scale-105  duration-150"
-      style={{
-        backgroundImage:  `url(${monsoon})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-      }}
-      
-    >
-      <CardHeader
-        color="transparent"
-        floated={false}
-        shadow={false}
-        className="mx-0 flex items-center gap-4 pt-0 pb-8"
-      >
-        {/* <Avatar
-          size="lg"
-          variant="circular"
-          src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480&q=80"
-          alt="tania andrew"
-        /> */}
-        <div className="flex w-full flex-col gap-0.5">
-          <div className="flex items-center justify-between">
-            <Typography variant="h5" color="white">
-              Amabaji
-            </Typography>
-            <div className="5 flex items-center gap-0">
-              <StarIcon />
+    <div class="flex justify-between gap-5 mx-16 mt-5">
+      {/* <!-- Card 1 --> */}
+      <div class="w-1/2 relative rounded-lg overflow-hidden group">
+        <img src={monsoon} alt="" class="w-full h-60" />
+        <div class="absolute inset-0 flex items-center h-60 justify-center bg-black bg-opacity-50 transition-opacity duration-300 opacity-0 group-hover:opacity-100 group-hover:visible">
+          {/* <!-- Left-aligned heading and stars --> */}
+          <div class="w-full h-60 flex items-center justify-center p-2">
+            <h2 class="text-white text-2xl font-semibold ml-3">
+              Card 1 Heading
+            </h2>
+            <div class="flex items-center space-x-2 mr-3"></div>
+          </div>
+        </div>
+        {/* below content  */}
+        <div class=" absolute bottom-0 w-full flex items-start justify-between bg-transparent transition-opacity duration-300  p-2 opacity-100 visible group-hover:opacity-0 group-hover:invisible">
+          {/* <!-- Right-aligned heading and stars --> */}
+          <div class="flex items-center justify-between w-full p-2">
+            <h2 class="text-white text-2xl font-semibold ml-3">
+              Card 1 Heading
+            </h2>
+            <div className="flex items-center space-x-2 mr-3">
               <StarIcon />
               <StarIcon />
               <StarIcon />
               <StarIcon />
             </div>
           </div>
-          <Typography color="white">Religious place</Typography>
         </div>
-      </CardHeader>
-      <CardBody className="mb-6 p-0 text-white">
-        <Typography>
-          &quot;I found solution to all my design needs from Creative Tim. I use
-          them as a freelancer in my hobby projects for fun! And its really
-          affordable, very humble guys !!!&quot;
-        </Typography>
-      </CardBody>
-    </Card>
+      </div>
+
+      {/* <!-- Card 2 --> */}
+      <div class="w-1/2 relative rounded-lg overflow-hidden">
+        <img src={monsoon} alt="" class="w-full h-60" />
+        <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 transition-opacity duration-300 opacity-0 hover:opacity-100">
+          <h2 class="text-white text-2xl font-semibold">Card 2 Heading</h2>
+        </div>
+      </div>
     </div>
   );
 };
