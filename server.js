@@ -10,9 +10,10 @@ const getseasons = require("./Controller/getSeasons");
 const getduration = require("./Controller/getDuration");
 const adduration = require("./Controller/addDuration");
 const getTopDestination = require("./Controller/getTopDestination");
-
+const getMainCategory = require("./Controller/getMainCategory");
+const getReqCategory=require('./Controller/getReqCategory')
 const formdataroute = require("./routes/formdataroute");
-
+const categoryroute = require("./routes/categoryroute");
 require("./config/dbconfig").getDbConnection();
 
 const app = express();
@@ -24,6 +25,7 @@ app.use(cors());
 app.use(bodyparser.json());
 
 app.use("/formdata", formdataroute);
+app.use("/category", categoryroute);
 
 app.post("/adddistricts", addDistricts.AddDistrict);
 app.get("/getdistricts", getDistricts.getAllDistricts);
@@ -39,6 +41,11 @@ app.get("/getduration", getduration.getAllDuration);
 // app.post("/formdata", );
 
 app.get("/gettopdestination", getTopDestination.getTopDestination);
+
+// app.post("/addMainCategory", addMainCategory.addData);
+app.get("/getMainCategory", getMainCategory.getCategory);
+
+app.get("/getReqCategory",getReqCategory.gettours)
 
 app.listen(9999);
 console.log("server started at 9999");

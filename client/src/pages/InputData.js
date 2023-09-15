@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useFormik } from "formik";
 import { formSchemas } from "../schemas/Index";
 import { useSelector } from "react-redux/es/hooks/useSelector";
@@ -27,22 +27,57 @@ const initialValues = {
   location: "",
   website_link: "",
   Category: [],
-  season: "",
+  season: [],
   day: "",
   distric: "",
   rating: "",
+  mainCategory: [],
 };
 
 const InputData = () => {
+  let Subcategory = [];
+  const [finalsubcategory, setfinalsubcategory] = useState([]);
+  const [currentgeneral, setcurrentgeneral] = useState(false);
+  const intsub = [];
+  const [dropdownopen, setdropdownopen] = useState(false);
+  const onClickHandler = () => {
+    setdropdownopen(!dropdownopen);
+    const dropdown = document.querySelector(".origin-top-right");
+    dropdown.classList.toggle("hidden");
+  };
+
   //fetch from redux store
   FetchDistrict();
-  FetchCategory();
   FetchDuration();
   FetchSeason();
-  const category = useSelector((state) => state.formoptions.category);
+  const category = useSelector((state) => state.Maincategory.category);
+  const subcategories = useSelector(
+    (state) => state.Maincategory.subcategories
+  );
   const district = useSelector((state) => state.formoptions.district);
   const season = useSelector((state) => state.formoptions.season);
   const duration = useSelector((state) => state.formoptions.duration);
+
+  const onChangeHandler = (e) => {
+    if (e.length === 0) {
+      setcurrentgeneral(true);
+    } else setcurrentgeneral(false);
+    for (let index = 0; index < e.length; index++) {
+      const element = e[index];
+      for (let j = 0; j < subcategories.length; j++) {
+        // console.log(subcategories[j].subcategory);
+        if (element === subcategories[j].name) {
+          Subcategory.push(subcategories[j].subcategory);
+        }
+      }
+    }
+    Subcategory.forEach((innerArray) => {
+      innerArray.forEach((element) => {
+        intsub.push(element);
+        setfinalsubcategory(intsub);
+      });
+    });
+  };
 
   const handleFileChange = (event) => {
     const selectedFiles = Array.from(event.target.files);
@@ -111,9 +146,12 @@ const InputData = () => {
       // console.log(values);
       // action.resetForm();
     },
+    onChange: (values, action) => {
+      console.log(values);
+      onChangeHandler(values.Category);
+    },
   });
   // console.log(errors);
-
   // console.log(values);
   return (
     <div className="flex items-center justify-center bg-cyan-50 min-h-screen">
@@ -579,19 +617,89 @@ const InputData = () => {
 
             <div>
               {category.map((item) => (
-                <label key={item}>
+                <label key={item._id}>
                   <input
                     type="checkbox"
-                    name="Category"
-                    value={item}
-                    id={item}
-                    checked={values.Category.includes(item)}
-                    onChange={handleChange}
+                    name="mainCategory"
+                    value={item.name}
+                    id={item._id}
+                    checked={values.mainCategory.includes(item.name)}
                     onBlur={handleBlur}
+                    onChange={(e) => {
+                      // Log the updated values immediately upon clicking
+                      const updatedValues = [...values.mainCategory];
+                      if (e.target.checked) {
+                        updatedValues.push(e.target.value);
+                      } else {
+                        const index = updatedValues.indexOf(e.target.value);
+                        if (index !== -1) {
+                          updatedValues.splice(index, 1);
+                        }
+                      }
+                      // console.log("Updated values:", updatedValues);
+                      onChangeHandler(updatedValues);
+                      // Update Formik's state
+                      setFieldValue("mainCategory", updatedValues);
+                    }}
                   />
-                  {item}
+                  {item.name}
                 </label>
               ))}
+            </div>
+            {errors.mainCategory && touched.mainCategory ? (
+              <small className="text-ligth text-red-600">
+                {errors.mainCategory}
+              </small>
+            ) : null}
+          </div>
+
+          <div className="relative inline-block m-5">
+            <div>
+              <button
+                onClick={onClickHandler}
+                type="button"
+                className="flex justify-center items-center w-full rounded-md border border-gray-300 shadow-sm px-[15rem] py-2 bg-white text-[15px] font-bold text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring focus:ring-offset-2 focus:ring-indigo-500"
+              >
+                Select Items
+              </button>
+            </div>
+            <div className="origin-top-right absolute right-0 mt-3 w-full rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 divide-y divide-gray-200 hidden">
+              <div className="px-4 py-2">
+                {!currentgeneral &&
+                  finalsubcategory.map((item) => (
+                    <label
+                      key={item}
+                      className="inline-flex items-center w-full"
+                    >
+                      <input
+                        name="Category"
+                        type="checkbox"
+                        className="form-checkbox text-indigo-600"
+                        id={item}
+                        value={item}
+                        checked={values.Category.includes(item)}
+                        onChange={(e) => {
+                          // Log the updated values immediately upon clicking
+                          const updatedValues = [...values.Category];
+                          if (e.target.checked) {
+                            updatedValues.push(e.target.value);
+                          } else {
+                            const index = updatedValues.indexOf(e.target.value);
+                            if (index !== -1) {
+                              updatedValues.splice(index, 1);
+                            }
+                          }
+                          // console.log("Updated values:", updatedValues);
+                          onChangeHandler(updatedValues);
+                          // Update Formik's state
+                          setFieldValue("Category", updatedValues);
+                        }}
+                        onBlur={handleBlur}
+                      />
+                      {item}
+                    </label>
+                  ))}
+              </div>
             </div>
             {errors.Category && touched.Category ? (
               <small className="text-ligth text-red-600">
@@ -599,27 +707,31 @@ const InputData = () => {
               </small>
             ) : null}
           </div>
+
           <div className="mb-4">
             <label
               className="block text-gray-700 text-sm font-bold mb-2"
-              htmlFor="time"
+              htmlFor="season"
             >
               Season
             </label>
 
-            {season.map((item) => (
-              <label htmlFor="season" className="p-3" key={item}>
-                <input
-                  name="season"
-                  type="radio"
-                  value={item}
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                />
-                {item}
-              </label>
-            ))}
-
+            <div className="">
+              {season.map((item) => (
+                <label key={item} className="mr-4">
+                  <input
+                    type="checkbox"
+                    name="season"
+                    value={item}
+                    id={item}
+                    checked={values.season.includes(item)}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                  />
+                  {item}
+                </label>
+              ))}
+            </div>
             {errors.season && touched.season ? (
               <small className="text-ligth text-red-600">{errors.season}</small>
             ) : null}

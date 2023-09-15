@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { Fragment, useEffect, useRef, useState } from "react";
 import "./Home.css";
 import Slider from "./../UI/Carousel";
 import Loader from "../components/Loader";
@@ -26,7 +26,7 @@ const Home = () => {
           desc: result[key].AboutPlace,
         });
       }
-      console.log(dataarray);
+      // console.log(dataarray);
       setloading(false);
       if (carouselref) {
         Slider(dataarray);
@@ -38,13 +38,13 @@ const Home = () => {
   }, []);
 
   return (
-    <>
+    <Fragment>
       {loading && <Loader></Loader>}
       <div id="carousel" className="" ref={carouselref}>
         <div className="title">
-          <h1 className="text-4xl text-center pt-5 pl-[100px] uppercase md:text-left md:text-5xl">
+          {/* <h1 className="text-4xl text-center pt-5 pl-[100px] uppercase md:text-left md:text-5xl">
             Top Destination
-          </h1>
+          </h1> */}
         </div>
       </div>
 
@@ -57,7 +57,7 @@ const Home = () => {
       <div className="season">
         <Season></Season>
       </div>
-    </>
+    </Fragment>
   );
 };
 export default Home;

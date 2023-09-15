@@ -68,7 +68,7 @@ const TourDataSchema = new mongoose.Schema({
     // required: true,
   },
   Season: {
-    type: String,
+    type:  mongoose.Schema.Types.Mixed ,
     // required: true,
   },
   District: {

@@ -1,12 +1,8 @@
 import CategoryCard from "./CategoryCard/CategoryCard";
-import religious from "./../assets/category/religious.jpg";
-import nature from "./../assets/category/nature.jpg";
-import waterpark from "./../assets/category/waterpark.jpg";
-import historical from "./../assets/category/historical.jpg";
-import adventure from "./../assets/category/adventure.jpg";
-import hillstation from "./../assets/category/hillstation.jpg";
-
+import { useSelector } from "react-redux/es/hooks/useSelector";
 const Category = () => {
+  const dat = useSelector((state) => state.Maincategory.category);
+  console.log(dat);
   return (
     <div>
       <section id="creations">
@@ -21,13 +17,18 @@ const Category = () => {
             </button>
           </div>
 
-          <div className="item-container">
-            <CategoryCard image={religious} title={"RELIGIOUS"}></CategoryCard>
-            <CategoryCard image={adventure} title={"ADVENTURE"}></CategoryCard>
-            <CategoryCard image={waterpark} title={"WATERPARK"}></CategoryCard>
+          <div className="flex flex-wrap justify-between w-full space-y-6 text-2xl text-white uppercase sm:items-center">
+            {dat.map((item) => (
+              <CategoryCard
+                image={item.image}
+                title={item.name}
+                key={item.name}
+                id={item._id}
+              ></CategoryCard>
+            ))}
           </div>
 
-          <div className="item-container mt-10">
+          {/* <div className="item-container mt-10">
             <CategoryCard
               image={historical}
               title={"HISTORICAL"}
@@ -37,7 +38,7 @@ const Category = () => {
               image={hillstation}
               title={"HILL STATION"}
             ></CategoryCard>
-          </div>
+          </div> */}
 
           <div className="flex justify-center mt-10 md:hidden">
             <button className="btn w-full md:hidden">See All</button>
