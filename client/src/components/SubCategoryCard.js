@@ -1,10 +1,10 @@
-<<<<<<< HEAD
+
 import monsoon from "./../assets/season/monsoon.jpg";
-=======
+
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 
->>>>>>> e56814f7b9591fe611e913c9580c4722c1620c70
+
 const StarIcon = () => {
   return (
     <svg
