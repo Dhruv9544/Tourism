@@ -4,8 +4,9 @@ export const FooterWithLogo = () => {
   return (
     <footer className="w-full bg-[#252525] p-8">
       <div className="flex flex-row flex-wrap items-center justify-center gap-y-6 gap-x-12 bg-[#252525]  text-center md:justify-between">
-        {/* <img src={nature} alt="logo-ct" className="w-10" /> */}
-        <h1 className="text-white">Tourism</h1>
+        <Link to={"/"}>
+          <h1 className="text-white">Tourism</h1>
+        </Link>
         <ul className="flex flex-wrap items-center gap-y-2 gap-x-8 ">
           <li>
             <Link to={"about"}>
@@ -13,7 +14,7 @@ export const FooterWithLogo = () => {
                 color="white"
                 className="font-normal transition-colors hover:text-blue-500 focus:text-blue-500"
               >
-                About Us
+                About
               </Typography>
             </Link>
           </li>
@@ -43,7 +44,7 @@ export const FooterWithLogo = () => {
                 color="white"
                 className="font-normal transition-colors hover:text-blue-500 focus:text-blue-500"
               >
-                Contact Us
+                Contact
               </Typography>
             </Link>
           </li>
