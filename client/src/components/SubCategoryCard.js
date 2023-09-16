@@ -1,10 +1,3 @@
-import {
-  Card,
-  CardHeader,
-  CardBody,
-  Typography,
-  Avatar,
-} from "@material-tailwind/react";
 import monsoon from "./../assets/season/monsoon.jpg";
 const StarIcon = () => {
   return (
