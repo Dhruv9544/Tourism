@@ -1,9 +1,12 @@
-
-import monsoon from "./../assets/season/monsoon.jpg";
-
+import {
+  Card,
+  CardHeader,
+  CardBody,
+  Typography,
+  Button,
+} from "@material-tailwind/react";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-
 
 const StarIcon = () => {
   return (
@@ -44,33 +47,77 @@ const SubCategoryCard = () => {
   }, [urlparameter]);
 
   return (
-    <div class="flex justify-between gap-5 mx-16 mt-5">
+    // <div>
+    //   <div class="flex justify-between gap-5 mx-16 mt-5">
+    //     {result.map((item) => (
+    //       <div class="w-1/2 relative rounded-lg overflow-hidden group">
+    //         <img src={item.Thumbnail} alt="" class="w-full h-60" />
+    //         <div class="absolute inset-0 flex items-center h-60 justify-center bg-black bg-opacity-50 transition-opacity duration-300 opacity-0 group-hover:opacity-100 group-hover:visible">
+    //           {/* <!-- Left-aligned heading and stars --> */}
+    //           <div class="w-full h-60 flex items-center justify-center p-2">
+    //             <h2 class="text-white text-2xl font-semibold ml-3">
+    //               {item.DestinationName}
+    //             </h2>
+    //             <div class="flex items-center space-x-2 mr-3"></div>
+    //           </div>
+    //         </div>
+    //         {/* below content  */}
+    //         <div class=" absolute bottom-0 w-full flex items-start justify-between bg-transparent transition-opacity duration-300  p-2 opacity-100 visible group-hover:opacity-0 group-hover:invisible">
+    //           {/* <!-- Right-aligned heading and stars --> */}
+    //           <div class="flex items-center justify-between w-full p-2">
+    //             <h2 class="text-white text-2xl font-semibold ml-3">
+    //               {item.DestinationName}
+    //             </h2>
+    //             <div className="flex items-center space-x-2 mr-3">
+    //               <StarIcon number={item.Rating} />
+    //             </div>
+    //           </div>
+    //         </div>
+    //       </div>
+    //     ))}
+    //   </div>
+    <div className="flex justify-center items-center">
       {result.map((item) => (
-        <div class="w-1/2 relative rounded-lg overflow-hidden group">
-          <img src={item.Thumbnail} alt="" class="w-full h-60" />
-          <div class="absolute inset-0 flex items-center h-60 justify-center bg-black bg-opacity-50 transition-opacity duration-300 opacity-0 group-hover:opacity-100 group-hover:visible">
-            {/* <!-- Left-aligned heading and stars --> */}
-            <div class="w-full h-60 flex items-center justify-center p-2">
-              <h2 class="text-white text-2xl font-semibold ml-3">
-                {item.DestinationName}
-              </h2>
-              <div class="flex items-center space-x-2 mr-3"></div>
-            </div>
-          </div>
-          {/* below content  */}
-          <div class=" absolute bottom-0 w-full flex items-start justify-between bg-transparent transition-opacity duration-300  p-2 opacity-100 visible group-hover:opacity-0 group-hover:invisible">
-            {/* <!-- Right-aligned heading and stars --> */}
-            <div class="flex items-center justify-between w-full p-2">
-              <h2 class="text-white text-2xl font-semibold ml-3">
-                {item.DestinationName}
-              </h2>
-              <div className="flex items-center space-x-2 mr-3">
-                <StarIcon number={item.Rating} />
-              </div>
-            </div>
-          </div>
-        </div>
+        <Card className="w-full max-w-5xl h-56 flex-row mt-5 shadow-sm shadow-black">
+          <CardHeader
+            shadow={true}
+            floated={false}
+            className="m-0 w-2/5 shrink-0 rounded-r-none"
+          >
+            <img
+              src={item.Thumbnail}
+              alt="card"
+              className="h-full w-full object-cover"
+            />
+          </CardHeader>
+          <CardBody className="sm:flex-grow">
+            <Typography variant="h6" color="gray" className="mb-4 uppercase">
+              {item.DestinationName}
+            </Typography>
+            <Typography variant="p" color="blue-gray" className="mb-2 text-lg">
+              Lyft launching cross-platform service this week
+              {/* {item.DestinationName} */}
+            </Typography>
+            <Typography color="gray" className="mb-3 font-normal">
+              Like so many organizations these days, Autodesk is a company in
+              transition.
+            </Typography>
+            <Typography className="flex flex-row">
+              Rating : -
+              <StarIcon />
+              <StarIcon />
+              <StarIcon />
+            </Typography>
+            <Typography color="gray" className=" font-normal">
+              Opening Time : 9:00 am
+            </Typography>
+            <Typography color="gray" className="mb-8 font-normal">
+              Closing Time : 6:00 pm
+            </Typography>
+          </CardBody>
+        </Card>
       ))}
+      {/* </div> */}
     </div>
   );
 };
