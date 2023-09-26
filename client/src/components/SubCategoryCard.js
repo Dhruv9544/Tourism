@@ -8,8 +8,11 @@ import {
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 
-const StarIcon = () => {
-  return (
+const StarIcon = (props) => {
+  let arr = new Array(props.rating);
+
+  console.log(arr);
+  return arr.map((item) => (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 24 24"
@@ -22,7 +25,7 @@ const StarIcon = () => {
         clipRule="evenodd"
       />
     </svg>
-  );
+  ));
 };
 
 const SubCategoryCard = () => {
@@ -100,11 +103,14 @@ const SubCategoryCard = () => {
               {/* <!-- content --> */}
               <div class="w-full py-4 px-6 text-gray-800 flex flex-col justify-between">
                 <h3 class="font-semibold text-lg leading-tight truncate">
-                  Gir Natinal Park
+                  {item.DestinationName}
                 </h3>
-                <p class="mt-2">Any Description</p>
+                <p class="mt-2">{item.AboutPlace}</p>
                 <p class="text-sm text-gray-700 uppercase tracking-wide font-semibold mt-2">
-                  GirNation Park
+                  Holiday : {item.Holiday}
+                </p>
+                <p class="text-sm text-gray-700 uppercase tracking-wide font-semibold mt-2">
+                  Rating : <StarIcon rating={item.Rating} />
                 </p>
               </div>
             </div>
