@@ -76,48 +76,41 @@ const SubCategoryCard = () => {
     //       </div>
     //     ))}
     //   </div>
-    <div className="flex justify-center items-center">
+    // </div>
+    <div class="pt-6 pb-12 ">
       {result.map((item) => (
-        <Card className="w-full max-w-5xl h-56 flex-row mt-5 shadow-sm shadow-black">
-          <CardHeader
-            shadow={true}
-            floated={false}
-            className="m-0 w-2/5 shrink-0 rounded-r-none"
-          >
-            <img
-              src={item.Thumbnail}
-              alt="card"
-              className="h-full w-full object-cover"
-            />
-          </CardHeader>
-          <CardBody className="sm:flex-grow">
-            <Typography variant="h6" color="gray" className="mb-4 uppercase">
-              {item.DestinationName}
-            </Typography>
-            <Typography variant="p" color="blue-gray" className="mb-2 text-lg">
-              Lyft launching cross-platform service this week
-              {/* {item.DestinationName} */}
-            </Typography>
-            <Typography color="gray" className="mb-3 font-normal">
-              Like so many organizations these days, Autodesk is a company in
-              transition.
-            </Typography>
-            <Typography className="flex flex-row">
-              Rating : -
-              <StarIcon />
-              <StarIcon />
-              <StarIcon />
-            </Typography>
-            <Typography color="gray" className=" font-normal">
-              Opening Time : 9:00 am
-            </Typography>
-            <Typography color="gray" className="mb-8 font-normal">
-              Closing Time : 6:00 pm
-            </Typography>
-          </CardBody>
-        </Card>
+        <div id="card" class="">
+          {/* <h2 class="text-center font-serif  uppercase text-4xl xl:text-5xl">Recent Articles</h2> */}
+          {/* <!-- container for all cards --> */}
+          <div class="container w-100 lg:w-4/5 mx-auto flex flex-col">
+            {/* <!-- card --> */}
+            <div
+              v-for="card in cards"
+              class="flex flex-col md:flex-row overflow-hidden
+                                        bg-white rounded-lg shadow-xl  mt-4 w-100 mx-2"
+            >
+              {/* <!-- media --> */}
+              <div class="h-64 w-auto md:w-1/2">
+                <img
+                  class="inset-0 h-full w-full object-cover object-center"
+                  src={item.Thumbnail}
+                  alt=""
+                />
+              </div>
+              {/* <!-- content --> */}
+              <div class="w-full py-4 px-6 text-gray-800 flex flex-col justify-between">
+                <h3 class="font-semibold text-lg leading-tight truncate">
+                  Gir Natinal Park
+                </h3>
+                <p class="mt-2">Any Description</p>
+                <p class="text-sm text-gray-700 uppercase tracking-wide font-semibold mt-2">
+                  GirNation Park
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
       ))}
-      {/* </div> */}
     </div>
   );
 };
