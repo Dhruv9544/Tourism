@@ -1,12 +1,18 @@
-
-import monsoon from "./../assets/season/monsoon.jpg";
-
+import {
+  Card,
+  CardHeader,
+  CardBody,
+  Typography,
+  Button,
+} from "@material-tailwind/react";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 
+const StarIcon = (props) => {
+  let arr = new Array(props.rating);
 
-const StarIcon = () => {
-  return (
+  console.log(arr);
+  return arr.map((item) => (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 24 24"
@@ -19,7 +25,7 @@ const StarIcon = () => {
         clipRule="evenodd"
       />
     </svg>
-  );
+  ));
 };
 
 const SubCategoryCard = () => {
@@ -44,28 +50,68 @@ const SubCategoryCard = () => {
   }, [urlparameter]);
 
   return (
-    <div class="flex justify-between gap-5 mx-16 mt-5">
+    // <div>
+    //   <div class="flex justify-between gap-5 mx-16 mt-5">
+    //     {result.map((item) => (
+    //       <div class="w-1/2 relative rounded-lg overflow-hidden group">
+    //         <img src={item.Thumbnail} alt="" class="w-full h-60" />
+    //         <div class="absolute inset-0 flex items-center h-60 justify-center bg-black bg-opacity-50 transition-opacity duration-300 opacity-0 group-hover:opacity-100 group-hover:visible">
+    //           {/* <!-- Left-aligned heading and stars --> */}
+    //           <div class="w-full h-60 flex items-center justify-center p-2">
+    //             <h2 class="text-white text-2xl font-semibold ml-3">
+    //               {item.DestinationName}
+    //             </h2>
+    //             <div class="flex items-center space-x-2 mr-3"></div>
+    //           </div>
+    //         </div>
+    //         {/* below content  */}
+    //         <div class=" absolute bottom-0 w-full flex items-start justify-between bg-transparent transition-opacity duration-300  p-2 opacity-100 visible group-hover:opacity-0 group-hover:invisible">
+    //           {/* <!-- Right-aligned heading and stars --> */}
+    //           <div class="flex items-center justify-between w-full p-2">
+    //             <h2 class="text-white text-2xl font-semibold ml-3">
+    //               {item.DestinationName}
+    //             </h2>
+    //             <div className="flex items-center space-x-2 mr-3">
+    //               <StarIcon number={item.Rating} />
+    //             </div>
+    //           </div>
+    //         </div>
+    //       </div>
+    //     ))}
+    //   </div>
+    // </div>
+    <div class="pt-6 pb-12 ">
       {result.map((item) => (
-        <div class="w-1/2 relative rounded-lg overflow-hidden group">
-          <img src={item.Thumbnail} alt="" class="w-full h-60" />
-          <div class="absolute inset-0 flex items-center h-60 justify-center bg-black bg-opacity-50 transition-opacity duration-300 opacity-0 group-hover:opacity-100 group-hover:visible">
-            {/* <!-- Left-aligned heading and stars --> */}
-            <div class="w-full h-60 flex items-center justify-center p-2">
-              <h2 class="text-white text-2xl font-semibold ml-3">
-                {item.DestinationName}
-              </h2>
-              <div class="flex items-center space-x-2 mr-3"></div>
-            </div>
-          </div>
-          {/* below content  */}
-          <div class=" absolute bottom-0 w-full flex items-start justify-between bg-transparent transition-opacity duration-300  p-2 opacity-100 visible group-hover:opacity-0 group-hover:invisible">
-            {/* <!-- Right-aligned heading and stars --> */}
-            <div class="flex items-center justify-between w-full p-2">
-              <h2 class="text-white text-2xl font-semibold ml-3">
-                {item.DestinationName}
-              </h2>
-              <div className="flex items-center space-x-2 mr-3">
-                <StarIcon number={item.Rating} />
+        <div id="card" class="">
+          {/* <h2 class="text-center font-serif  uppercase text-4xl xl:text-5xl">Recent Articles</h2> */}
+          {/* <!-- container for all cards --> */}
+          <div class="container w-100 lg:w-4/5 mx-auto flex flex-col">
+            {/* <!-- card --> */}
+            <div
+              v-for="card in cards"
+              class="flex flex-col md:flex-row overflow-hidden
+                                        bg-white rounded-lg shadow-xl  mt-4 w-100 mx-2"
+            >
+              {/* <!-- media --> */}
+              <div class="h-64 w-auto md:w-1/2">
+                <img
+                  class="inset-0 h-full w-full object-cover object-center"
+                  src={item.Thumbnail}
+                  alt=""
+                />
+              </div>
+              {/* <!-- content --> */}
+              <div class="w-full py-4 px-6 text-gray-800 flex flex-col justify-between">
+                <h3 class="font-semibold text-lg leading-tight truncate">
+                  {item.DestinationName}
+                </h3>
+                <p class="mt-2">{item.AboutPlace}</p>
+                <p class="text-sm text-gray-700 uppercase tracking-wide font-semibold mt-2">
+                  Holiday : {item.Holiday}
+                </p>
+                <p class="text-sm text-gray-700 uppercase tracking-wide font-semibold mt-2">
+                  Rating : <StarIcon rating={item.Rating} />
+                </p>
               </div>
             </div>
           </div>
