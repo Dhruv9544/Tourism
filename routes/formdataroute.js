@@ -92,8 +92,8 @@ router.route("/").post(function async(req, res, next) {
       VisualContent: req.body.Visualcontent,
       Holiday: req.body.Holiday,
 
-      OpenTime: req.body.Opentime,
-      CloseTime: req.body.closetime,
+      OpenTime: req.body.OpenTime,
+      CloseTime: req.body.CloseTime,
 
       Thumbnail: thumbnailURL,
       RelatedPhotos: relatedphotopaths,
