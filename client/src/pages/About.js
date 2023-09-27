@@ -4,6 +4,7 @@ const About = () => {
   const [formData, setFormData] = useState({
     search: "",
   });
+  const [result, setResult] = useState([]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -22,9 +23,10 @@ const About = () => {
     fetch(`http://localhost:9999/search?q=${formData.search}`, requestOptions)
       .then((response) => response.text())
       .then((result) => {
-        console.log(result);
-        // const data = JSON.parse(result);
+        // console.log(result);
+        const data = JSON.parse(result).data;
         // console.log(data);
+        setResult(data);
       })
       .catch((error) => console.log("error", error));
   };
