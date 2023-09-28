@@ -1,10 +1,3 @@
-import {
-  Card,
-  CardHeader,
-  CardBody,
-  Typography,
-  Button,
-} from "@material-tailwind/react";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 
@@ -42,7 +35,7 @@ const SubCategoryCard = () => {
       }
       const data = await Response.json();
       setresult(data.data);
-      console.log(result);
+      // console.log(result);
     };
     fetchsubcategorydata().catch((e) => {
       console.log(e);
@@ -89,8 +82,7 @@ const SubCategoryCard = () => {
             {/* <!-- card --> */}
             <div
               v-for="card in cards"
-              class="flex flex-col md:flex-row overflow-hidden
-                                        bg-white rounded-lg shadow-xl  mt-4 w-100 mx-2"
+              class="flex flex-col md:flex-row overflow-hidden bg-[#FEFEFA] rounded-lg shadow-xl  mt-4 w-100 mx-2"
             >
               {/* <!-- media --> */}
               <div class="h-64 w-auto md:w-1/2">

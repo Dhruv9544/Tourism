@@ -21,11 +21,16 @@ const MaincategorySlice = createSlice({
     getsubcategory(state, action) {
       // state.subcategories.push(action.payload);
 
-      const newSubcategory = action.payload;
-      const filteredSubcategories = state.subcategories.filter(
-        (subcategory) => subcategory.name !== ""
-      );
-      state.subcategories = [...filteredSubcategories, newSubcategory];
+      // const newSubcategory = action.payload;
+      // const filteredSubcategories = state.subcategories.filter(
+      //   (subcategory) => subcategory.name !== ""
+      // );
+      // state.subcategories = [...filteredSubcategories, newSubcategory];
+
+      state.subcategories = [
+        ...state.subcategories.filter((subcategory) => subcategory.name !== ""),
+        action.payload,
+      ];
     },
   },
 });
