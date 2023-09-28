@@ -89,7 +89,7 @@ router.route("/").post(function async(req, res, next) {
 
       Location: req.body.Location,
       OfficialWebsiteLink: req.body.OfficialWebsiteLink,
-      VisualContent: req.body.Visualcontent,
+      VisualContent: req.body.VisualContent,
       Holiday: req.body.Holiday,
 
       OpenTime: req.body.OpenTime,
@@ -98,9 +98,9 @@ router.route("/").post(function async(req, res, next) {
       Thumbnail: thumbnailURL,
       RelatedPhotos: relatedphotopaths,
 
-      GetThereByBus: req.body.getThereBybus,
-      GetThereByTrain: req.body.getThereByTrain,
-      GetThereByPlane: req.body.getThereByPlain,
+      GetThereByBus: req.body.GetThereByBus,
+      GetThereByTrain: req.body.GetThereByTrain,
+      GetThereByPlane: req.body.GetThereByPlane,
 
       MainAttractions: req.body.MainAttractions,
       BriefHistory: req.body.BriefHistory,

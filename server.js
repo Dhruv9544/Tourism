@@ -16,6 +16,7 @@ const formdataroute = require("./routes/formdataroute");
 const categoryroute = require("./routes/categoryroute");
 const getAllPlaces = require("./Controller/GetAllPlaces");
 const CustomeSearch = require("./Controller/customeSearch");
+
 require("./config/dbconfig").getDbConnection();
 
 const app = express();
@@ -52,6 +53,7 @@ app.get("/getAllPlacesbySeasons", getAllPlaces.GetAllPlacesbySeason);
 app.get("/getAllPlaces", getAllPlaces.GetAllPlaces);
 
 app.get("/search", CustomeSearch.CustomeSearch);
+app.get("/Filter", getAllPlaces.FilterPlaces);
 
 app.listen(9999);
 console.log("server started at 9999");
