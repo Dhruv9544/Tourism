@@ -14,7 +14,7 @@ module.exports.CustomeSearch = async function (req, res) {
             { Category: { $regex: query, $options: "i" } },
             { Season: { $regex: query, $options: "i" } },
             { District: { $regex: query, $options: "i" } },
-            { District: { $regex: query, $options: "i" } },
+            // { District: { $regex: query, $options: "i" } },
           ],
         },
       },
