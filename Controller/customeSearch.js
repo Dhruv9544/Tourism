@@ -3,8 +3,16 @@ const FormdataModel = require("../model/FormDataModel");
 module.exports.CustomeSearch = async function (req, res) {
   try {
     const query = req.query.q;
+    var data;
+    if (!query) {
+      return res.status(200).json({
+        status: "Success",
+        data: data,
+      });
+    }
+
     // const data = await FormdataModel.find({
-    const data = await FormdataModel.aggregate([
+    var data = await FormdataModel.aggregate([
       {
         $match: {
           $or: [
