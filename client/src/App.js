@@ -7,6 +7,7 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import SubCategory from "./pages/SubCategory";
 import SubCategoryCard from "./components/SubCategoryCard";
+import CustomSearch from "./pages/CustomSearch";
 const routes = createBrowserRouter([
   {
     path: "/",
@@ -26,6 +27,11 @@ const routes = createBrowserRouter([
       {
         path: "contact",
         element: <Contact />,
+        errorElement: <ErrorPage />,
+      },
+      {
+        path: "customsearch",
+        element: <CustomSearch />,
         errorElement: <ErrorPage />,
       },
       {

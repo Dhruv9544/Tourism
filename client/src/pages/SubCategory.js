@@ -1,7 +1,7 @@
 import { Typography } from "@material-tailwind/react";
 import { NavLink, Outlet } from "react-router-dom";
 import { Button } from "@material-tailwind/react";
-import { Fragment, useMemo } from "react";
+import { useMemo } from "react";
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 export function SubCategory() {
@@ -19,7 +19,7 @@ export function SubCategory() {
   }
 
   return (
-    <div className="bg-[#fff3da]">
+    <div className="bg-[#fff3da] min-h-screen">
       <figure className="relative h-96 w-full">
         <img
           className="h-full w-full object-cover object-center"

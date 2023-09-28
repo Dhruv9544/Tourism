@@ -85,11 +85,11 @@ const Navbar = () => {
             </div>
             <div className="group">
               <NavLink
-                to={"ourblogs"}
+                to={"customsearch"}
                 className={({ isActive }) =>
                   isActive
-                    ? "mx-2 bg-white group-hover:border-b-2 group-hover:border-blue-50 border-b-2 border-green-200"
-                    : "mx-2 bg-white text-black rounded p-2 border border-black shadow-white group-hover:bg-white/80"
+                    ? "mx-2 group-hover:border-b-2 group-hover:border-blue-50 border-b-2 border-green-200"
+                    : "mx-2 group-hover:border-b-2 group-hover:border-green-200"
                 }
               >
                 Custom Search
