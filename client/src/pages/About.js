@@ -25,7 +25,7 @@ const About = () => {
       .then((result) => {
         // console.log(result);
         const data = JSON.parse(result).data;
-        // console.log(data);
+        console.log(data);
         setResult(data);
       })
       .catch((error) => console.log("error", error));

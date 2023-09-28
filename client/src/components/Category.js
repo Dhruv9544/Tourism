@@ -12,9 +12,9 @@ const Category = () => {
               Popular Category
             </h1>
 
-            <button className="hidden btn md:block font-medium uppercase px-2 border border-black text-black bg-[#ffffdd] rounded-lg hover:bg-[#eaea48] focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-[#ffffdd] dark:hover:bg-[#ebeb3d] dark:focus:ring-blue-800 ">
+            {/* <button className="hidden btn md:block font-medium uppercase px-2 border border-black text-black bg-[#ffffdd] rounded-lg hover:bg-[#eaea48] focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-[#ffffdd] dark:hover:bg-[#ebeb3d] dark:focus:ring-blue-800 ">
               See All
-            </button>
+            </button> */}
           </div>
 
           <div className="flex flex-wrap justify-between w-full space-y-6 text-2xl text-white uppercase sm:items-center">

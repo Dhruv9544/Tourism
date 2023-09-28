@@ -19,7 +19,7 @@ export function SubCategory() {
   }
 
   return (
-    <Fragment>
+    <div className="bg-[#fff3da]">
       <figure className="relative h-96 w-full">
         <img
           className="h-full w-full object-cover object-center"
@@ -50,7 +50,7 @@ export function SubCategory() {
         ))}
       </div>
       <Outlet></Outlet>
-    </Fragment>
+    </div>
   );
 }
 

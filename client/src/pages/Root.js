@@ -11,7 +11,7 @@ const Root = () => {
     <>
       <Navbar></Navbar>
       <Outlet></Outlet>
-      <div className="mt-20">
+      <div className="">
         <FooterWithLogo />
       </div>
     </>

@@ -2,11 +2,13 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 const StarIcon = (props) => {
-  let arr = new Array(props.rating);
+  const size = props.rating;
 
-  console.log(arr);
+  let arr = Array.from({ length: size }, (x, i) => i);
+  // console.log(arr);
   return arr.map((item) => (
     <svg
+      key={item}
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 24 24"
       fill="currentColor"
@@ -73,37 +75,46 @@ const SubCategoryCard = () => {
     //     ))}
     //   </div>
     // </div>
-    <div class="pt-6 pb-12 ">
-      {result.map((item) => (
-        <div id="card" class="">
+    <div className="pt-6 pb-12 ">
+      {result.map((item, index) => (
+        <div id="card" key={item._id}>
           {/* <h2 class="text-center font-serif  uppercase text-4xl xl:text-5xl">Recent Articles</h2> */}
           {/* <!-- container for all cards --> */}
-          <div class="container w-100 lg:w-4/5 mx-auto flex flex-col">
+          <div className="container w-100 2xl:w-4/5 xl:w-4/5 lg:w-4/5  mx-auto flex flex-col">
             {/* <!-- card --> */}
             <div
               v-for="card in cards"
-              class="flex flex-col md:flex-row overflow-hidden bg-[#FEFEFA] rounded-lg shadow-xl  mt-4 w-100 mx-2"
+              className={`flex flex-col ${
+                index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
+              }  overflow-hidden bg-[#FEFEFA] rounded-lg shadow-xl  mt-4 w-100 mx-2`}
             >
               {/* <!-- media --> */}
-              <div class="h-64 w-auto md:w-1/2">
+              <div className="h-68 w-auto md:w-1/2">
                 <img
-                  class="inset-0 h-full w-full object-cover object-center"
+                  className="inset-0 h-full w-full "
+                  style={{ height: "100%" }}
                   src={item.Thumbnail}
-                  alt=""
+                  alt={item.DestinationName}
                 />
               </div>
               {/* <!-- content --> */}
-              <div class="w-full py-4 px-6 text-gray-800 flex flex-col justify-between">
-                <h3 class="font-semibold text-lg leading-tight truncate">
+              <div className="w-full py-4 px-6 text-gray-800 flex flex-col justify-between">
+                <h3 className="font-semibold text-lg leading-tight truncate">
                   {item.DestinationName}
                 </h3>
-                <p class="mt-2">{item.AboutPlace}</p>
-                <p class="text-sm text-gray-700 uppercase tracking-wide font-semibold mt-2">
+                <p className="mt-2">{item.AboutPlace}</p>
+                <p className="text-sm text-gray-700 uppercase tracking-wide font-semibold mt-2">
+                  Open Time : {item.OpenTime}
+                </p>
+                <p className="text-sm text-gray-700 uppercase tracking-wide font-semibold mt-2">
+                  Close Time : {item.CloseTime}
+                </p>
+                <p className="text-sm text-gray-700 uppercase tracking-wide font-semibold mt-2">
                   Holiday : {item.Holiday}
                 </p>
-                <p class="text-sm text-gray-700 uppercase tracking-wide font-semibold mt-2">
+                <div className="flex text-sm text-gray-700 uppercase tracking-wide font-semibold mt-2">
                   Rating : <StarIcon rating={item.Rating} />
-                </p>
+                </div>
               </div>
             </div>
           </div>
