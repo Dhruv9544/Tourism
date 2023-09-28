@@ -3,11 +3,9 @@ import { useSelector } from "react-redux/es/hooks/useSelector";
 import { useMemo } from "react";
 const CategoryCard = (props) => {
   const subcategory = useSelector((state) => state.Maincategory.subcategories);
-  console.log(subcategory);
   const data = useMemo(() => {
     return subcategory.find((c) => c.name === props.title);
-  }, []);
-  console.log(data.subcategory[0]);
+  }, [props.title, subcategory]);
   return (
     <div className="w-80  bg-white border border-gray-200 rounded-lg shadow dark:bg-white dark:border-gray-700 hover:scale-110  duration-200 sm:items-center">
       {/* <Link> */}
