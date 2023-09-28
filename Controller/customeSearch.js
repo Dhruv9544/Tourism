@@ -3,7 +3,7 @@ const FormdataModel = require("../model/FormDataModel");
 module.exports.CustomeSearch = async function (req, res) {
   try {
     const query = req.query.q;
-    var data;
+    var data = [];
     if (!query) {
       return res.status(200).json({
         status: "Success",
