@@ -1,37 +1,86 @@
-import { IconButton } from "@material-tailwind/react";
+import React from "react";
+import { Carousel } from "react-responsive-carousel";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 import hillstation from "./../assets/category/hillstation.jpg";
-const Contact = () => {
+function Contact() {
   return (
-    <div class="flex items-center justify-center min-h-screen bg-rose-50">
-      {/* <!-- Card Container --> */}
-      <div class="relative flex flex-col m-6 space-y-10 bg-white shadow-2xl rounded-2xl md:flex-row md:space-y-0 md:m-0">
-        {/* <!-- Right Side (Image at the top on smaller screens) --> */}
-        <img
-          src={hillstation}
-          alt=""
-          class="w-full xl:rounded-b-2xl rounded-t-2xl md:w-[430px] md:rounded-r-2xl md:rounded-b-none"
-        />
-        {/* <!-- Left Side (Text and Icon) --> */}
-        <div class="p-6 md:p-20">
-          {/* <!-- Top Content --> */}
-          <h2 class="font-sans mb-5 text-4xl font-bold">Kedarnath Trek</h2>
-          <IconButton color="blue">
-            <i className="fas fa-chevron-left" />
-          </IconButton>
-          {/* <!-- Text content here --> */}
-          <p class="max-w-sm mt-12 font-sans font-light text-gray-600">
-            {/* <!-- Text content here --> */}
-            Kedarnath Yatra is one of the most spiritual pilgrimages in India.
-            Kedarnath, the abode of Lord Shiva attracts thousands of devotees
-            within a span of 6 months when the shrine remains open. Kedarnath is
-            a part of the sacred C
-          </p>
-          {/* <!-- border --> */}
-          <div class="mt-12 border-b border-b-gray-300"></div>
-        </div>
+    <div className="bg-gray-100">
+      <div className="max-w-5xl mx-auto py-8">
+        <Carousel showArrows={true} showStatus={false} showThumbs={false}>
+          {/* First Blog Post */}
+          <div>
+            <div className="bg-white rounded-lg shadow-lg overflow-hidden md:flex">
+              <div className="md:w-1/2">
+                <img
+                  src={hillstation}
+                  alt="Blog"
+                  className="w-full h-auto md:h-full"
+                />
+              </div>
+              <div className="md:w-1/2 p-6">
+                <h1 className="text-4xl uppercase font-bold text-gray-800 mb-4">
+                  Blog Title 1
+                </h1>
+                <p className="text-gray-800 leading-relaxed">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Nullam auctor viverra turpis, vel congue ex fermentum nec.
+                  Donec nec semper urna, non malesuada metus. Nullam auctor
+                  viverra turpis, vel congue ex fermentum nec. Donec nec semper
+                  urna, non malesuada metus.
+                </p>
+                <div className="mt-6">
+                  <div className="flex flex-wrap items-center text-gray-600 mb-4">
+                    <p className="mr-2">Posted on</p>
+                    <span className="text-blue-500">September 29, 2023</span>
+                    <p className="mx-2">in</p>
+                    <span className="text-blue-500">Category</span>
+                    <p className="mx-2">by</p>
+                    <span className="text-blue-500">Author Name</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Second Blog Post (similar structure as the first) */}
+          <div>
+            <div className="bg-white rounded-lg shadow-lg overflow-hidden md:flex">
+              <div className="md:w-1/2">
+                <img
+                  src={hillstation}
+                  alt="Blog"
+                  className="w-full h-auto md:h-full"
+                />
+              </div>
+              <div className="md:w-1/2 p-6">
+                <h1 className="text-4xl uppercase font-bold text-gray-800 mb-4">
+                  Blog Title 2
+                </h1>
+                <p className="text-gray-800 leading-relaxed">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Nullam auctor viverra turpis, vel congue ex fermentum nec.
+                  Donec nec semper urna, non malesuada metus. Donec nec semper
+                  urna, non malesuada metus. Donec nec semper urna, non
+                  malesuada metus.
+                </p>
+                <div className="mt-6">
+                  <div className="flex flex-wrap items-center text-gray-600 mb-4">
+                    <p className="mr-2">Posted on</p>
+                    <span className="text-blue-500">September 29, 2023</span>
+                    <p className="mx-2">in</p>
+                    <span className="text-blue-500">Category</span>
+                    <p className="mx-2">by</p>
+                    <span className="text-blue-500">Author Name</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Add more blog posts as needed */}
+        </Carousel>
       </div>
     </div>
   );
-};
-
+}
 export default Contact;
