@@ -8,7 +8,7 @@ import Contact from "./pages/Contact";
 import SubCategory from "./pages/SubCategory";
 import SubCategoryCard from "./components/SubCategoryCard";
 import CustomSearch from "./pages/CustomSearch";
-import Blog from "./components/Blogs/Blog";
+import Blog from "./pages/Blog";
 const routes = createBrowserRouter([
   {
     path: "/",
