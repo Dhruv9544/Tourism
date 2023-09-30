@@ -71,10 +71,6 @@ const TourDataSchema = new mongoose.Schema({
     type:  mongoose.Schema.Types.Mixed ,
     // required: true,
   },
-  District: {
-    type: String,
-    // required: true,
-  },
   DurationOfVisit: {
     type: String,
     // required: true,
