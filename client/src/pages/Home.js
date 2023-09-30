@@ -4,6 +4,7 @@ import Slider from "./../UI/Carousel";
 import Loader from "../components/Loader";
 import Category from "../components/Category";
 import Season from "../components/Season";
+import Blog from "../components/Blogs/Blog";
 const Home = () => {
   const [loading, setloading] = useState(false);
   const carouselref = useRef(null);
@@ -44,6 +45,9 @@ const Home = () => {
         <div className="card">
           <Category></Category>
         </div>
+      </div>
+      <div className="bg-[#F6E2AD]">
+        <Blog />
       </div>
 
       <div className="season">

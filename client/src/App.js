@@ -8,6 +8,7 @@ import Contact from "./pages/Contact";
 import SubCategory from "./pages/SubCategory";
 import SubCategoryCard from "./components/SubCategoryCard";
 import CustomSearch from "./pages/CustomSearch";
+import Blog from "./components/Blogs/Blog";
 const routes = createBrowserRouter([
   {
     path: "/",
@@ -27,6 +28,11 @@ const routes = createBrowserRouter([
       {
         path: "contact",
         element: <Contact />,
+        errorElement: <ErrorPage />,
+      },
+      {
+        path: "ourblogs",
+        element: <Blog />,
         errorElement: <ErrorPage />,
       },
       {

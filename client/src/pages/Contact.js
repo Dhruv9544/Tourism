@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import hillstation from "./../assets/category/hillstation.jpg";
 function Contact() {
+  useEffect(() => {
+    const fetchblog = async () => {};
+  }, []);
   return (
     <div className="bg-gray-100">
       <div className="max-w-5xl mx-auto py-8">
