@@ -9,7 +9,7 @@ const Season = () => {
       <Carousel className="rounded-sm" autoplay={true} loop={true}>
         <div className="relative h-full w-full">
           <img src={monsoon} alt=" 2" className="h-full w-full object-cover" />
-          <div className="absolute inset-0 grid h-full w-full items-center bg-black/75">
+          <div className="absolute inset-0 grid h-full w-full items-center bg-black/10">
             <div className="w-3/4 pl-12 md:w-2/4 md:pl-20 lg:pl-32">
               <Typography
                 variant="h1"
@@ -42,7 +42,7 @@ const Season = () => {
 
         <div className="relative h-full w-full">
           <img src={summer} alt=" 2" className="h-full w-full object-cover" />
-          <div className="absolute inset-0 grid h-full w-full items-center bg-black/75">
+          <div className="absolute inset-0 grid h-full w-full items-center bg-black/10">
             <div className="w-3/4 pl-12 md:w-2/4 md:pl-20 lg:pl-32">
               <Typography
                 variant="h1"
@@ -75,7 +75,7 @@ const Season = () => {
 
         <div className="relative h-full w-full">
           <img src={winter} alt="" className="h-full w-full object-cover" />
-          <div className="absolute inset-0 grid h-full w-full items-center bg-black/75">
+          <div className="absolute inset-0 grid h-full w-full items-center bg-black/10">
             <div className="w-3/4 pl-12 md:w-2/4 md:pl-20 lg:pl-32">
               <Typography
                 variant="h1"

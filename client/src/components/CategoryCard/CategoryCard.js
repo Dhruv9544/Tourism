@@ -2,25 +2,24 @@ import { Link } from "react-router-dom";
 import { useSelector } from "react-redux/es/hooks/useSelector";
 import { useMemo } from "react";
 const CategoryCard = (props) => {
+  console.log(props);
   const subcategory = useSelector((state) => state.Maincategory.subcategories);
   const data = useMemo(() => {
     return subcategory.find((c) => c.name === props.title);
   }, [props.title, subcategory]);
+  const firstSubcategory = data?.subcategory?.[0] || "";
   return (
-    <div className="w-80  bg-white border border-gray-200 rounded-lg shadow dark:bg-white dark:border-gray-700 hover:scale-110  duration-200 sm:items-center">
-      {/* <Link> */}
+    <div className="bg-white rounded-lg shadow-md overflow-hidden">
       <img
-        className="rounded-t-lg w-80 h-60 "
         src={props.image}
         alt={props.title}
+        className="w-full h-60 object-cover"
       />
-      {/* </Link> */}
-      <div className="p-5">
-        <p className="mb-3 font-bold text-black dark:text-black">
-          {props.title}
-        </p>
+      <div className="p-6">
+        <h2 className="text-xl font-semibold mb-2 uppercase">{props.title}</h2>
+
         <Link
-          to={`category/${props.id}/${data.subcategory[0]}`}
+          to={`category/${props.id}/${firstSubcategory}`}
           className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-black bg-[#ffffdd] rounded-lg hover:bg-[#ecec6f] focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-[#ffffdd] dark:hover:bg-[#ecec6f] dark:focus:ring-blue-800"
         >
           Explore

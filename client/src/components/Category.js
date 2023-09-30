@@ -1,50 +1,25 @@
+import { useSelector } from "react-redux";
 import CategoryCard from "./CategoryCard/CategoryCard";
-import { useSelector } from "react-redux/es/hooks/useSelector";
 const Category = () => {
-  const dat = useSelector((state) => state.Maincategory.category);
-  console.log(dat);
+  const data = useSelector((state) => state.Maincategory.category);
+  console.log(data);
   return (
     <div>
-      <section id="creations">
-        <div className="container max-w-6xl mx-auto my-32 px-6 text-gray-900 md:px-0">
-          <div className="flex justify-center mb-20 md:justify-between">
-            <h1 className="text-4xl text-center uppercase md:text-left md:text-5xl">
-              Popular Category
-            </h1>
-
-            {/* <button className="hidden btn md:block font-medium uppercase px-2 border border-black text-black bg-[#ffffdd] rounded-lg hover:bg-[#eaea48] focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-[#ffffdd] dark:hover:bg-[#ebeb3d] dark:focus:ring-blue-800 ">
-              See All
-            </button> */}
-          </div>
-
-          <div className="flex flex-wrap justify-between w-full space-y-6 text-2xl text-white uppercase sm:items-center">
-            {dat.map((item) => (
-              <CategoryCard
-                image={item.image}
-                title={item.name}
-                key={item.name}
-                id={item._id}
-              ></CategoryCard>
-            ))}
-          </div>
-
-          {/* <div className="item-container mt-10">
+      <div className="container mx-auto py-12 px-9">
+        <h1 className="text-3xl font-semibold text-center mb-8">
+          Latest Blog Posts
+        </h1>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6 gap-y-10 gap-x-10">
+          {data.map((item) => (
             <CategoryCard
-              image={historical}
-              title={"HISTORICAL"}
-            ></CategoryCard>
-            <CategoryCard image={nature} title={"NATURE"}></CategoryCard>
-            <CategoryCard
-              image={hillstation}
-              title={"HILL STATION"}
-            ></CategoryCard>
-          </div> */}
-
-          <div className="flex justify-center mt-10 md:hidden">
-            <button className="btn w-full md:hidden">See All</button>
-          </div>
+              title={item.name}
+              image={item.image}
+              key={item.name}
+              id={item._id}
+            />
+          ))}
         </div>
-      </section>
+      </div>
     </div>
   );
 };
