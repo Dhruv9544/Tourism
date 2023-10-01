@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { Typography } from "@material-tailwind/react";
 import { NavLink, Outlet } from "react-router-dom";
 import { Button } from "@material-tailwind/react";
-import image from "./../assets/category/hillstation.jpg";
+import image from "./../assets/gujarat_cover.jpg";
 import BlogComponent from "../components/Blogs/Blog";
 const Blog = () => {
   const [category, setcategory] = useState([]);
@@ -14,7 +14,7 @@ const Blog = () => {
   }, [cat]);
 
   return (
-    <div>
+    <div className="bg-[#fff3da]">
       {/* {category.map((item) => (
         <BlogComponent category={item.name}></BlogComponent>
       ))} */}
@@ -24,26 +24,20 @@ const Blog = () => {
           src={image}
           alt="Gujarat Blogs"
         />
-        <figcaption className="absolute bottom-8 left-2/4 flex w-50 -translate-x-2/4 justify-between rounded-xl border border-white bg-white/75 py-4 px-6 shadow-lg shadow-black/5 saturate-200 backdrop-blur-sm">
+        <figcaption className="absolute bottom-8 left-2/4 flex w-50 -translate-x-2/4 justify-between rounded-xl border border-white bg-black/75 py-4 px-6 shadow-lg shadow-black/5 saturate-200 backdrop-blur-sm">
           <div>
-            <Typography variant="h3" color="blue-gray">
+            <Typography variant="h3" color="white">
               Gujarat Blogs
             </Typography>
           </div>
         </figcaption>
       </figure>
-      {/* <div class="flex justify-between items-center font-semibold text-lg text-black bg-blue-gray-100">
-        
-      </div> */}
-      <div className="container mx-auto flex mt-5">
-        {" "}
-        {/* <div className="flex  flex-wrap items-center gap-4 justify-center mt-5"></div> */}
+      <div className="container mx-auto flex mt-5 ">
         <div className="w-3/4">
           <Outlet />
         </div>
-        {/* <div className="border border-spacing-6 border-black/40"></div> */}
         <div className="flex flex-col w-1/4">
-          <h3 className="text-2xl font-serif font-semibold text-center p-6 border-t border-r border-black border-l mt-6">
+          <h3 className="text-2xl font-serif font-semibold text-center p-6 border-t border-r border-black border-l">
             Categories
           </h3>
           <NavLink
