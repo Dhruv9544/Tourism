@@ -38,6 +38,10 @@ const TourDataSchema = new mongoose.Schema({
     type: [String],
     // required: [true, "please upload relatedphotos"],
   },
+  District: {
+    type: String,
+    // required: [true, "please upload relatedphotos"],
+  },
   OpenTime: {
     type: String,
     // required: true,
@@ -68,7 +72,7 @@ const TourDataSchema = new mongoose.Schema({
     // required: true,
   },
   Season: {
-    type:  mongoose.Schema.Types.Mixed ,
+    type: mongoose.Schema.Types.Mixed,
     // required: true,
   },
   DurationOfVisit: {
