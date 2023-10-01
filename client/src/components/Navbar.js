@@ -73,7 +73,7 @@ const Navbar = () => {
             </div>
             <div className="group">
               <NavLink
-                to={"ourblogs"}
+                to={"ourblogs/all"}
                 className={({ isActive }) =>
                   isActive
                     ? "mx-2 group-hover:border-b-2 group-hover:border-blue-50 border-b-2 border-green-200"
