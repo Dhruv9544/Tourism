@@ -46,10 +46,6 @@ const Home = () => {
           <Category></Category>
         </div>
       </div>
-      <div className="bg-[#F6E2AD]">
-        <Blog />
-      </div>
-
       <div className="season">
         <Season></Season>
       </div>

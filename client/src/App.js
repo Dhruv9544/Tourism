@@ -8,7 +8,10 @@ import Contact from "./pages/Contact";
 import SubCategory from "./pages/SubCategory";
 import SubCategoryCard from "./components/SubCategoryCard";
 import CustomSearch from "./pages/CustomSearch";
-import Blog from "./components/Blogs/Blog";
+import Blog from "./pages/Blog";
+import Latest from "./components/Blogs/Latest";
+import All from "./components/Blogs/All";
+import CategoryBlog from "./components/Blogs/CategoryBlog";
 const routes = createBrowserRouter([
   {
     path: "/",
@@ -34,6 +37,23 @@ const routes = createBrowserRouter([
         path: "ourblogs",
         element: <Blog />,
         errorElement: <ErrorPage />,
+        children: [
+          {
+            path: "all/",
+            element: <All />,
+            errorElement: <ErrorPage />,
+          },
+          {
+            path: "latest",
+            element: <Latest />,
+            errorElement: <ErrorPage />,
+          },
+          {
+            path: ":category",
+            element: <CategoryBlog />,
+            errorElement: <ErrorPage />,
+          },
+        ],
       },
       {
         path: "customsearch",
