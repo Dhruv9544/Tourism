@@ -32,34 +32,42 @@ const Blog = () => {
           </div>
         </figcaption>
       </figure>
-      <div className="flex  flex-wrap items-center gap-4 justify-center mt-5"></div>
-      <div className="flex mt-5">
-        <div className="">
+      {/* <div class="flex justify-between items-center font-semibold text-lg text-black bg-blue-gray-100">
+        
+      </div> */}
+      <div className="container mx-auto flex mt-5">
+        {" "}
+        {/* <div className="flex  flex-wrap items-center gap-4 justify-center mt-5"></div> */}
+        <div className="w-3/4">
           <Outlet />
         </div>
-        <div className="flex flex-col">
-          <h1>Categories</h1>
+        {/* <div className="border border-spacing-6 border-black/40"></div> */}
+        <div className="flex flex-col w-1/4">
+          <h3 className="text-2xl font-serif font-semibold text-center p-6 border-t border-r border-black border-l mt-6">
+            Categories
+          </h3>
           <NavLink
             to={"all"}
             className={({ isActive }) =>
               isActive
-                ? "flex items-center gap-3 [&>button]:bg-deep-orange-400 [&>button]:hover:bg-deep-orange-900  "
-                : "flex items-center gap-3"
+                ? "p-6 text-center bg-orange-400 border-r border-l border-black "
+                : "p-6 text-center hover:bg-blue-gray-200 border-r border-black bg-blue-gray-50 hover:bg-black/20 border-l"
             }
           >
-            <Button>All Blogs</Button>
+            All Blogs
           </NavLink>
           <NavLink
             to={"latest"}
             className={({ isActive }) =>
               isActive
-                ? "flex items-center gap-3 [&>button]:bg-deep-orange-400 [&>button]:hover:bg-deep-orange-900  "
-                : "flex items-center gap-3"
+                ? "p-6 text-center  bg-orange-400 border-r border-l border-black"
+                : "p-6 text-center hover:bg-blue-gray-200 border-r border-black bg-blue-gray-100 hover:bg-black/20 border-l"
             }
           >
-            <Button>Latest Blogs</Button>
+            Latest Blogs
           </NavLink>
-          {category.map((item) => (
+          {console.log(category.length)}
+          {category.map((item, index) => (
             <NavLink
               key={item.name}
               to={item.name}
@@ -67,8 +75,16 @@ const Blog = () => {
               // relative="route"
               className={({ isActive }) =>
                 isActive
-                  ? "flex items-center gap-3 [&>button]:bg-deep-orange-400 [&>button]:hover:bg-deep-orange-900  "
-                  : "flex items-center gap-3"
+                  ? `text-center gap-3 p-6 bg-orange-400 border-r border-l border-black ${
+                      index % 2 === 0 ? "bg-orange-400" : "bg-orange-400"
+                    }`
+                  : `text-center gap-3 p-6 hover:bg-black/20 border-r border-l border-black ${
+                      index % 2 === 0 ? "bg-blue-gray-50" : "bg-blue-gray-100 "
+                    } ${
+                      category.length - 1 === index
+                        ? "border-b border-black "
+                        : ""
+                    }`
               }
             >
               {item.name}

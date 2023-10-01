@@ -26,7 +26,7 @@ const CategoryBlog = () => {
   return (
     <div>
       {blogs.map((item) => (
-        <div className="bg-white w-3/4 border-y-2 rounded-lg shadow-lg overflow-hidden md:flex">
+        <div className="bg-white  border-y-2 rounded-lg shadow-lg overflow-hidden md:flex">
           <div className="md:w-1/2">
             <img
               src={item.Thumbnail}
@@ -38,7 +38,9 @@ const CategoryBlog = () => {
             <h1 className="text-4xl uppercase font-bold text-gray-800 mb-4">
               {item.Title}
             </h1>
-            <p className="text-gray-800 leading-relaxed">{item.About}</p>
+            <p className="text-gray-800 break-words leading-relaxed">
+              {item.About}
+            </p>
             <div className="mt-6">
               <div className="flex flex-wrap items-center text-gray-600 mb-4">
                 <p className="mr-2">Posted on</p>
