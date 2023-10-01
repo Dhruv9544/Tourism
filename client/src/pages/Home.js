@@ -4,7 +4,6 @@ import Slider from "./../UI/Carousel";
 import Loader from "../components/Loader";
 import Category from "../components/Category";
 import Season from "../components/Season";
-import Blog from "../components/Blogs/Blog";
 import OneDayTrip from "../components/OneDayTrip/OneDayTrip";
 const Home = () => {
   const [loading, setloading] = useState(false);

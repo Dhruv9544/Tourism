@@ -31,12 +31,12 @@ export default function Carousel(props) {
         .catch((error) => console.log("error", error));
     };
     fetchblogs();
-  }, [count]);
+  }, [count, props.district]);
 
   return (
     <div className="bg-[#fff3da]">
       <div className="container mx-auto">
-        <h1 className="text-3xl font-semibold ml-5">
+        <h1 className="text-3xl font-semibold text-center mb-1 ">
           One day Trip in {props.district}
         </h1>
         <div className="flex items-center justify-center w-full h-full py-24 sm:py-8 px-4">
