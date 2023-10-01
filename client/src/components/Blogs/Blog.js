@@ -71,28 +71,28 @@ export default function Blog(props) {
                   />
                 </svg>
               </ButtonBack>
-              <div className="w-full h-full mx-auto overflow-x-hidden overflow-y-hidden">
+              <div className="w-full h-full mx-auto overflow-x-hidden overflow-y-hidden ">
                 <Slider>
                   <div
                     id="slider"
-                    className="h-full flex lg:gap-8 md:gap-6 gap-14 items-center justify-start transition ease-out duration-700"
+                    className="h-full flex border  lg:gap-8 md:gap-6 gap-14 items-center justify-start transition ease-out duration-700"
                   >
                     {blogs.map((item, index) => (
                       <Slide index={index}>
-                        <div>
-                          <div className="bg-white rounded-lg shadow-lg overflow-hidden md:flex">
-                            <div className="md:w-1/2">
+                        <div >
+                          <div className="bg-white rounded-lg  shadow-lg overflow-hidden md:flex">
+                            <div className="w-100   md:w-1/2">
                               <img
                                 src={item.Thumbnail}
                                 alt="Blog"
                                 className="w-full h-auto md:h-full"
                               />
                             </div>
-                            <div className="md:w-1/2 p-1">
-                              <h1 className="text-4xl uppercase font-bold text-gray-800 mb-4">
+                            <div className="md:w-1/2 border border-black p-1">
+                              <h1 className="text-4xl uppercase  font-bold text-gray-800 mb-4">
                                 {item.Title}
                               </h1>
-                              <p className="text-gray-800 leading-relaxed">
+                              <p className="text-gray-800 p-2 break-words leading-relaxed">
                                 {item.About}
                               </p>
                               <div className="mt-6">
