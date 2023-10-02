@@ -22,12 +22,12 @@ const All = () => {
   return (
     <div>
       {blogs.map((item) => (
-        <div className="bg-white border-y-2 rounded-lg shadow-lg overflow-hidden md:flex m-5">
+        <div className="bg-white border-y-2 rounded-lg shadow-lg shadow-blue-gray-300/50 border border-white overflow-hidden md:flex m-5">
           <div className="md:w-1/2">
             <img
               src={item.Thumbnail}
               alt="Blog"
-              className="w-full h-auto md:h-full"
+              className="w-full h-auto md:h-full object-cover"
             />
           </div>
           <div className="md:w-1/2 p-6">

@@ -37,7 +37,7 @@ const Blog = () => {
           <Outlet />
         </div>
         <div className="flex flex-col w-1/4">
-          <h3 className="text-2xl font-serif font-semibold text-center p-6 border-t border-r border-black border-l">
+          <h3 className="text-2xl font-serif font-semibold text-center p-6 border-t border-r border-black border-l mt-5">
             Categories
           </h3>
           <NavLink
