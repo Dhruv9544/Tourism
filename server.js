@@ -17,6 +17,7 @@ const categoryroute = require("./routes/categoryroute");
 const getAllPlaces = require("./Controller/GetAllPlaces");
 const CustomeSearch = require("./Controller/customeSearch");
 const BlogDataroute = require("./routes/blogroute");
+const getGeoData = require("./Controller/getGeoData");
 
 require("./config/dbconfig").getDbConnection();
 
@@ -56,6 +57,8 @@ app.get("/getAllPlaces", getAllPlaces.GetAllPlaces);
 
 app.get("/search", CustomeSearch.CustomeSearch);
 app.get("/Filter", getAllPlaces.FilterPlaces);
+// app.get("/Suggesion", CustomeSearch.Suggesions);
+app.get("/Geodata", getGeoData.getGeoData);
 
 app.listen(9999);
 console.log("server started at 9999");
