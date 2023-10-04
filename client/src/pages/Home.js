@@ -5,7 +5,6 @@ import Loader from "../components/Loader";
 import Category from "../components/Category";
 import Season from "../components/Season";
 import OneDayTrip from "../components/OneDayTrip/OneDayTrip";
-import { none } from "ol/centerconstraint";
 const Home = () => {
   const [loading, setloading] = useState(false);
   const carouselref = useRef(null);

@@ -1,48 +1,80 @@
-import React, { useEffect } from "react";
-import Map from "ol/Map";
-import View from "ol/View";
-import TileLayer from "ol/layer/Tile";
-import { fromLonLat } from "ol/proj";
-import MVT from "ol/format/MVT";
-import VectorTileLayer from "ol/layer/VectorTile";
-import VectorTileSource from "ol/source/VectorTile";
-import { Style, Fill, Stroke } from "ol/style";
-import { apply } from "ol-mapbox-style";
+// import React, { useEffect } from "react";
 
-const About = () => {
-  useEffect(() => {
-    const map = new Map({
-      target: "map",
-      layers: [
-        new VectorTileLayer({
-          source: new VectorTileSource({
-            format: new MVT(),
-            url: "https://api.maptiler.com/tiles/ee3c9cc9-0e13-4ebf-af0d-278cd7f925ce/{z}/{x}/{y}.pbf?key=zdUQMWrOvTTP0RjruJJK",
-          }),
-          style: function (feature) {
-            // Your style function here if needed
-          },
-        }),
-      ],
-      view: new View({
-        center: fromLonLat([71.332584, 22.432224]),
-        zoom: 12,
-      }),
-    });
+// const HighlightRegion = () => {
+//   const [map, setMap] = React.useState(null);
 
-    // Apply MapTiler style to the map
-    // apply(
-    //   map,
-    //   "https://api.maptiler.com/tiles/ee3c9cc9-0e13-4ebf-af0d-278cd7f925ce/style.json?key=zdUQMWrOvTTP0RjruJJK"
-    // );
+//   useEffect(() => {
+//     const map = new ol.Map({
+//       target: "map",
+//     });
 
-    return () => {
-      // Clean up code if needed
-      map.setTarget(null);
-    };
-  }, []);
+//     const canvasLayer = new ol.CanvasLayer({
+//       canvas: document.querySelector("#canvas"),
+//     });
 
-  return <div id="map" style={{ width: "100%", height: "400px" }}></div>;
-};
+//     const regionFeature = new ol.Feature({
+//       geometry: ol.geom.createPolygon([
+//         [0, 0],
+//         [100, 0],
+//         [100, 100],
+//         [0, 100],
+//         [0, 0],
+//       ]),
+//     });
 
-export default About;
+//     const regionStyle = new ol.style.Style({
+//       fill: new ol.style.Fill({
+//         color: "rgba(255, 0, 0, 0.5)",
+//       }),
+//       stroke: new ol.style.Stroke({
+//         color: "red",
+//         width: 2,
+//       }),
+//     });
+
+//     regionFeature.setStyle(regionStyle);
+
+//     canvasLayer.addFeature(regionFeature);
+
+//     map.addLayer(canvasLayer);
+
+//     const hoverInteraction = new ol.interaction.HoverInteraction({
+//       handleEvent: (event) => {
+//         const feature = event.target;
+//         if (feature === regionFeature) {
+//           regionFeature.setStyle(
+//             new ol.style.Style({
+//               fill: new ol.style.Fill({
+//                 color: "rgba(255, 0, 0, 1)",
+//               }),
+//               stroke: new ol.style.Stroke({
+//                 color: "red",
+//                 width: 4,
+//               }),
+//             })
+//           );
+//         } else {
+//           regionFeature.setStyle(regionStyle);
+//         }
+//       },
+//     });
+
+//     map.addInteraction(hoverInteraction);
+
+//     setMap(map);
+
+//     return () => {
+//       map.dispose();
+//     };
+//   }, []);
+
+//   return (
+//     <div>
+//       <script src="https://cdn.jsdelivr.net/npm/ol@latest/dist/ol.js"></script>
+//       <canvas id="canvas" style="width: 100%; height: 500px;" />
+//       <div id="map" style="width: 100%; height: 500px;" />
+//     </div>
+//   );
+// };
+
+// export default HighlightRegion;
