@@ -12,6 +12,7 @@ import Blog from "./pages/Blog";
 import Latest from "./components/Blogs/Latest";
 import All from "./components/Blogs/All";
 import CategoryBlog from "./components/Blogs/CategoryBlog";
+import BlogData from "./pages/BlogData";
 const routes = createBrowserRouter([
   {
     path: "/",
@@ -74,9 +75,15 @@ const routes = createBrowserRouter([
       },
     ],
   },
+
   {
     path: "/admin",
     element: <InputData />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "/adminblogs",
+    element: <BlogData />,
     errorElement: <ErrorPage />,
   },
 ]);

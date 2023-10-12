@@ -63,3 +63,28 @@ export const formSchemas = Yup.object().shape({
   Category: Yup.array().min(1, "Select at least one Category"),
   mainCategory: Yup.array().min(1, "Select at least one Category"),
 });
+
+export const blogSchemas = Yup.object().shape({
+  title: Yup.string().required("Please Enter Title"),
+  author_name: Yup.string().required("Please Enter Author Name"),
+  about: Yup.string().required("Please Enter About"),
+  mainCategory: Yup.array().min(1, "Select at least one Category"),
+  Thumbnail: Yup.array()
+    .min(1, "Select at least one file")
+    .max(1, "Select at least one file")
+    .of(
+      Yup.mixed()
+        .test("fileFormat", "Only image files are allowed", (value) => {
+          if (!value) return true; // If no file is selected, skip validation
+
+          const acceptedFormats = ["image/jpeg", "image/png", "image/gif"];
+          return acceptedFormats.includes(value.type);
+        })
+        .test("fileSize", "File size is too large", (value) => {
+          if (!value) return true; // If no file is selected, skip validation
+
+          const maxSizeInBytes = 10 * 1024 * 1024; // 50MB
+          return value.size <= maxSizeInBytes;
+        })
+    ),
+});

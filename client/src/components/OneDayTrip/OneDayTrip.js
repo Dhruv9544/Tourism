@@ -41,9 +41,7 @@ const OneDayTrip = () => {
           onChange={handleChange}
           className="text-black p-2 text-center  bg-[#cbb380] "
         >
-          <option value="Junagadh" selected>
-            Junagadh
-          </option>
+          <option defaultValue="Junagadh">Junagadh</option>
           {!districts
             ? "Loading"
             : districts.map((item) => (

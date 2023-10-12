@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useFormik } from "formik";
 import { formSchemas } from "../schemas/Index";
 import { useSelector } from "react-redux/es/hooks/useSelector";
 import { FetchDistrict } from "../API/FetchDistrict";
-import { FetchCategory } from "../API/FetchCategory";
 import { FetchDuration } from "../API/FetchDuration";
 import { FetchSeason } from "../API/FetchSeason";
 const initialValues = {

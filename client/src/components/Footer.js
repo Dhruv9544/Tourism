@@ -14,12 +14,12 @@ export const FooterWithLogo = () => {
         </Link>
         <ul className="flex flex-wrap items-center gap-y-2 gap-x-8 ">
           <li>
-            <Link to={"about"}>
+            <Link to={"adminblogs"}>
               <Typography
                 color="white"
                 className="font-normal transition-colors hover:text-blue-500 focus:text-blue-500"
               >
-                About
+                Blog Admin
               </Typography>
             </Link>
           </li>
