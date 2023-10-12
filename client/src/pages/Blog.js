@@ -2,10 +2,11 @@ import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { Typography } from "@material-tailwind/react";
 import { NavLink, Outlet } from "react-router-dom";
-import { Button } from "@material-tailwind/react";
+// import { Button } from "@material-tailwind/react";
 import image from "./../assets/gujarat_cover.jpg";
-import BlogComponent from "../components/Blogs/Blog";
+// import BlogComponent from "../components/Blogs/Blog";
 const Blog = () => {
+  console.log("first Blog rendering ");
   const [category, setcategory] = useState([]);
   const cat = useSelector((state) => state.Maincategory.subcategories);
   useEffect(() => {

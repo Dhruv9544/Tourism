@@ -57,7 +57,6 @@ const CustomSearch = () => {
         {result ? console.log(result.length) : console.log(result.length)}
         {result.map((item, index) => (
           <div id="card" key={item._id}>
-            {/* <h2 class="text-center font-serif  uppercase text-4xl xl:text-5xl">Recent Articles</h2> */}
             {/* <!-- container for all cards --> */}
             <div className="container w-100 2xl:w-4/5 xl:w-4/5 lg:w-4/5  mx-auto flex flex-col">
               {/* <!-- card --> */}
