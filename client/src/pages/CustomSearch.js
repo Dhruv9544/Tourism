@@ -55,6 +55,7 @@ const CustomSearch = () => {
       </div>
       <div className="pt-6 pb-12 ">
         {result ? console.log(result.length) : console.log(result.length)}
+        {formData.search && !result.length ? <h1>Search not Found</h1> : ""}
         {result.map((item, index) => (
           <div id="card" key={item._id}>
             {/* <!-- container for all cards --> */}
