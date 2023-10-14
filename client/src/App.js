@@ -16,6 +16,7 @@ import BlogData from "./components/Admin/BlogInputData";
 import { MainPage } from "./pages/MainPage";
 import AdminLogin from "./components/Admin/AdminLogin";
 import AdminSignUp from "./components/Admin/AdminSignup";
+import Index from "./components/Admin/DashBoard";
 
 // const Home = React.lazy(() => import("./pages/Home"));
 // const Root = React.lazy(() => import("./pages/Root"));
@@ -108,6 +109,11 @@ const routes = createBrowserRouter([
   {
     path: "/adminblogs",
     element: <BlogData />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "/admin/dashboard",
+    element: <Index />,
     errorElement: <ErrorPage />,
   },
 ]);
