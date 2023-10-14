@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { useFormik } from "formik";
-import { formSchemas } from "../schemas/Index";
+import { formSchemas } from "../../schemas/Index";
 import { useSelector } from "react-redux/es/hooks/useSelector";
-import { FetchDistrict } from "../API/FetchDistrict";
-import { FetchDuration } from "../API/FetchDuration";
-import { FetchSeason } from "../API/FetchSeason";
+import { FetchDistrict } from "../../API/FetchDistrict";
+import { FetchDuration } from "../../API/FetchDuration";
+import { FetchSeason } from "../../API/FetchSeason";
 const initialValues = {
   destination_name: "",
   about_place: "",

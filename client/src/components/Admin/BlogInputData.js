@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { useFormik } from "formik";
-import { blogSchemas } from "../schemas/Index";
+import { blogSchemas } from "../../schemas/Index";
 import { useSelector } from "react-redux/es/hooks/useSelector";
 
 const initialValues = {
