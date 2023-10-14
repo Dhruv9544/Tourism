@@ -8,8 +8,8 @@ const AdminSignUp = () => {
       <div className="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
         <div className="flex flex-wrap items-center">
           <div className="hidden w-full xl:block xl:w-1/2">
-            <div className="py-17.5 px-26 text-center">
-              <Link className="mb-5.5 inline-block" to="/">
+            <div className="py-[4.375rem] px-[6.5rem] text-center">
+              <Link className="mb-[1.375rem] inline-block" to="/">
                 {/* <img className="hidden dark:block" src={Logo} alt="Logo" />
                 <img className="dark:hidden" src={LogoDark} alt="Logo" /> */}
               </Link>
@@ -18,7 +18,7 @@ const AdminSignUp = () => {
                 suspendisse.
               </p>
 
-              <span className="mt-15 inline-block">
+              <span className="mt-[3.875rem] inline-block">
                 <svg
                   width="350"
                   height="350"
@@ -144,11 +144,11 @@ const AdminSignUp = () => {
           </div>
 
           <div className="w-full border-stroke dark:border-strokedark xl:w-1/2 xl:border-l-2">
-            <div className="w-full p-4 sm:p-12.5 xl:p-17.5">
+            <div className="w-full p-4 sm:p-[3.125rem] xl:p-[4.375rem]">
               <span className="mb-1.5 block font-medium">Start for free</span>
-              <h2 className="mb-9 text-2xl font-bold text-black dark:text-white sm:text-title-xl2">
+              <h1 className="mb-9 text-3xl uppercase font-bold text-black dark:text-white sm:text-title-xl2">
                 Sign Up to TailAdmin
-              </h2>
+              </h1>
 
               <form>
                 <div className="mb-4">
