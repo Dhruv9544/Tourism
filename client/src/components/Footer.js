@@ -24,7 +24,7 @@ export const FooterWithLogo = () => {
             </Link>
           </li>
           <li>
-            <Link to={"admin"}>
+            <Link to={"admin/dashboard"}>
               <Typography
                 color="white"
                 className="font-normal transition-colors  hover:text-blue-500 focus:text-blue-500"
