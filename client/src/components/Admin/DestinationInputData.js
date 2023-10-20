@@ -153,8 +153,11 @@ const InputData = () => {
   // console.log(errors);
   // console.log(values);
   return (
-    <div className="flex items-center justify-center bg-cyan-50 min-h-screen">
+    <div className="flex items-center  justify-center bg-cyan-50 ">
       <div className="w-full max-w-2xl">
+        <h2 className="text-center text-2xl mt-14 uppercase font-semibold font-serif text-gray-800">
+          Add New Place
+        </h2>
         <form
           onSubmit={handleSubmit}
           className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 mt-8"

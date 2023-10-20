@@ -16,8 +16,9 @@ import BlogData from "./components/Admin/BlogInputData";
 import { MainPage } from "./pages/MainPage";
 import AdminLogin from "./components/Admin/AdminLogin";
 import AdminSignUp from "./components/Admin/AdminSignup";
-import Index from "./components/Admin/DashBoard";
-
+import DashBoard from "./components/Admin/DashBoard";
+import AdminLayout from "./components/Admin/Layout/AdminLayout";
+import AddPlace from "./components/Admin/DestinationInputData";
 // const Home = React.lazy(() => import("./pages/Home"));
 // const Root = React.lazy(() => import("./pages/Root"));
 // const Blog = React.lazy(() => import("./pages/Blog"));
@@ -107,14 +108,31 @@ const routes = createBrowserRouter([
     errorElement: <ErrorPage />,
   },
   {
-    path: "/adminblogs",
-    element: <BlogData />,
+    path: "/admin",
+    element: <AdminLayout />,
     errorElement: <ErrorPage />,
-  },
-  {
-    path: "/admin/dashboard",
-    element: <Index />,
-    errorElement: <ErrorPage />,
+    children: [
+      {
+        path: "dashboard",
+        element: <DashBoard />,
+        errorElement: <ErrorPage />,
+      },
+      {
+        path: "addplace",
+        element: <AddPlace />,
+        errorElement: <ErrorPage />,
+      },
+      {
+        path: "addblog",
+        element: <BlogData />,
+        errorElement: <ErrorPage />,
+      },
+      {
+        path: "addcategroy",
+        element: <ErrorPage></ErrorPage>,
+        errorElement: <ErrorPage />,
+      },
+    ],
   },
 ]);
 
