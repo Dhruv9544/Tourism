@@ -6,9 +6,9 @@ const About = () => {
       <img
         src={pngwing2}
         alt="leaf"
-        className="absolute h-72 right-0 rotate-90 top-[-1.5rem] "
+        className="absolute h-56 right-0 rotate-90 top-[-1.2rem] "
       />
-      <img src={pngwing2} alt="leaf" className="absolute h-72 " />
+      <img src={pngwing2} alt="leaf" className="absolute left-[-1.8rem] h-52" />
 
       <section className=" bg-lime-50 min-h-screen flex items-center justify-center ">
         <div className="container mx-auto ">
@@ -53,16 +53,8 @@ const About = () => {
           </div>
         </div>
       </section>
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-        <path
-          fill="#21825c"
-          fill-opacity="1"
-          d="M0,64L80,96C160,128,320,192,480,186.7C640,181,800,107,960,101.3C1120,96,1280,160,1360,192L1440,224L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"
-        ></path>
-      </svg>
-
       <section className="bg-[#21825c] min-h-screen flex flex-wrap items-center justify-center">
-        <div className="text-black flex flex-wrap justify-around items-center container mx-auto p-5 text-xl font-serif  ">
+        <div className="text-white font-bold flex flex-wrap justify-around items-center container mx-auto p-5 text-2xl font-serif  ">
           <button className="focus:border-b focus:outline-none focus:border-b-current">
             About Place
           </button>
@@ -107,6 +99,27 @@ const About = () => {
         <div class="container mx-auto p-8 bg-lime-50">
           <h1 class="text-3xl font-extrabold mb-4 [font-family:'Inter-SemiBold',Helvetica] uppercase">
             History
+          </h1>
+
+          <li class="text-lg mb-6">
+            Gir National Park and Wildlife Sanctuary, also known as Sasan Gir,
+            is a forest, national park, and wildlife sanctuary near Talala Gir
+            in Gujarat, India. It is located 43 km (27 mi) north-east of
+            Somnath, 65 km (40 mi) south-east of Junagadh and 60 km (37 mi)
+            south-west of Amreli.
+          </li>
+          <li class="text-lg mb-6">
+            Gir National Park is the only area, outside of Africa where you can
+            witness the majestic Asiatic Lion species in its native environment
+            along with the diverse variety of birds and small animals. It is a
+            significant dilemma for the maldharis, a tribe living inside the
+            forest since the livestock is often preyed upon by lions. The
+            Panther and the Hyena are the two such predators. Along with the
+            long-tailed langur, bear, Sambar, Chowsingha, Chital, Indian Deer,
+            Chinkara, Nilgai, and many others can also be found here.
+          </li>
+          <h1 class="text-3xl font-extrabold mb-4 [font-family:'Inter-SemiBold',Helvetica] uppercase">
+            Main Attraction
           </h1>
 
           <li class="text-lg mb-6">
