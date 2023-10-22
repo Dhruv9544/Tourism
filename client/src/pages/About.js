@@ -2,7 +2,7 @@ import React from "react";
 import pngwing2 from "./../assets/pngwing2.png";
 const About = () => {
   return (
-    <main className="relative">
+    <main className="relative bg-lime-50">
       <img
         src={pngwing2}
         alt="leaf"
@@ -53,7 +53,27 @@ const About = () => {
           </div>
         </div>
       </section>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+        <path
+          fill="#21825c"
+          fill-opacity="1"
+          d="M0,64L80,96C160,128,320,192,480,186.7C640,181,800,107,960,101.3C1120,96,1280,160,1360,192L1440,224L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"
+        ></path>
+      </svg>
+
       <section className="bg-[#21825c] min-h-screen flex flex-wrap items-center justify-center">
+        <div className="text-black flex flex-wrap justify-around items-center container mx-auto p-5 text-xl font-serif  ">
+          <button className="focus:border-b focus:outline-none focus:border-b-current">
+            About Place
+          </button>
+          <button className="focus:ring py-2 px-4 rounded-md focus:outline-none focus:border-b-current">
+            Gallary
+          </button>
+          <button className="focus:border-b focus:outline-none focus:border-b-current">
+            Location
+          </button>
+        </div>
+
         <div className="w-full sm:w-1/2 p-4">
           <img
             src="https://via.placeholder.com/300x200"
