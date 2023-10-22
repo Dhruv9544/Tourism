@@ -1,6 +1,6 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { PrimeReactProvider } from "primereact/api";
 import Home from "./pages/Home";
-import InputData from "./components/Admin/DestinationInputData";
 import Root from "./pages/Root";
 import ErrorPage from "./pages/ErrorPage";
 import About from "./pages/About";
@@ -13,12 +13,15 @@ import Latest from "./components/Blogs/Latest";
 import All from "./components/Blogs/All";
 import CategoryBlog from "./components/Blogs/CategoryBlog";
 import BlogData from "./components/Admin/BlogInputData";
-import { MainPage } from "./pages/MainPage";
 import AdminLogin from "./components/Admin/AdminLogin";
 import AdminSignUp from "./components/Admin/AdminSignup";
 import DashBoard from "./components/Admin/DashBoard";
 import AdminLayout from "./components/Admin/Layout/AdminLayout";
 import AddPlace from "./components/Admin/DestinationInputData";
+import MainPage from "./pages/MainPage/MainPage";
+import AboutPlace from "./pages/MainPage/AboutPlace";
+import Location from "./pages/MainPage/Location";
+import Gallery from "./pages/MainPage/Gallery";
 // const Home = React.lazy(() => import("./pages/Home"));
 // const Root = React.lazy(() => import("./pages/Root"));
 // const Blog = React.lazy(() => import("./pages/Blog"));
@@ -46,9 +49,26 @@ const routes = createBrowserRouter([
       },
       {
         path: "about",
-         element: <About />,
-        //element: <MainPage />,
+        // element: <About />,
+        element: <MainPage />,
         errorElement: <ErrorPage />,
+        children: [
+          {
+            path: "aboutplace",
+            element: <AboutPlace />,
+            errorElement: <ErrorPage />,
+          },
+          {
+            path: "gallery",
+            element: <Gallery />,
+            errorElement: <Gallery />,
+          },
+          {
+            path: "location",
+            element: <Location />,
+            errorElement: <ErrorPage />,
+          },
+        ],
       },
       {
         path: "contact",
@@ -137,7 +157,11 @@ const routes = createBrowserRouter([
 ]);
 
 const App = () => {
-  return <RouterProvider router={routes}></RouterProvider>;
+  return (
+    <PrimeReactProvider>
+      <RouterProvider router={routes}></RouterProvider>
+    </PrimeReactProvider>
+  );
 };
 
 export default App;
