@@ -80,25 +80,25 @@ export default function Carousel(props) {
                     className="h-full flex border  lg:gap-8 md:gap-6 gap-14 items-center justify-start transition ease-out duration-700"
                   >
                     {blogs.map((item, index) => (
-                      <Slide index={index}>
-                        <div class="flex justify-between min-w-lg">
-                          <div class="w-full relative rounded-lg overflow-hidden group">
+                      <Slide index={index} key={index}>
+                        <div className="flex justify-between min-w-lg">
+                          <div className="w-full relative rounded-lg overflow-hidden group">
                             <img
                               src={item.Thumbnail}
                               alt=""
-                              class="w-full h-60"
+                              className="w-full h-60"
                             />
-                            <div class="absolute inset-0 flex items-center h-60 justify-center bg-black bg-opacity-50 transition-opacity duration-300 opacity-0 group-hover:opacity-100 group-hover:visible">
-                              <div class="w-full h-60 flex items-center justify-center p-2">
-                                <h2 class="text-white text-2xl font-semibold ml-3">
+                            <div className="absolute inset-0 flex items-center h-60 justify-center bg-black bg-opacity-50 transition-opacity duration-300 opacity-0 group-hover:opacity-100 group-hover:visible">
+                              <div className="w-full h-60 flex items-center justify-center p-2">
+                                <h2 className="text-white text-2xl font-semibold ml-3">
                                   {item.DestinationName}
                                 </h2>
-                                <div class="flex items-center space-x-2 mr-3"></div>
+                                <div className="flex items-center space-x-2 mr-3"></div>
                               </div>
                             </div>
-                            <div class=" absolute bottom-0 w-full flex items-start justify-between bg-transparent transition-opacity duration-300  p-2 opacity-100 visible group-hover:opacity-0 group-hover:invisible">
-                              <div class="flex items-center justify-between w-full p-2">
-                                <h2 class="text-white text-2xl font-semibold ml-3">
+                            <div className=" absolute bottom-0 w-full flex items-start justify-between bg-transparent transition-opacity duration-300  p-2 opacity-100 visible group-hover:opacity-0 group-hover:invisible">
+                              <div className="flex items-center justify-between w-full p-2">
+                                <h2 className="text-white text-2xl font-semibold ml-3">
                                   {item.DestinationName}
                                 </h2>
                                 <div className="flex items-center space-x-2 mr-3">
@@ -178,7 +178,7 @@ export default function Carousel(props) {
                     className="h-full flex lg:gap-8 md:gap-6 gap-14 items-center justify-start transition ease-out duration-700"
                   >
                     {blogs.map((item, index) => (
-                      <Slide index={index}>
+                      <Slide index={index} key={index}>
                         <div className="flex flex-shrink-0 relative w-full sm:w-auto">
                           <img
                             src={item.Thumbnail}
@@ -266,7 +266,7 @@ export default function Carousel(props) {
                     className="h-full w-full flex lg:gap-8 md:gap-6 items-center justify-start transition ease-out duration-700"
                   >
                     {blogs.map((item, index) => (
-                      <Slide index={index}>
+                      <Slide index={index} key={index}>
                         <div className="flex flex-shrink-0 relative w-full sm:w-auto">
                           <img
                             src={item.Thumbnail}
