@@ -63,12 +63,12 @@ export default function DashBoard() {
   };
 
   useEffect(() => {
-    CustomerService.fetchblogs();
-    CustomerService.getCustomersMedium().then((data) => {
+    // CustomerService.fetchblogs();
+    CustomerService.getCustomersXLarge().then((data) => {
       setCustomers(getCustomers(data));
       setLoading(false);
     });
-    initFilters();
+    // initFilters();
   }, []);
 
   const getCustomers = (data) => {
@@ -95,7 +95,7 @@ export default function DashBoard() {
   };
 
   const clearFilter = () => {
-    initFilters();
+    // initFilters();
   };
 
   const onGlobalFilterChange = (e) => {
@@ -108,35 +108,35 @@ export default function DashBoard() {
     setGlobalFilterValue(value);
   };
 
-  const initFilters = () => {
-    setFilters({
-      global: { value: null, matchMode: FilterMatchMode.CONTAINS },
-      name: {
-        operator: FilterOperator.AND,
-        constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }],
-      },
-      "country.name": {
-        operator: FilterOperator.AND,
-        constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }],
-      },
-      representative: { value: null, matchMode: FilterMatchMode.IN },
-      date: {
-        operator: FilterOperator.AND,
-        constraints: [{ value: null, matchMode: FilterMatchMode.DATE_IS }],
-      },
-      balance: {
-        operator: FilterOperator.AND,
-        constraints: [{ value: null, matchMode: FilterMatchMode.EQUALS }],
-      },
-      status: {
-        operator: FilterOperator.OR,
-        constraints: [{ value: null, matchMode: FilterMatchMode.EQUALS }],
-      },
-      activity: { value: null, matchMode: FilterMatchMode.BETWEEN },
-      verified: { value: null, matchMode: FilterMatchMode.EQUALS },
-    });
-    setGlobalFilterValue("");
-  };
+  // const initFilters = () => {
+  //   setFilters({
+  //     global: { value: null, matchMode: FilterMatchMode.CONTAINS },
+  //     name: {
+  //       operator: FilterOperator.AND,
+  //       constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }],
+  //     },
+  //     "country.name": {
+  //       operator: FilterOperator.AND,
+  //       constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }],
+  //     },
+  //     representative: { value: null, matchMode: FilterMatchMode.IN },
+  //     date: {
+  //       operator: FilterOperator.AND,
+  //       constraints: [{ value: null, matchMode: FilterMatchMode.DATE_IS }],
+  //     },
+  //     balance: {
+  //       operator: FilterOperator.AND,
+  //       constraints: [{ value: null, matchMode: FilterMatchMode.EQUALS }],
+  //     },
+  //     status: {
+  //       operator: FilterOperator.OR,
+  //       constraints: [{ value: null, matchMode: FilterMatchMode.EQUALS }],
+  //     },
+  //     activity: { value: null, matchMode: FilterMatchMode.BETWEEN },
+  //     verified: { value: null, matchMode: FilterMatchMode.EQUALS },
+  //   });
+  //   setGlobalFilterValue("");
+  // };
 
   const renderHeader = () => {
     return (
@@ -162,19 +162,19 @@ export default function DashBoard() {
     );
   };
 
-  const countryBodyTemplate = (rowData) => {
-    return (
-      <div className="flex align-items-center gap-2">
-        <img
-          alt="flag"
-          src="https://primefaces.org/cdn/primereact/images/flag/flag_placeholder.png"
-          className={`flag flag-${rowData.country.code}`}
-          style={{ width: "24px" }}
-        />
-        <span>{rowData.country.name}</span>
-      </div>
-    );
-  };
+  // const countryBodyTemplate = (rowData) => {
+  //   return (
+  //     <div className="flex align-items-center gap-2">
+  //       <img
+  //         alt="flag"
+  //         src="https://primefaces.org/cdn/primereact/images/flag/flag_placeholder.png"
+  //         className={`flag flag-${rowData.country.code}`}
+  //         style={{ width: "24px" }}
+  //       />
+  //       <span>{rowData.country.name}</span>
+  //     </div>
+  //   );
+  // };
 
   const filterClearTemplate = (options) => {
     return (
@@ -202,47 +202,47 @@ export default function DashBoard() {
     return <div className="px-3 pt-0 pb-3 text-center">Filter by Country</div>;
   };
 
-  const representativeBodyTemplate = (rowData) => {
-    const representative = rowData.representative;
+  // const representativeBodyTemplate = (rowData) => {
+  //   const representative = rowData.representative;
 
-    return (
-      <div className="flex align-items-center gap-2">
-        <img
-          alt={representative.name}
-          src={`https://primefaces.org/cdn/primereact/images/avatar/${representative.image}`}
-          width="32"
-        />
-        <span>{representative.name}</span>
-      </div>
-    );
-  };
+  //   return (
+  //     <div className="flex align-items-center gap-2">
+  //       <img
+  //         alt={representative.name}
+  //         src={`https://primefaces.org/cdn/primereact/images/avatar/${representative.image}`}
+  //         width="32"
+  //       />
+  //       <span>{representative.name}</span>
+  //     </div>
+  //   );
+  // };
 
-  const representativeFilterTemplate = (options) => {
-    return (
-      <MultiSelect
-        value={options.value}
-        options={representatives}
-        itemTemplate={representativesItemTemplate}
-        onChange={(e) => options.filterCallback(e.value)}
-        optionLabel="name"
-        placeholder="Any"
-        className="p-column-filter"
-      />
-    );
-  };
+  // const representativeFilterTemplate = (options) => {
+  //   return (
+  //     <MultiSelect
+  //       value={options.value}
+  //       options={representatives}
+  //       itemTemplate={representativesItemTemplate}
+  //       onChange={(e) => options.filterCallback(e.value)}
+  //       optionLabel="name"
+  //       placeholder="Any"
+  //       className="p-column-filter"
+  //     />
+  //   );
+  // };
 
-  const representativesItemTemplate = (option) => {
-    return (
-      <div className="flex align-items-center gap-2">
-        <img
-          alt={option.name}
-          src={`https://primefaces.org/cdn/primereact/images/avatar/${option.image}`}
-          width="32"
-        />
-        <span>{option.name}</span>
-      </div>
-    );
-  };
+  // const representativesItemTemplate = (option) => {
+  //   return (
+  //     <div className="flex align-items-center gap-2">
+  //       <img
+  //         alt={option.name}
+  //         src={`https://primefaces.org/cdn/primereact/images/avatar/${option.image}`}
+  //         width="32"
+  //       />
+  //       <span>{option.name}</span>
+  //     </div>
+  //   );
+  // };
 
   const dateBodyTemplate = (rowData) => {
     return formatDate(rowData.date);
@@ -260,41 +260,41 @@ export default function DashBoard() {
     );
   };
 
-  const balanceBodyTemplate = (rowData) => {
-    return formatCurrency(rowData.balance);
-  };
+  // const balanceBodyTemplate = (rowData) => {
+  //   return formatCurrency(rowData.balance);
+  // };
 
-  const balanceFilterTemplate = (options) => {
-    return (
-      <InputNumber
-        value={options.value}
-        onChange={(e) => options.filterCallback(e.value, options.index)}
-        mode="currency"
-        currency="USD"
-        locale="en-US"
-      />
-    );
-  };
+  // const balanceFilterTemplate = (options) => {
+  //   return (
+  //     <InputNumber
+  //       value={options.value}
+  //       onChange={(e) => options.filterCallback(e.value, options.index)}
+  //       mode="currency"
+  //       currency="USD"
+  //       locale="en-US"
+  //     />
+  //   );
+  // };
 
-  const statusBodyTemplate = (rowData) => {
-    return (
-      <Tag value={rowData.status} severity={getSeverity(rowData.status)} />
-    );
-  };
+  // const statusBodyTemplate = (rowData) => {
+  //   return (
+  //     <Tag value={rowData.status} severity={getSeverity(rowData.status)} />
+  //   );
+  // };
 
-  const statusFilterTemplate = (options) => {
-    return (
-      <Dropdown
-        value={options.value}
-        options={statuses}
-        onChange={(e) => options.filterCallback(e.value, options.index)}
-        itemTemplate={statusItemTemplate}
-        placeholder="Select One"
-        className="p-column-filter"
-        showClear
-      />
-    );
-  };
+  // const statusFilterTemplate = (options) => {
+  //   return (
+  //     <Dropdown
+  //       value={options.value}
+  //       options={statuses}
+  //       onChange={(e) => options.filterCallback(e.value, options.index)}
+  //       itemTemplate={statusItemTemplate}
+  //       placeholder="Select One"
+  //       className="p-column-filter"
+  //       showClear
+  //     />
+  //   );
+  // };
 
   const statusItemTemplate = (option) => {
     return <Tag value={option} severity={getSeverity(option)} />;
@@ -365,28 +365,29 @@ export default function DashBoard() {
         loading={loading}
         dataKey="id"
         filters={filters}
-        globalFilterFields={[
-          "name",
-          "country.name",
-          "representative.name",
-          "balance",
-          "status",
-        ]}
+        // globalFilterFields={[
+        //   "name",
+        //   "country.name",
+        //   "representative.name",
+        //   "balance",
+        //   "status",
+        // ]}
         header={header}
         emptyMessage="No customers found."
       >
         <Column
-          field="name"
-          header="Name"
+          field="Title"
+          header="Title"
           filter
           filterPlaceholder="Search by name"
           style={{ minWidth: "12rem" }}
         />
         <Column
-          header="Country"
-          filterField="country.name"
+          header="Author_Name"
+          field="Author_Name"
+          // filterField="country.name"
           style={{ minWidth: "12rem" }}
-          body={countryBodyTemplate}
+          // body={countryBodyTemplate}
           filter
           filterPlaceholder="Search by country"
           filterClear={filterClearTemplate}
@@ -394,25 +395,27 @@ export default function DashBoard() {
           filterFooter={filterFooterTemplate}
         />
         <Column
-          header="Agent"
-          filterField="representative"
+          header="Category"
+          field="Category"
+          // filterField="representative"
           showFilterMatchModes={false}
           filterMenuStyle={{ width: "14rem" }}
           style={{ minWidth: "14rem" }}
-          body={representativeBodyTemplate}
+          // body={representativeBodyTemplate}
           filter
-          filterElement={representativeFilterTemplate}
+          // filterElement={representativeFilterTemplate}
         />
         <Column
-          header="Date"
-          filterField="date"
-          dataType="date"
+          header="CreatedAt"
+          // filterField="date"
+          field="CreatedAt"
+          // dataType="date"
           style={{ minWidth: "10rem" }}
           body={dateBodyTemplate}
           filter
           filterElement={dateFilterTemplate}
         />
-        <Column
+        {/* <Column
           header="Balance"
           filterField="balance"
           dataType="numeric"
@@ -448,7 +451,7 @@ export default function DashBoard() {
           body={verifiedBodyTemplate}
           filter
           filterElement={verifiedFilterTemplate}
-        />
+        /> */}
       </DataTable>
     </div>
   );

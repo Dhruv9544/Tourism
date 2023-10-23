@@ -1,9 +1,13 @@
 import React, { useState } from "react";
 import { FooterWithLogo } from "./../components/Footer";
 import { Outlet, NavLink, Link } from "react-router-dom";
+
+import { FetchMainCategory } from "../../../API/FetchMainCategory";
+import { FetchTopDestination } from "../../../API/FetchTopDestination";
 const AdminLayout = () => {
   const [isOpen, setIsOpen] = useState(false);
-
+  FetchMainCategory();
+  FetchTopDestination();
   return (
     <div className="bg-gray-100 font-family-karla flex">
       <aside className="relative bg-[#3d68ff] h-screen w-64 hidden sm:block shadow-xl">
