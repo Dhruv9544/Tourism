@@ -17,50 +17,54 @@ import { Slider } from "primereact/slider";
 import { Tag } from "primereact/tag";
 import { TriStateCheckbox } from "primereact/tristatecheckbox";
 import { CustomerService } from "./123";
+import { useSelector } from "react-redux/es/hooks/useSelector";
 
 export default function DashBoard() {
   const [customers, setCustomers] = useState(null);
   const [filters, setFilters] = useState(null);
   const [loading, setLoading] = useState(false);
   const [globalFilterValue, setGlobalFilterValue] = useState("");
-  const [representatives] = useState([
-    { name: "Amy Elsner", image: "amyelsner.png" },
-    { name: "Anna Fali", image: "annafali.png" },
-    { name: "Asiya Javayant", image: "asiyajavayant.png" },
-    { name: "Bernardo Dominic", image: "bernardodominic.png" },
-    { name: "Elwin Sharvill", image: "elwinsharvill.png" },
-    { name: "Ioni Bowcher", image: "ionibowcher.png" },
-    { name: "Ivan Magalhaes", image: "ivanmagalhaes.png" },
-    { name: "Onyama Limba", image: "onyamalimba.png" },
-    { name: "Stephen Shaw", image: "stephenshaw.png" },
-    { name: "XuXue Feng", image: "xuxuefeng.png" },
-  ]);
-  const [statuses] = useState([
-    "unqualified",
-    "qualified",
-    "new",
-    "negotiation",
-    "renewal",
-  ]);
+  const representatives = useSelector((state) => state.Maincategory.category);
 
-  const getSeverity = (status) => {
-    switch (status) {
-      case "unqualified":
-        return "danger";
+  // const [representatives] = useState([
+  //   { name: "Amy Elsner", image: "amyelsner.png" },
+  //   { name: "Anna Fali", image: "annafali.png" },
+  //   { name: "Asiya Javayant", image: "asiyajavayant.png" },
+  //   { name: "Bernardo Dominic", image: "bernardodominic.png" },
+  //   { name: "Elwin Sharvill", image: "elwinsharvill.png" },
+  //   { name: "Ioni Bowcher", image: "ionibowcher.png" },
+  //   { name: "Ivan Magalhaes", image: "ivanmagalhaes.png" },
+  //   { name: "Onyama Limba", image: "onyamalimba.png" },
+  //   { name: "Stephen Shaw", image: "stephenshaw.png" },
+  //   { name: "XuXue Feng", image: "xuxuefeng.png" },
+  // ]);
 
-      case "qualified":
-        return "success";
+  // const [statuses] = useState([
+  //   "unqualified",
+  //   "qualified",
+  //   "new",
+  //   "negotiation",
+  //   "renewal",
+  // ]);
 
-      case "new":
-        return "info";
+  // const getSeverity = (status) => {
+  //   switch (status) {
+  //     case "unqualified":
+  //       return "danger";
 
-      case "negotiation":
-        return "warning";
+  //     case "qualified":
+  //       return "success";
 
-      case "renewal":
-        return null;
-    }
-  };
+  //     case "new":
+  //       return "info";
+
+  //     case "negotiation":
+  //       return "warning";
+
+  //     case "renewal":
+  //       return null;
+  //   }
+  // };
 
   useEffect(() => {
     // CustomerService.fetchblogs();
@@ -68,7 +72,7 @@ export default function DashBoard() {
       setCustomers(getCustomers(data));
       setLoading(false);
     });
-    // initFilters();
+    initFilters();
   }, []);
 
   const getCustomers = (data) => {
@@ -79,23 +83,23 @@ export default function DashBoard() {
     });
   };
 
-  const formatDate = (value) => {
-    return value.toLocaleDateString("en-US", {
-      day: "2-digit",
-      month: "2-digit",
-      year: "numeric",
-    });
-  };
+  // const formatDate = (value) => {
+  //   return value.toLocaleDateString("en-US", {
+  //     day: "2-digit",
+  //     month: "2-digit",
+  //     year: "numeric",
+  //   });
+  // };
 
-  const formatCurrency = (value) => {
-    return value.toLocaleString("en-US", {
-      style: "currency",
-      currency: "USD",
-    });
-  };
+  // const formatCurrency = (value) => {
+  //   return value.toLocaleString("en-US", {
+  //     style: "currency",
+  //     currency: "USD",
+  //   });
+  // };
 
   const clearFilter = () => {
-    // initFilters();
+    initFilters();
   };
 
   const onGlobalFilterChange = (e) => {
@@ -108,35 +112,35 @@ export default function DashBoard() {
     setGlobalFilterValue(value);
   };
 
-  // const initFilters = () => {
-  //   setFilters({
-  //     global: { value: null, matchMode: FilterMatchMode.CONTAINS },
-  //     name: {
-  //       operator: FilterOperator.AND,
-  //       constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }],
-  //     },
-  //     "country.name": {
-  //       operator: FilterOperator.AND,
-  //       constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }],
-  //     },
-  //     representative: { value: null, matchMode: FilterMatchMode.IN },
-  //     date: {
-  //       operator: FilterOperator.AND,
-  //       constraints: [{ value: null, matchMode: FilterMatchMode.DATE_IS }],
-  //     },
-  //     balance: {
-  //       operator: FilterOperator.AND,
-  //       constraints: [{ value: null, matchMode: FilterMatchMode.EQUALS }],
-  //     },
-  //     status: {
-  //       operator: FilterOperator.OR,
-  //       constraints: [{ value: null, matchMode: FilterMatchMode.EQUALS }],
-  //     },
-  //     activity: { value: null, matchMode: FilterMatchMode.BETWEEN },
-  //     verified: { value: null, matchMode: FilterMatchMode.EQUALS },
-  //   });
-  //   setGlobalFilterValue("");
-  // };
+  const initFilters = () => {
+    setFilters({
+      global: { value: null, matchMode: FilterMatchMode.CONTAINS },
+      Title: {
+        operator: FilterOperator.AND,
+        constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }],
+      },
+      Author_Name: {
+        operator: FilterOperator.AND,
+        constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }],
+      },
+      representative: { value: null, matchMode: FilterMatchMode.IN },
+      CreatedAt: {
+        operator: FilterOperator.AND,
+        constraints: [{ value: null, matchMode: FilterMatchMode.DATE_IS }],
+      },
+      // balance: {
+      //   operator: FilterOperator.AND,
+      //   constraints: [{ value: null, matchMode: FilterMatchMode.EQUALS }],
+      // },
+      // status: {
+      //   operator: FilterOperator.OR,
+      //   constraints: [{ value: null, matchMode: FilterMatchMode.EQUALS }],
+      // },
+      // activity: { value: null, matchMode: FilterMatchMode.BETWEEN },
+      // verified: { value: null, matchMode: FilterMatchMode.EQUALS },
+    });
+    setGlobalFilterValue("");
+  };
 
   const renderHeader = () => {
     return (
@@ -162,19 +166,20 @@ export default function DashBoard() {
     );
   };
 
-  // const countryBodyTemplate = (rowData) => {
-  //   return (
-  //     <div className="flex align-items-center gap-2">
-  //       <img
-  //         alt="flag"
-  //         src="https://primefaces.org/cdn/primereact/images/flag/flag_placeholder.png"
-  //         className={`flag flag-${rowData.country.code}`}
-  //         style={{ width: "24px" }}
-  //       />
-  //       <span>{rowData.country.name}</span>
-  //     </div>
-  //   );
-  // };
+  const countryBodyTemplate = (rowData) => {
+    // console.log(rowData);
+    return (
+      <div className="flex align-items-center gap-2">
+        <img
+          alt="flag"
+          src="https://primefaces.org/cdn/primereact/images/flag/flag_placeholder.png"
+          className={`flag flag-${rowData.Author_Name}`}
+          style={{ width: "24px" }}
+        />
+        <span>{rowData.Author_Name}</span>
+      </div>
+    );
+  };
 
   const filterClearTemplate = (options) => {
     return (
@@ -183,7 +188,9 @@ export default function DashBoard() {
         icon="pi pi-times"
         onClick={options.filterClearCallback}
         severity="secondary"
-      ></Button>
+      >
+        Clear
+      </Button>
     );
   };
 
@@ -194,7 +201,9 @@ export default function DashBoard() {
         icon="pi pi-check"
         onClick={options.filterApplyCallback}
         severity="success"
-      ></Button>
+      >
+        Apply
+      </Button>
     );
   };
 
@@ -217,19 +226,19 @@ export default function DashBoard() {
   //   );
   // };
 
-  // const representativeFilterTemplate = (options) => {
-  //   return (
-  //     <MultiSelect
-  //       value={options.value}
-  //       options={representatives}
-  //       itemTemplate={representativesItemTemplate}
-  //       onChange={(e) => options.filterCallback(e.value)}
-  //       optionLabel="name"
-  //       placeholder="Any"
-  //       className="p-column-filter"
-  //     />
-  //   );
-  // };
+  const representativeFilterTemplate = (options) => {
+    return (
+      <MultiSelect
+        value={options.value}
+        options={representatives}
+        // itemTemplate={representativesItemTemplate}
+        onChange={(e) => options.filterCallback(e.value)}
+        optionLabel="name"
+        placeholder="Any"
+        className="p-column-filter"
+      />
+    );
+  };
 
   // const representativesItemTemplate = (option) => {
   //   return (
@@ -245,7 +254,18 @@ export default function DashBoard() {
   // };
 
   const dateBodyTemplate = (rowData) => {
-    return formatDate(rowData.date);
+    const date = new Date(rowData.CreatedAt);
+    return formatDate(date);
+  };
+
+  const formatDate = (value) => {
+    if (value instanceof Date) {
+      const year = value.getFullYear();
+      const month = String(value.getMonth() + 1).padStart(2, "0");
+      const day = String(value.getDate()).padStart(2, "0");
+      return `${year}-${month}-${day}`;
+    }
+    return "";
   };
 
   const dateFilterTemplate = (options) => {
@@ -296,62 +316,62 @@ export default function DashBoard() {
   //   );
   // };
 
-  const statusItemTemplate = (option) => {
-    return <Tag value={option} severity={getSeverity(option)} />;
-  };
+  // const statusItemTemplate = (option) => {
+  //   return <Tag value={option} severity={getSeverity(option)} />;
+  // };
 
-  const activityBodyTemplate = (rowData) => {
-    return (
-      <ProgressBar
-        value={rowData.activity}
-        showValue={false}
-        style={{ height: "6px" }}
-      ></ProgressBar>
-    );
-  };
+  // const activityBodyTemplate = (rowData) => {
+  //   return (
+  //     <ProgressBar
+  //       value={rowData.activity}
+  //       showValue={false}
+  //       style={{ height: "6px" }}
+  //     ></ProgressBar>
+  //   );
+  // };
 
-  const activityFilterTemplate = (options) => {
-    return (
-      <React.Fragment>
-        <Slider
-          value={options.value}
-          onChange={(e) => options.filterCallback(e.value)}
-          range
-          className="m-3"
-        ></Slider>
-        <div className="flex align-items-center justify-content-between px-2">
-          <span>{options.value ? options.value[0] : 0}</span>
-          <span>{options.value ? options.value[1] : 100}</span>
-        </div>
-      </React.Fragment>
-    );
-  };
+  // const activityFilterTemplate = (options) => {
+  //   return (
+  //     <React.Fragment>
+  //       <Slider
+  //         value={options.value}
+  //         onChange={(e) => options.filterCallback(e.value)}
+  //         range
+  //         className="m-3"
+  //       ></Slider>
+  //       <div className="flex align-items-center justify-content-between px-2">
+  //         <span>{options.value ? options.value[0] : 0}</span>
+  //         <span>{options.value ? options.value[1] : 100}</span>
+  //       </div>
+  //     </React.Fragment>
+  //   );
+  // };
 
-  const verifiedBodyTemplate = (rowData) => {
-    return (
-      <i
-        className={classNames("pi", {
-          "text-green-500 pi-check-circle": rowData.verified,
-          "text-red-500 pi-times-circle": !rowData.verified,
-        })}
-      ></i>
-    );
-  };
+  // const verifiedBodyTemplate = (rowData) => {
+  //   return (
+  //     <i
+  //       className={classNames("pi", {
+  //         "text-green-500 pi-check-circle": rowData.verified,
+  //         "text-red-500 pi-times-circle": !rowData.verified,
+  //       })}
+  //     ></i>
+  //   );
+  // };
 
-  const verifiedFilterTemplate = (options) => {
-    return (
-      <div className="flex align-items-center gap-2">
-        <label htmlFor="verified-filter" className="font-bold">
-          Verified
-        </label>
-        <TriStateCheckbox
-          inputId="verified-filter"
-          value={options.value}
-          onChange={(e) => options.filterCallback(e.value)}
-        />
-      </div>
-    );
-  };
+  // const verifiedFilterTemplate = (options) => {
+  //   return (
+  //     <div className="flex align-items-center gap-2">
+  //       <label htmlFor="verified-filter" className="font-bold">
+  //         Verified
+  //       </label>
+  //       <TriStateCheckbox
+  //         inputId="verified-filter"
+  //         value={options.value}
+  //         onChange={(e) => options.filterCallback(e.value)}
+  //       />
+  //     </div>
+  //   );
+  // };
 
   const header = renderHeader();
 
@@ -379,20 +399,20 @@ export default function DashBoard() {
           field="Title"
           header="Title"
           filter
-          filterPlaceholder="Search by name"
+          filterPlaceholder="Search by Title"
           style={{ minWidth: "12rem" }}
         />
         <Column
           header="Author_Name"
           field="Author_Name"
-          // filterField="country.name"
+          filterField="Author_Name"
           style={{ minWidth: "12rem" }}
-          // body={countryBodyTemplate}
+          body={countryBodyTemplate}
           filter
-          filterPlaceholder="Search by country"
+          filterFooter={filterFooterTemplate}
+          filterPlaceholder="Search by Author_Name"
           filterClear={filterClearTemplate}
           filterApply={filterApplyTemplate}
-          filterFooter={filterFooterTemplate}
         />
         <Column
           header="Category"
@@ -403,13 +423,13 @@ export default function DashBoard() {
           style={{ minWidth: "14rem" }}
           // body={representativeBodyTemplate}
           filter
-          // filterElement={representativeFilterTemplate}
+          filterElement={representativeFilterTemplate}
         />
         <Column
           header="CreatedAt"
-          // filterField="date"
+          filterField="date"
           field="CreatedAt"
-          // dataType="date"
+          dataType="date"
           style={{ minWidth: "10rem" }}
           body={dateBodyTemplate}
           filter
