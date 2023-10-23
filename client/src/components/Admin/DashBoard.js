@@ -63,6 +63,7 @@ export default function DashBoard() {
   };
 
   useEffect(() => {
+    CustomerService.fetchblogs();
     CustomerService.getCustomersMedium().then((data) => {
       setCustomers(getCustomers(data));
       setLoading(false);
@@ -139,22 +140,22 @@ export default function DashBoard() {
 
   const renderHeader = () => {
     return (
-      <div className="flex justify-content-around mr-2">
-        <div className="mr-5">
-          <Button
-            type="button"
-            icon="pi pi-filter-slash"
-            label="Clear"
-            outlined
-            onClick={clearFilter}
-          />
-        </div>
+      <div className="flex justify-between mr-2">
+        <Button
+          type="button"
+          // icon="pi pi-filter-slash"
+          label="Clear"
+          outlined
+          className="px-4 py-2 rounded-lg text-blue-800 ring-0 border-2 border-blue-700 hover:bg-gray-200"
+          onClick={clearFilter}
+        />
         <span className="p-input-icon-left">
           <i className="pi pi-search" />
           <InputText
             value={globalFilterValue}
             onChange={onGlobalFilterChange}
             placeholder="Keyword Search"
+            className="p-2 ring-1 ring-opacity-50 ring-black focus:ring-blue-600 focus:ring-2 focus:ring-opacity-70 hover:ring-opacity-100 hover:ring-blue-400"
           />
         </span>
       </div>
