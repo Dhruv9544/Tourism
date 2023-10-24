@@ -58,7 +58,7 @@ app.get("/getAllPlaces", getAllPlaces.GetAllPlaces);
 
 app.get("/search", CustomeSearch.CustomeSearch);
 app.get("/Filter", getAllPlaces.FilterPlaces);
-// app.get("/Suggesion", CustomeSearch.Suggesions);
+app.get("/autocomplete", CustomeSearch.AutoComplete);
 app.get("/Geodata", getGeoData.getGeoData);
 
 //blog routes
