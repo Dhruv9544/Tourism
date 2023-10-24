@@ -18,6 +18,7 @@ const getAllPlaces = require("./Controller/GetAllPlaces");
 const CustomeSearch = require("./Controller/customeSearch");
 const BlogDataroute = require("./routes/blogroute");
 const getGeoData = require("./Controller/getGeoData");
+const blogController = require("./Controller/blogController")
 
 require("./config/dbconfig").getDbConnection();
 
@@ -59,6 +60,13 @@ app.get("/search", CustomeSearch.CustomeSearch);
 app.get("/Filter", getAllPlaces.FilterPlaces);
 // app.get("/Suggesion", CustomeSearch.Suggesions);
 app.get("/Geodata", getGeoData.getGeoData);
+
+//blog routes
+
+// app.post('/addblog',blogController.addBlog)
+app.get('/getallblog',blogController.getAllBlogs)
+app.delete('/deleteblog/:BlogId',blogController.deleteBlogs)
+app.patch('/updateblog/:BlogId',blogController.updateBlogs)
 
 app.listen(9999);
 console.log("server started at 9999");

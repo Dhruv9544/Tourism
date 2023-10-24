@@ -27,6 +27,7 @@ const BlogDataSchema = new mongoose.Schema({
   },
 });
 
-const BlogData = mongoose.model("BlogData", BlogDataSchema);
+module.exports = mongoose.model('BlogData',BlogDataSchema)
+// const BlogData = mongoose.model("BlogData", BlogDataSchema);
 
-module.exports = { BlogData };
+// module.exports = { BlogData };
