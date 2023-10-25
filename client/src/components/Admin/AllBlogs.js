@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-
+import Swal from "sweetalert2";
 //theme
 import "primereact/resources/themes/lara-light-indigo/theme.css";
 import { classNames } from "primereact/utils";
@@ -69,20 +69,29 @@ export default function AllBlogs() {
   // };
 
   const DeleteHandler = (rowdata) => {
-    const result = window.confirm("Are you sure you want to delete this?");
-    if (result) {
-      //delete api
-      var requestOptions = {
-        method: "DELETE",
-        redirect: "follow",
-      };
-      fetch(`http://localhost:9999/deleteblog/${rowdata._id}`, requestOptions)
-        .then((response) => response.text())
-        .then((result) => {
-          setdeleterefresh(!deleterefresh);
-        })
-        .catch((error) => console.log("error", error));
-    }
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        var requestOptions = {
+          method: "DELETE",
+          redirect: "follow",
+        };
+        fetch(`http://localhost:9999/deleteblog/${rowdata._id}`, requestOptions)
+          .then((response) => response.text())
+          .then((result) => {
+            setdeleterefresh(!deleterefresh);
+          })
+          .catch((error) => console.log("error", error));
+        Swal.fire("Deleted!", "Your file has been deleted.", "success");
+      }
+    });
   };
   useEffect(() => {
     // CustomerService.fetchblogs();
