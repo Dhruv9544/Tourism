@@ -17,11 +17,10 @@ const BlogData = require("../model/BlogDataModel");
 //   }
 // };
 
-
 // get All Blogs
 
 module.exports.getAllBlogs = async function (req, res) {
-  BlogData.find()
+  BlogData.find(req.query)
     .then((data) => {
       res.json({ data: data, msg: "All Blogs retrived", rcode: 200 });
     })
@@ -47,8 +46,7 @@ module.exports.deleteBlogs = async function (req, res) {
 //update blogs
 
 module.exports.updateBlogs = function (req, res) {
-
-    console.log(req.body);
+  console.log(req.body);
   let BlogId = req.params.BlogId;
   let Title = req.body.Title;
   let Author_Name = req.body.Author_Name;
@@ -57,7 +55,7 @@ module.exports.updateBlogs = function (req, res) {
 
   BlogData.findByIdAndUpdate(
     { _id: BlogId },
-    { "Title": Title, "Author_Name": Author_Name, "About": About, "Category": Category }
+    { Title: Title, Author_Name: Author_Name, About: About, Category: Category }
   )
     .then(async (data) => {
       await res.json({ msg: "blog updated", data: data, rcode: 200 });
