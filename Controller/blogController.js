@@ -58,9 +58,9 @@ module.exports.updateBlogs = function (req, res) {
     { Title: Title, Author_Name: Author_Name, About: About, Category: Category }
   )
     .then(async (data) => {
-      await res.json({ msg: "blog updated", data: data, rcode: 200 });
+      await res.json({ msg: "blog updated", rcode: 200 });
     })
     .catch((err) => {
-      res.json({ msg: "blog updation fail", data: data, rcode: -9 });
+      res.json({ msg: "blog updation fail", data: err.message, rcode: -9 });
     });
 };

@@ -16,9 +16,9 @@ const BlogDataSchema = new mongoose.Schema({
     trim: true,
   },
   Category: {
-    type: String,
+    type: [String],
   },
-  Thumbnail: {  
+  Thumbnail: {
     type: String,
   },
   CreatedAt: {
@@ -27,7 +27,7 @@ const BlogDataSchema = new mongoose.Schema({
   },
 });
 
-module.exports = mongoose.model('BlogData',BlogDataSchema)
+module.exports = mongoose.model("BlogData", BlogDataSchema);
 // const BlogData = mongoose.model("BlogData", BlogDataSchema);
 
 // module.exports = { BlogData };

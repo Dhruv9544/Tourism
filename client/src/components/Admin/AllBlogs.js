@@ -2,22 +2,23 @@ import React, { useState, useEffect } from "react";
 import Swal from "sweetalert2";
 //theme
 import "primereact/resources/themes/lara-light-indigo/theme.css";
-import { classNames } from "primereact/utils";
+// import { classNames } from "primereact/utils";
 import { FilterMatchMode, FilterOperator } from "primereact/api";
 import { DataTable } from "primereact/datatable";
 import { Column } from "primereact/column";
 import { InputText } from "primereact/inputtext";
-import { Dropdown } from "primereact/dropdown";
-import { InputNumber } from "primereact/inputnumber";
+// import { Dropdown } from "primereact/dropdown";
+// import { InputNumber } from "primereact/inputnumber";
 import { Button } from "primereact/button";
-import { ProgressBar } from "primereact/progressbar";
+// import { ProgressBar } from "primereact/progressbar";
 import { Calendar } from "primereact/calendar";
 import { MultiSelect } from "primereact/multiselect";
-import { Slider } from "primereact/slider";
-import { Tag } from "primereact/tag";
-import { TriStateCheckbox } from "primereact/tristatecheckbox";
+// import { Slider } from "primereact/slider";
+// import { Tag } from "primereact/tag";
+// import { TriStateCheckbox } from "primereact/tristatecheckbox";
 import { BlogService } from "./BlogService";
 import { useSelector } from "react-redux/es/hooks/useSelector";
+import { Link } from "react-router-dom";
 
 export default function AllBlogs() {
   const [deleterefresh, setdeleterefresh] = useState(true);
@@ -76,7 +77,7 @@ export default function AllBlogs() {
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
-      confirmButtonText: "Yes, delete it!",
+      confirmButtonText: "Yes, Delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
         var requestOptions = {
@@ -93,6 +94,7 @@ export default function AllBlogs() {
       }
     });
   };
+
   useEffect(() => {
     // CustomerService.fetchblogs();
     BlogService.getCustomersXLarge().then((data) => {
@@ -409,20 +411,22 @@ export default function AllBlogs() {
   const actionBodyTemplate = (rowData) => {
     return (
       <div className="flex justify-between">
-        <button
-          type="button"
-          // onClick={() => handleEdit(rowData)}
-          className="text-blue-500 hover:text-blue-700 p-1"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            fill="currentColor"
-            className="w-6 h-6"
+        <Link to={"/admin/blogsedit"} state={{ data: rowData }}>
+          <button
+            type="button"
+            className="text-blue-500 hover:text-blue-700 p-1"
+            // onClick={editHandler.bind(this, rowData)}
           >
-            <path d="M21.731 2.269a2.625 2.625 0 00-3.712 0l-1.157 1.157 3.712 3.712 1.157-1.157a2.625 2.625 0 000-3.712zM19.513 8.199l-3.712-3.712-12.15 12.15a5.25 5.25 0 00-1.32 2.214l-.8 2.685a.75.75 0 00.933.933l2.685-.8a5.25 5.25 0 002.214-1.32L19.513 8.2z" />
-          </svg>
-        </button>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              className="w-6 h-6"
+            >
+              <path d="M21.731 2.269a2.625 2.625 0 00-3.712 0l-1.157 1.157 3.712 3.712 1.157-1.157a2.625 2.625 0 000-3.712zM19.513 8.199l-3.712-3.712-12.15 12.15a5.25 5.25 0 00-1.32 2.214l-.8 2.685a.75.75 0 00.933.933l2.685-.8a5.25 5.25 0 002.214-1.32L19.513 8.2z" />
+            </svg>
+          </button>
+        </Link>
         <button
           type="button"
           onClick={DeleteHandler.bind(this, rowData)}
@@ -453,6 +457,9 @@ export default function AllBlogs() {
   // Function to calculate the row index
   const calculateIndex = (currentPage, rowIndex) => {
     return currentPage * 10 + rowIndex + 1; // Assuming 10 rows per page
+  };
+  const representativeBodyTemplate = (rowData) => {
+    return rowData.Category.join(", ");
   };
 
   return (
@@ -505,7 +512,7 @@ export default function AllBlogs() {
           showFilterMatchModes={false}
           filterMenuStyle={{ width: "14rem" }}
           style={{ minWidth: "14rem" }}
-          // body={representativeBodyTemplate}
+          body={representativeBodyTemplate}
           filter
           filterElement={representativeFilterTemplate}
         />
