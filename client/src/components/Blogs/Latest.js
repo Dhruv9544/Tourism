@@ -8,7 +8,7 @@ const Latest = () => {
         method: "GET",
       };
 
-      fetch(`http://localhost:9999/blog/`)
+      fetch(`http://localhost:9999/getallblog`)
         .then((response) => response.json())
         .then((result) => {
           console.log(result);

@@ -27,6 +27,20 @@ const AdminLayout = () => {
             <i className="fas fa-tachometer-alt mr-3"></i>
             Dashboard
           </Link>
+          <Link
+            to={"allblogs"}
+            className="flex items-center active-nav-link text-white py-4 pl-6 nav-item"
+          >
+            <i className="fas fa-tachometer-alt mr-3"></i>
+            All Blogs
+          </Link>
+          <Link
+            to={"allplaces"}
+            className="flex items-center active-nav-link text-white py-4 pl-6 nav-item"
+          >
+            <i className="fas fa-tachometer-alt mr-3"></i>
+            All Places
+          </Link>
           <div className="p-6">
             <NavLink to={"addplace"}>
               <button className="w-full bg-white cta-btn font-semibold py-2 mt-5 rounded-br-lg rounded-bl-lg rounded-tr-lg shadow-lg hover:shadow-xl hover:bg-gray-300 flex items-center justify-center">
@@ -38,7 +52,7 @@ const AdminLayout = () => {
                 <i className="fas fa-plus mr-3"></i> New Blog
               </button>
             </NavLink>
-            <NavLink to={"addcategroy"}>
+            <NavLink to={"addcategory"}>
               <button className="w-full bg-white cta-btn font-semibold py-2 mt-5 rounded-br-lg rounded-bl-lg rounded-tr-lg shadow-lg hover:shadow-xl hover:bg-gray-300 flex items-center justify-center">
                 <i className="fas fa-plus mr-3"></i> New Category
               </button>

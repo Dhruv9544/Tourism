@@ -19,7 +19,7 @@ export default function Blog(props) {
         method: "GET",
       };
 
-      fetch(`http://localhost:9999/blog/?Category=${props.category}`)
+      fetch(`http://localhost:9999/getallblog?Category=${props.category}`)
         .then((response) => response.json())
         .then((result) => {
           console.log(result);
@@ -79,7 +79,7 @@ export default function Blog(props) {
                   >
                     {blogs.map((item, index) => (
                       <Slide index={index}>
-                        <div >
+                        <div>
                           <div className="bg-white rounded-lg  shadow-lg overflow-hidden md:flex">
                             <div className="w-100   md:w-1/2">
                               <img

@@ -1,6 +1,6 @@
-export const CustomerService = {
+export const BlogService = {
   getData() {
-    return fetch("http://localhost:9999/blog/")
+    return fetch("http://localhost:9999/getallblog")
       .then((res) => res.json())
       .then((res) => {
         return res.data;

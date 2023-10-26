@@ -18,9 +18,13 @@ const getAllPlaces = require("./Controller/GetAllPlaces");
 const CustomeSearch = require("./Controller/customeSearch");
 const BlogDataroute = require("./routes/blogroute");
 const getGeoData = require("./Controller/getGeoData");
+<<<<<<< HEAD
 const blogController = require("./Controller/blogController")
 const AdminController = require("./Controller/AdminController")
 const authMiddleware = require("./Middleware/auth.middleware")
+=======
+const blogController = require("./Controller/blogController");
+>>>>>>> c2e2ed6f0c97f480c2f8167a50a6c4a3565c848a
 
 require("./config/dbconfig").getDbConnection();
 
@@ -66,9 +70,11 @@ app.get("/Geodata", getGeoData.getGeoData);
 //blog routes
 
 // app.post('/addblog',blogController.addBlog)
+<<<<<<< HEAD
 app.get('/getallblog',blogController.getAllBlogs)
 app.delete('/deleteblog/:BlogId',authMiddleware,blogController.deleteBlogs)
 app.patch('/updateblog/:BlogId',blogController.updateBlogs)
+
 
 
 //Admin routes

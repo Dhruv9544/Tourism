@@ -22,6 +22,9 @@ import MainPage from "./pages/MainPage/MainPage";
 import AboutPlace from "./pages/MainPage/AboutPlace";
 import Location from "./pages/MainPage/Location";
 import Gallery from "./pages/MainPage/Gallery";
+import AllBlogs from "./components/Admin/AllBlogs";
+import AllPlaces from "./components/Admin/AllPlaces";
+import BlogEditData from "./components/Admin/BlogEditData";
 // const Home = React.lazy(() => import("./pages/Home"));
 // const Root = React.lazy(() => import("./pages/Root"));
 // const Blog = React.lazy(() => import("./pages/Blog"));
@@ -137,6 +140,18 @@ const routes = createBrowserRouter([
         element: <DashBoard />,
         errorElement: <ErrorPage />,
       },
+
+      {
+        path: "allblogs",
+        element: <AllBlogs />,
+        errorElement: <ErrorPage />,
+      },
+      {
+        path: "allplaces",
+        // element: Allplaces
+        element: <AllPlaces />,
+        errorElement: <ErrorPage />,
+      },
       {
         path: "addplace",
         element: <AddPlace />,
@@ -148,8 +163,13 @@ const routes = createBrowserRouter([
         errorElement: <ErrorPage />,
       },
       {
-        path: "addcategroy",
+        path: "addcategory",
         element: <ErrorPage></ErrorPage>,
+        errorElement: <ErrorPage />,
+      },
+      {
+        path: "blogsedit",
+        element: <BlogEditData />,
         errorElement: <ErrorPage />,
       },
     ],

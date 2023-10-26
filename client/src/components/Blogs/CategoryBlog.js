@@ -11,7 +11,7 @@ const CategoryBlog = () => {
         method: "GET",
       };
 
-      fetch(`http://localhost:9999/blog/?Category=${parameter}`)
+      fetch(`http://localhost:9999/getallblog/?Category=${parameter}`)
         .then((response) => response.json())
         .then((result) => {
           console.log(result);
