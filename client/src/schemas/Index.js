@@ -88,3 +88,8 @@ export const blogSchemas = Yup.object().shape({
         })
     ),
 });
+
+export const LoginSchemas = Yup.object().shape({
+  Email: Yup.string().email().required("Eamil is Require"),
+  Password: Yup.string().required("Password is Require "),
+});
