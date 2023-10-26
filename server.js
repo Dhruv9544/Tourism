@@ -19,6 +19,8 @@ const CustomeSearch = require("./Controller/customeSearch");
 const BlogDataroute = require("./routes/blogroute");
 const getGeoData = require("./Controller/getGeoData");
 const blogController = require("./Controller/blogController")
+const AdminController = require("./Controller/AdminController")
+const authMiddleware = require("./Middleware/auth.middleware")
 
 require("./config/dbconfig").getDbConnection();
 
@@ -65,8 +67,14 @@ app.get("/Geodata", getGeoData.getGeoData);
 
 // app.post('/addblog',blogController.addBlog)
 app.get('/getallblog',blogController.getAllBlogs)
-app.delete('/deleteblog/:BlogId',blogController.deleteBlogs)
+app.delete('/deleteblog/:BlogId',authMiddleware,blogController.deleteBlogs)
 app.patch('/updateblog/:BlogId',blogController.updateBlogs)
+
+
+//Admin routes
+
+app.post('/signup',AdminController.signup)
+app.post('/login',AdminController.login)
 
 app.listen(9999);
 console.log("server started at 9999");
