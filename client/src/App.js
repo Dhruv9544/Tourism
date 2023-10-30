@@ -1,6 +1,5 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { PrimeReactProvider } from "primereact/api";
-import { CookiesProvider } from "react-cookie";
 import Home from "./pages/Home";
 import Root from "./pages/Root";
 import ErrorPage from "./pages/ErrorPage";
@@ -179,11 +178,9 @@ const routes = createBrowserRouter([
 
 const App = () => {
   return (
-    <CookiesProvider defaultSetOptions={{ path: "/" }}>
       <PrimeReactProvider>
         <RouterProvider router={routes}></RouterProvider>
       </PrimeReactProvider>
-    </CookiesProvider>
   );
 };
 

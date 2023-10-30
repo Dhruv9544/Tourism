@@ -3,7 +3,6 @@ import { Link, useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import { LoginSchemas } from "../../schemas/Index";
 import Swal from "sweetalert2";
-import { useCookies } from "react-cookie";
 
 const initialValues = {
   Email: "",
@@ -12,7 +11,6 @@ const initialValues = {
 
 const AdminLogin = () => {
   const navigate = useNavigate();
-  // const [cookies, setCookies] = useCookies(name,value,);
   const { values, errors, touched, handleBlur, handleChange, handleSubmit } =
     useFormik({
       initialValues: initialValues,
