@@ -25,19 +25,6 @@ import Gallery from "./pages/MainPage/Gallery";
 import AllBlogs from "./components/Admin/AllBlogs";
 import AllPlaces from "./components/Admin/AllPlaces";
 import BlogEditData from "./components/Admin/BlogEditData";
-// const Home = React.lazy(() => import("./pages/Home"));
-// const Root = React.lazy(() => import("./pages/Root"));
-// const Blog = React.lazy(() => import("./pages/Blog"));
-// const SubCategory = React.lazy(() => import("./pages/SubCategory"));
-// const SubCategoryCard = React.lazy(() =>
-//   import("./components/SubCategoryCard")
-// );
-// const CategoryBlog = React.lazy(() =>
-//   import("./components/Blogs/CategoryBlog")
-// );
-// const Latest = React.lazy(() => import("./components/Blogs/Latest"));
-// const All = React.lazy("./components/Blogs/All");
-// const BlogData = React.lazy("./pages/BlogData");
 
 const routes = createBrowserRouter([
   {
@@ -52,8 +39,7 @@ const routes = createBrowserRouter([
       },
       {
         path: "about",
-        // element: <About />,
-        element: <MainPage />,
+        element: <About />,
         errorElement: <ErrorPage />,
         children: [
           {
@@ -64,7 +50,7 @@ const routes = createBrowserRouter([
           {
             path: "gallery",
             element: <Gallery />,
-            errorElement: <Gallery />,
+            errorElement: <ErrorPage />,
           },
           {
             path: "location",
@@ -117,6 +103,28 @@ const routes = createBrowserRouter([
           },
         ],
       },
+      {
+        path: "category/:id/:subcategory/:name",
+        element: <MainPage />,
+        errorElement: <ErrorPage />,
+        children: [
+          {
+            path: "about",
+            element: <AboutPlace />,
+            errorElement: <ErrorPage />,
+          },
+          {
+            path: "gallery",
+            element: <Gallery />,
+            errorElement: <ErrorPage />,
+          },
+          {
+            path: "location",
+            element: <Location />,
+            errorElement: <ErrorPage />,
+          },
+        ],
+      },
     ],
   },
 
@@ -164,7 +172,7 @@ const routes = createBrowserRouter([
       },
       {
         path: "addcategory",
-        element: <ErrorPage></ErrorPage>,
+        element: <BlogData />,
         errorElement: <ErrorPage />,
       },
       {
@@ -178,9 +186,9 @@ const routes = createBrowserRouter([
 
 const App = () => {
   return (
-      <PrimeReactProvider>
-        <RouterProvider router={routes}></RouterProvider>
-      </PrimeReactProvider>
+    <PrimeReactProvider>
+      <RouterProvider router={routes}></RouterProvider>
+    </PrimeReactProvider>
   );
 };
 

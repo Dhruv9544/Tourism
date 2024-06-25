@@ -57,7 +57,7 @@ export const FooterWithLogo = () => {
       </div>
       <hr className="my-8 border-blue-gray-50" />
       <Typography color="white" className="text-center font-normal">
-        &copy; 2023 Tourism
+        &copy; {year} Tourism
       </Typography>
       <Typography color="white" className="text-center font-normal">
         Last Updated : {currentDate}
