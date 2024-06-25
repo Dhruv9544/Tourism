@@ -2,6 +2,7 @@ import winter from "./../assets/season/winter.jpg";
 import summer from "./../assets/season/summer.jpg";
 import monsoon from "./../assets/season/monsoon.jpg";
 import { Carousel, Typography, Button } from "@material-tailwind/react";
+import { Link } from "react-router-dom";
 
 const Season = () => {
   return (
@@ -30,11 +31,8 @@ const Season = () => {
               </Typography>
               <div className="flex gap-2">
                 <Button size="lg" color="white">
-                  Explore
+                  <Link to={`/season/Monsoon`}>Explore</Link>
                 </Button>
-                {/* <Button size="lg" color="white" variant="text">
-                  Gallery
-                </Button> */}
               </div>
             </div>
           </div>

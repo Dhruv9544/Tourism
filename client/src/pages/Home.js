@@ -52,11 +52,6 @@ const Home = () => {
       <div className="season">
         <Season></Season>
       </div>
-      <iframe
-        width="700"
-        height="600"
-        src="https://api.maptiler.com/tiles/5bdae013-f761-4248-bfd4-d6c2bbb8c29e/?key=bpMjU6oyfnSFNlpyGs1q#6.8/22.59254/71.40007"
-      ></iframe>
     </Fragment>
   );
 };
