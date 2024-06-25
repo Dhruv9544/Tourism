@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { NavLink, Link, Outlet, useParams } from "react-router-dom";
 import pngwing2 from "./../../assets/pngwing2.png";
 import StarIcon from "../../UI/StarIcon";
+import { ip } from "../../ip";
 const MainPage = () => {
   const [data, setData] = useState([]);
 
@@ -9,9 +10,7 @@ const MainPage = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const res = await fetch(
-        `http://localhost:9999/getAllPlaces?DestinationName=${name}`
-      );
+      const res = await fetch(`${ip}/getAllPlaces?DestinationName=${name}`);
       if (!res.ok) {
         throw new Error("Something went Wrong");
       }

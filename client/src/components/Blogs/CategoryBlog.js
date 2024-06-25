@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { ip } from "../../ip";
 
 const CategoryBlog = () => {
   const [blogs, setblogs] = useState([]);
@@ -11,7 +12,7 @@ const CategoryBlog = () => {
         method: "GET",
       };
 
-      fetch(`http://localhost:9999/getallblog/?Category=${parameter}`)
+      fetch(`${ip}/getallblog/?Category=${parameter}`)
         .then((response) => response.json())
         .then((result) => {
           console.log(result);

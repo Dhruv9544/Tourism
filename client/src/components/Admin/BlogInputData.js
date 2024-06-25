@@ -2,6 +2,7 @@ import React from "react";
 import { useFormik } from "formik";
 import { blogSchemas } from "../../schemas/Index";
 import { useSelector } from "react-redux/es/hooks/useSelector";
+import { ip } from "../../ip";
 
 const initialValues = {
   title: "",
@@ -33,7 +34,7 @@ const BlogData = () => {
       redirect: "follow",
     };
 
-    fetch("http://localhost:9999/blog", requestOptions)
+    fetch(`${ip}/blog`, requestOptions)
       .then((response) => response.text())
       .then((result) => console.log(result))
       .catch((error) => console.log("error", error));

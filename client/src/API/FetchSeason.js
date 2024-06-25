@@ -1,11 +1,12 @@
 import { useEffect } from "react";
 import { FormOptionsActions } from "./../store/FormOptions";
 import { useDispatch } from "react-redux";
+import { ip } from "../ip";
 
 function FetchSeason() {
   const dispatch = useDispatch();
   useEffect(() => {
-    fetch("http://localhost:9999/getseasons")
+    fetch(`${ip}/getseasons`)
       .then((response) => response.text())
       .then((result) => {
         const data = JSON.parse(result);

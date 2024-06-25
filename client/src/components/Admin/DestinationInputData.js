@@ -5,6 +5,7 @@ import { useSelector } from "react-redux/es/hooks/useSelector";
 import { FetchDistrict } from "../../API/FetchDistrict";
 import { FetchDuration } from "../../API/FetchDuration";
 import { FetchSeason } from "../../API/FetchSeason";
+import { ip } from "../../ip";
 const initialValues = {
   destination_name: "",
   about_place: "",
@@ -122,7 +123,7 @@ const InputData = () => {
       redirect: "follow",
     };
 
-    fetch("http://localhost:9999/formdata", requestOptions)
+    fetch(`${ip}/formdata`, requestOptions)
       .then((response) => response.text())
       .then((result) => console.log(result))
       .catch((error) => console.log("error", error));

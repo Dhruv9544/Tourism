@@ -2,6 +2,7 @@ import { useFormik } from "formik";
 import { blogSchemas } from "../../schemas/Index";
 import { useSelector } from "react-redux/es/hooks/useSelector";
 import { useLocation } from "react-router-dom";
+import { ip } from "../../ip";
 
 const BlogEditData = () => {
   const dataLocation = useLocation();
@@ -40,10 +41,7 @@ const BlogEditData = () => {
       redirect: "follow",
     };
 
-    fetch(
-      `http://localhost:9999/updateblog/${dataLocation.state.data._id}`,
-      requestOptions
-    )
+    fetch(`${ip}/updateblog/${dataLocation.state.data._id}`, requestOptions)
       .then((response) => response.text())
       .then((result) => console.log(result))
       .catch((error) => console.log("error", error));

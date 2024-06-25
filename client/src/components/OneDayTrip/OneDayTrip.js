@@ -1,3 +1,4 @@
+import { ip } from "../../ip";
 import Carousel from "./Carousel";
 import { useState, useEffect } from "react";
 const OneDayTrip = () => {
@@ -18,7 +19,7 @@ const OneDayTrip = () => {
         method: "GET",
       };
 
-      fetch(`http://localhost:9999/getdistricts`)
+      fetch(`${ip}/getdistricts`)
         .then((response) => response.json())
         .then((result) => {
           console.log(result);

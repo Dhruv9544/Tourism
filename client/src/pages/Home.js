@@ -5,13 +5,14 @@ import Loader from "../components/Loader";
 import Category from "../components/Category";
 import Season from "../components/Season";
 import OneDayTrip from "../components/OneDayTrip/OneDayTrip";
+import { ip } from "../ip";
 const Home = () => {
   const [loading, setloading] = useState(false);
   const carouselref = useRef(null);
   useEffect(() => {
     setloading(true);
     const fetchdata = async () => {
-      const Response = await fetch("http://localhost:9999/gettopdestination");
+      const Response = await fetch(`${ip}/gettopdestination`);
       if (!Response.ok) {
         throw new Error("Something went Wrong");
       }

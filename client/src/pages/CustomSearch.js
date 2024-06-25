@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import StarIcon from "../UI/StarIcon";
+import { ip } from "../ip";
 const CustomSearch = () => {
   const [formData, setFormData] = useState({
     search: "",
@@ -15,7 +16,7 @@ const CustomSearch = () => {
   };
 
   const fetchsearch = () => {
-    fetch(`http://localhost:9999/search?q=${formData.search}`)
+    fetch(`${ip}/search?q=${formData.search}`)
       .then((response) => response.text())
       .then((result) => {
         // console.log(result);

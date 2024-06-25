@@ -1,8 +1,9 @@
+import { ip } from "../ip";
 import { TopDestinationActions } from "../store/TopDestination";
 import { useDispatch } from "react-redux";
 function FetchTopDestination() {
   const dispatch = useDispatch();
-  fetch("http://localhost:9999/gettopdestination")
+  fetch(`${ip}/gettopdestination`)
     .then((response) => response.text())
     .then((result) => {
       const data = JSON.parse(result);

@@ -1,6 +1,7 @@
 import { Link, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import StarIcon from "../UI/StarIcon";
+import { ip } from "../ip";
 
 const SubCategoryCard = () => {
   const [result, setresult] = useState([]);
@@ -9,7 +10,7 @@ const SubCategoryCard = () => {
   useEffect(() => {
     const fetchsubcategorydata = async () => {
       const Response = await fetch(
-        `http://localhost:9999/getReqCategory?Category=${urlparameter.subcategory}`
+        `${ip}/getReqCategory?Category=${urlparameter.subcategory}`
       );
       if (!Response.ok) {
         throw new Error("Something went Wrong");

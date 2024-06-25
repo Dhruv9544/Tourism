@@ -7,6 +7,7 @@ import {
   ButtonNext,
 } from "pure-react-carousel";
 import "pure-react-carousel/dist/react-carousel.es.css";
+import { ip } from "../../ip";
 
 /* Install pure-react-carousel using -> npm i pure-react-carousel */
 
@@ -19,7 +20,7 @@ export default function Carousel(props) {
         method: "GET",
       };
 
-      fetch(`http://localhost:9999/getAllPlaces?District=${props.district}`)
+      fetch(`${ip}/getAllPlaces?District=${props.district}`)
         .then((response) => response.json())
         .then((result) => {
           console.log(result);

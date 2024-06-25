@@ -1,8 +1,9 @@
+import { ip } from "../ip";
 import { MaincategoryActions } from "../store/MainCategory";
 import { useDispatch } from "react-redux";
 function FetchMainCategory() {
   const dispatch = useDispatch();
-  fetch("http://localhost:9999/getMainCategory")
+  fetch(`${ip}/getMainCategory`)
     .then((response) => response.text())
     .then((result) => {
       const data = JSON.parse(result);

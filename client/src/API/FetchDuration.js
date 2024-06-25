@@ -1,11 +1,12 @@
 import { useEffect } from "react";
 import { FormOptionsActions } from "./../store/FormOptions";
 import { useDispatch } from "react-redux";
+import { ip } from "../ip";
 
 function FetchDuration() {
   const dispatch = useDispatch();
   useEffect(() => {
-    fetch("http://localhost:9999/getduration")
+    fetch(`${ip}/getduration`)
       .then((response) => response.text())
       .then((result) => {
         const data = JSON.parse(result);

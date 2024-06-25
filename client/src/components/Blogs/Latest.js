@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { ip } from "../../ip";
 
 const Latest = () => {
   const [blogs, setblogs] = useState([]);
@@ -8,7 +9,7 @@ const Latest = () => {
         method: "GET",
       };
 
-      fetch(`http://localhost:9999/getallblog`)
+      fetch(`${ip}/getallblog`)
         .then((response) => response.json())
         .then((result) => {
           console.log(result);

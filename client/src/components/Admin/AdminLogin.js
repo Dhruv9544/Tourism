@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import { LoginSchemas } from "../../schemas/Index";
 import Swal from "sweetalert2";
+import { ip } from "../../ip";
 
 const initialValues = {
   Email: "",
@@ -32,7 +33,7 @@ const AdminLogin = () => {
           redirect: "follow",
         };
 
-        fetch("http://localhost:9999/login", requestOptions)
+        fetch(`${ip}/login`, requestOptions)
           .then((response) => response.json())
           .then((result) => {
             const errorCode = result.rcode;

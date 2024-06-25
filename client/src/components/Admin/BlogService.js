@@ -1,6 +1,8 @@
+import { ip } from "../../ip";
+
 export const BlogService = {
   getData() {
-    return fetch("http://localhost:9999/getallblog")
+    return fetch(`${ip}/getallblog`)
       .then((res) => res.json())
       .then((res) => {
         return res.data;
@@ -32,8 +34,6 @@ export const BlogService = {
           .join("&")
       : "";
 
-    return fetch("http://localhost:9999/blog/" + queryParams).then((res) =>
-      res.json()
-    );
+    return fetch(`${ip}/blog/` + queryParams).then((res) => res.json());
   },
 };

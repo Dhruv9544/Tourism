@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { ip } from "../../ip";
 
 const Location = () => {
   const [data, setData] = useState([]);
@@ -8,9 +9,7 @@ const Location = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const res = await fetch(
-        `http://localhost:9999/getAllPlaces?DestinationName=${name}`
-      );
+      const res = await fetch(`${ip}/getAllPlaces?DestinationName=${name}`);
       if (!res.ok) {
         throw new Error("Something went Wrong");
       }
