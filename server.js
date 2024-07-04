@@ -21,7 +21,7 @@ const getGeoData = require("./Controller/getGeoData");
 const blogController = require("./Controller/blogController");
 const AdminController = require("./Controller/AdminController");
 const authMiddleware = require("./Middleware/auth.middleware");
-// =======
+
 // const blogController = require("./Controller/blogController");
 
 require("./config/dbconfig").getDbConnection();
@@ -69,7 +69,7 @@ app.get("/Geodata", getGeoData.getGeoData);
 //blog routes
 
 // app.post('/addblog',blogController.addBlog)
-// <<<<<<< HEAD
+
 app.get("/getallblog", blogController.getAllBlogs);
 app.delete("/deleteblog/:BlogId", authMiddleware, blogController.deleteBlogs);
 app.patch("/updateblog/:BlogId", blogController.updateBlogs);
